@@ -1,0 +1,61 @@
+<div class="container-width-content">
+    <p id="container-titulo">Plataformas <a href="/intranet/administracion/plataformas/nuevo">Nueva plataforma <i class="bi bi-plus-circle"></i></a></p>
+
+
+
+    <div class="containerFilter">
+        <button class='toggleFilter'>Filtros</button>
+        <form class="contentFilter" action="/intranet/administracion/plataformas/search" method="POST">
+            <div class="contentFilterContainer">
+                <label>Nombre</label>
+                <input type="text" name="plataforma_nombre" placeholder="Nombre">
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button id="list-search-btn" class="contentFilterSubmit" type="submit">Aplicar filtros</button>
+        </form>
+    </div>
+
+    <table class="tableList" id="tablePlataformas">
+        <thead>
+            <tr>
+                <td>Nombre</td>
+                <td>Estado</td>
+            </tr>
+        </thead>
+        <tbdoy>
+            {{#each data}}
+                <tr class="plataformas-list-table-content" onclick="goFormPlataforma('{{plataforma_id}}', '{{plataforma_nombre}}')">
+                    <td>{{plataforma_nombre}}</td>
+                    <td><label class="plataformas-list-table-status {{#iffcond plataforma_estado_id '===' 0}}plataformas-list-table-status-inactive"{{/iffcond}}{{#iffcond plataforma_estado_id '===' 1}}plataformas-list-table-status-active"{{/iffcond}}>{{plataforma_estado_nombre}}</label></td>
+                </tr>
+            {{/each}}
+        </tbdoy>
+    </table>
+ 
+    <div class="popup-form" id="formPlataforma">
+        <form id="options-ct" method="POST" action="/intranet/administracion/plataformas/plataforma/editar-plataforma">
+            <p class="contentDataContainerTitle">Modificar plataforma</p>
+
+            <div class="contentDataContainer">
+                <label>Nombre plataforma</label>
+                <input id="plataforma_mod" name="plataforma_mod" type="text" required>
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Estado</label>
+                <select name="estado">
+                    <option value="1">Activo</option>
+                    <option value="0">No activo</option>
+                </select>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input type="hidden" name="plataforma_id" value="" id = "idPlataforma">               
+
+            <button type="submit">Guardar</button>
+            <button type="button" onclick="closeForm()">Cerrar</button>
+        </form>
+    </div>
+
+</div>

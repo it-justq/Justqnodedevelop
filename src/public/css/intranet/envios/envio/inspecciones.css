@@ -1,0 +1,383 @@
+img-container{
+    font-family: Arial;
+    page-break-before: always;
+  }  
+  
+  #options{
+    width: 100%;
+  }
+  #options a{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2f6a60;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 8px 5px 8px;
+    margin: 0 5px 10px 0;
+    margin-top: 50px;
+  }
+  #options a:hover{
+    background-color: #3f8a7d;
+  }
+  
+  #tabs{
+    background-color: #2f6a60;
+      margin-bottom: 10px;
+      padding: 10px;
+  }
+  #tabs button:hover {
+    background-color: #ddd;
+    color: #fff;
+  }
+  #tabs button.active {
+      color: #102320;
+      background-color:  #ddd;
+  }
+  .tablinks {
+      background-color: inherit;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 17px;
+      margin-right: 10px;
+      padding: 10px;
+      color: white;
+        border-radius: 15px;
+  }
+  .tablinks-block{
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin: 3px 0 3px 0;	
+  }
+  
+  .content{
+    display: block;
+    width: 100%;
+    margin: 20px 0 20px 0;
+  }
+  
+  .table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    font-size: 15px;
+    width: 100%;
+  }
+  
+  .table tr th {
+    text-align: left;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #dfdfdf;
+    background-color: #f2f2f2;
+  }
+  .table tr td {
+    text-align: left;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #dfdfdf;
+  }
+  #table-title{
+    text-align:center; 
+    font-size:15px; 
+    background-color: #e6f0ff;
+  }
+  
+  
+  
+  .div-33{
+    width: 33%; 
+    display: inline-flex;
+  }
+  
+  .div-33 table{
+    width: 100%; 
+  }
+  
+  
+  
+  h1, h2, h3, h4, h5, h5, h6, p{
+    padding: 3px 0 3px 0;
+    margin: 0;
+  }
+  h1{
+    font-size: 30px;
+  }
+  h2{
+    font-size: 27px;
+  }
+  h3{
+    font-size: 24px;
+  }
+  h4{
+    font-size: 21px;
+  }
+  h5{
+    font-size: 18px;
+  }
+  h6{
+    font-size: 15px;
+  }
+  p{
+    font-size: 15px;
+  }
+  
+  ul, ol{
+    padding-left: 15px;
+  }
+  
+  li{
+    font-size: 15px;
+  }
+  
+  hr{
+    color: #e6f0ff;
+  }
+  
+  /*DATOS DEL CONTROL*/
+  #datos-control-ct{
+    width: 75%;
+    display: inline-flex;
+    height: auto;
+    padding: 5px 0 0 5px;
+  }
+  #datos-control-ct table{
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  #resultados-control-ct{
+    width: 24%;
+    display: inline-flex;
+    height: auto;
+    padding: 5px 5px 0 0;
+  
+  }
+  #resultados-control-ct table{
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  #datos-expedicion-ct{
+    margin-top:30px; 
+    width: auto; 
+    padding-left: 7px;
+  }
+  
+  /*GRUPOS DE CONTROL*/
+  
+  #ct-table-gc{
+    width: 48%; 
+    display: inline-flex; 
+    margin-bottom: 20px; 
+    margin-right: 10px;
+  }
+  
+  /*PRECARGA*/
+  #precarga-gc-nombre{
+    background-color:#d9d9d9;
+  }
+  
+  /*ACCIONES*/
+  #acciones-table td, th {
+    border: 0;
+  }
+  
+  
+  /*PESOS*/
+  #pesos-ct{
+    width: 99%;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #pesos-table{
+    width: 100%;
+  }
+  .pesos-title{
+    background-color:#e6f0ff;
+  }
+  
+  /*PALLETS*/
+  #pallets-ct{
+    width: 99%;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #pallets-table{
+    width: 100%;
+  }
+  .pallets-title{
+    background-color:#e6f0ff;
+  }
+  
+  /*CAJAS*/
+  #cajas-ct{
+    width: 99%;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #cajas-table{
+    width: 100%;
+  }
+  .cajas-title{
+    background-color:#e6f0ff;
+  }
+  
+  /*FOTOS*/
+  .img-full-container{
+    width: 49.8%;
+    display: inline-block;
+    height: auto;
+    margin: 10px 0 10px 0;
+  }
+  .img-full-container img{
+    width: 100%;
+    display: block;
+    margin: 0 auto 0 auto;
+  }
+  
+  .img-container{
+    width: 33.1%;
+    display: inline-block;
+    height: auto;
+    margin: 10px 0 10px 0;
+  }
+  .img-container img{
+    width: 100%;
+    display: block;
+    margin: 0 auto 0 auto;
+  }
+  .img-container p{
+    width: 100%;
+    display: block;
+    text-align: center; 
+    font-size: 15px; 
+    font-weight: bold; 
+    background-color:#b3d1ff; 
+    margin: 0px;
+  }
+  
+  #content-fotos-p{
+    margin: 40px 0 0 0;
+    font-size: 18px;
+  }
+  
+  
+  
+  /*DOCUMENTACION*/
+  
+  /*-------------------------------------*/
+  
+  
+  #tab-datos{
+    display: none;
+  }
+  #tab-gc{
+    display: none;
+  }
+  #tab-precarga{
+    display: none;
+  }
+  #tab-acciones{
+    display: none;
+  }
+  #tab-cajas{
+    display: none;
+  }
+  #tab-pallets{
+    display: none;
+  }
+  #tab-pesos{
+    display: none;
+  }
+  #tab-documentacion{
+    display: none;
+  }
+  #tab-fotos{
+    display: none;
+  }
+
+  .container-inspeccion{
+    display: block;
+    width: 20%;
+    height: 100px;
+    text-align: center;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 130px;
+    transition: .5s;
+    border: 1px solid #2e685e;
+    background-color: #3f8e8125;
+    padding: 20px 0 20px 0;
+    box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    text-decoration: none;
+}
+.container-inspeccion:hover {
+    background-color:#3f8e81d0;
+    cursor: pointer;
+}
+.container-inspeccion-title{
+    width: 100%;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+
+}
+.container-inspeccion-icon{
+    width: 100%;
+    margin: 0;
+    font-size: 40px;
+    color: #4c5856;
+}
+
+#form-inspeccion{
+    display: none;
+    margin-top: 130px;
+}
+  
+  @media only screen and (max-width: 1300px) {
+    .img-container{
+      width: 49.7%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .img-full-container{
+      display: block;
+      width: 80%;
+      margin: 10px auto 10px auto;
+    }
+    .img-container{
+      display: block;
+      width: 80%;
+      margin: 10px auto 10px auto;
+    }
+  }
+  
+  @media only screen and (max-width: 950px) {
+      .tablinks{
+          display: block;
+          width: 100%;
+          text-align: left;
+          margin: 3px 0 3px 0;
+      }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .img-container{
+      width: 100%;
+      margin: 10px 0 10px 0;
+    }
+  }

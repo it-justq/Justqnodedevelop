@@ -1,0 +1,65 @@
+<div class="container-width-content">
+    
+    <p id="container-titulo">Usuarios <a href="/intranet/administracion/usuarios/nuevo">Nuevo usuario <i class="bi bi-plus-circle"></i></a></p>
+
+    
+
+    <div class="containerFilter">
+        <button class='toggleFilter'>Filtros</button>
+        <form class="contentFilter" action="/intranet/administracion/usuarios/search" method="POST">
+            <div class="contentFilterContainer">
+                <label>Usuario</label>
+                <input type="text" name="usuario" placeholder="Usuario">
+            </div>
+            <div class="contentFilterContainer">
+                <label>Nombre</label>
+                <input type="text" name="nombre" placeholder="Nombre">
+            </div>
+            <div class="contentFilterContainer">
+                <label>Rol</label>
+                <select name="rol">
+                    <option value=""></option>
+                    <option value="3">Cliente</option>
+                    <option value="2">Técnico</option>
+                    <option value="1">Administrador</option>
+                </select>
+            </div>
+            <div class="contentFilterContainer">
+                <label>Estado</label>
+                <select name="estado">
+                    <option value=""></option>
+                    <option value="1">Activo</option>
+                    <option value="0">No activo</option>
+                </select>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button id="list-search-btn" class="contentFilterSubmit" type="submit">Aplicar filtros</button>
+        </form>
+
+    </div>
+
+        {{#if usuarios_search}}
+            <table class="tableList">
+                <thead>
+                    <tr>
+                        <td>Nombre</td>
+                        <td class="tableListUser">Usuario</td>
+                        <td>Rol</td>
+                        <td>Estado</td>
+                    </tr>
+                </thead>
+                <tbdoy>
+                    {{#each data.usuarios}}
+                        <tr onclick="goUser({{usuario_id}})">
+                            <td>{{usuario_nombre}}</label></td>
+                            <td class="tableListUser">{{usuario_user}}</td>
+                            <td class="">{{usuario_rol_nombre}}</td>
+                            <td class="tableListStatus"><label class="usuarios-list-table-status {{#iffcond usuario_estado_id '===' 0}}usuarios-list-table-status-inactive"{{/iffcond}}{{#iffcond usuario_estado_id '===' 1}}usuarios-list-table-status-active"{{/iffcond}}><label>{{usuario_estado_nombre}}</label></label></td>
+                        </tr>
+                    {{/each}}
+                </tbdoy>
+            </table>
+        {{/if}}
+
+</div>

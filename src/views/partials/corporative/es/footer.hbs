@@ -1,0 +1,53 @@
+<footer class="container-fluid" style="background: linear-gradient(to right, #f2f2f2, white); height: auto; bottom: 0; left: 0; width: 100%; padding-top: 10px; padding-bottom: 20px; border-top: 1px solid #e6e6e6;">
+
+    <div class="container-xxl">
+      <div class="row">
+        <div class="col-sm" style="text-align: center; margin-top: 20px;">
+            <a href="/conocenos" style="color: #737373; text-decoration: none; font-weight: bold;">Conócenos</a><br>
+            <hr>
+            <a href="/inspecciones-surveys" style="color: #737373; text-decoration: none; font-weight: bold;">Inspecciones/Surveys</a><br>
+            <hr>
+            <a href="/periciales" style="color: #737373; text-decoration: none; font-weight: bold;">Periciales</a><br>
+            <hr>
+            <a href="/resources" style="color: #737373; text-decoration: none; font-weight: bold;">Resources</a>
+        </div>
+        <div class="col-sm" style="text-align: center; margin-top: 20px;">
+                <button onclick="abrirWhatsN()" style="background-color: transparent; border:0;  margin-bottom: 10px;"><img src="/images/corporative/whatsapp.png" style="width: 35px; margin-left: -5px;" alt="just quality contacto whatsapp"></button>
+                <label id="num_whats" style="background-color: white; padding:10px; display: none; font-weight: bold; color: #007768; margin-top: 10px;">+34 621255897</label><br>
+
+                <a href="https://www.linkedin.com/company/just-quality-systems-inspections/"><img src="/images/corporative/JQ_linkedin.png" style="width: 50px;" alt="just quality contacto linkedin"></a>
+        </div>
+        <div class="col-sm" style="text-align: center; margin-top: 20px;">
+            <img src="/images/corporative/brc-logo.jpeg" style="width: 140px; display: inline-block;">
+            <img src="/images/corporative/gap-logo.jpeg" style="width: 130px; display: inline-block;">
+            <img src="/images/corporative/ifs-logo.jpeg" style="width: 100px; display: inline-block;"><br>
+            <img src="/images/corporative/JQ_APCAS.jpg" style="width: 70px; display: inline-block;">
+            <img src="/images/corporative/mh-logo.jpeg" style="width: 110px; display: inline-block;">
+        </div>
+      </div>
+
+      <div class="container-fluid" style="width: 100%; text-align: center; margin-top: 40px;">
+        <div class="row">
+            <div class="col-sm" style="text-align: center;"><a href="/politica-de-privacidad" style="color: #737373; text-decoration: none; font-weight: bold;">Política de privacidad</a></div>
+            <div class="col-sm" style="text-align: center;"><p style="color: #007768; font-weight: bold;">© 2021 Just Quality</p></div>
+            <div class="col-sm" style="text-align: center;"></div>
+        </div>
+
+      </div>
+    </div>
+
+</footer>
+
+
+<script>
+    ct = false;
+    function abrirWhatsN(){
+          if(ct == false){
+            document.getElementById("num_whats").style.display = "inline-block"; 
+            ct = true;
+          }else if(ct == true){
+            document.getElementById("num_whats").style.display = "none"; 
+            ct = false;
+          }
+    }
+</script>

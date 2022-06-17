@@ -1,0 +1,17 @@
+<div id="options">
+    <a href="/informe/web/{{control_id}}/es">Show in Spanish</a>
+    <a href="/informe/pdf/es/{{control_id}}"><i class="bi bi-file-earmark-arrow-down"></i> Pdf Spanish</a>
+    <a href="/informe/pdf/en/{{control_id}}"><i class="bi bi-file-earmark-arrow-down"></i> Pdf English</a>
+</div>
+
+<div id="tabs">
+    <button class="tablinks" onclick="openTab(event, 'datos')">Data</button>
+    {{#if DATA.grupos_control.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'gc')">Quality inspection</button>{{/if}}
+    {{#if (esPrecarga DATA.datos.control_tipo_id)}}<button class="tablinks" onclick="openTab(event, 'precarga')">Preload</button>{{/if}}
+    {{#if DATA.acciones.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'acciones')">Comments</button>{{/if}}
+    {{#if DATA.pesos.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'pesos')">Weights</button>{{/if}}
+    {{#if DATA.pallets.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'pallets')">Pallets</button>{{/if}}
+    {{#if DATA.cajas.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'cajas')">Boxes</button>{{/if}}
+    {{#if DATA.documentacion.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'documentacion')">Documentation</button>{{/if}}
+    {{#if DATA.fotos.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'fotos')">Pictures</button>{{/if}}
+</div>

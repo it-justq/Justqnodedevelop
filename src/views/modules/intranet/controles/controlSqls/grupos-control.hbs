@@ -1,0 +1,66 @@
+    <!---------------------------------------------------------------->
+    <!--MAIN CONTAINER-->
+    <div id="common-main-container" onmousedown="clickedMainContainer(event)">
+        <div id="common-main-container-ct1">
+           <div id="common-main-container-ct2">
+
+                <div id="gc-container">
+
+                    <div id="gc-ct">
+
+                                <div id="gc-tabs">
+                                    {{#each data}}
+                                    <button class="gc-tablinks" onclick="abrirGruposControl(event, {{control_grupo_control_grupo_control_id}})">{{control_grupo_control_nombre}}</button>
+                                    {{/each}}
+                                </div>
+
+
+                            {{#each data}}
+                            <div class="gc-part" id="gc-part-{{control_grupo_control_grupo_control_id}}">
+                                <table>
+                                    <tr id="gc-part-result">
+                                        <td><strong>Resultado</strong></td>
+                                        <td></td>
+                                        <td>
+                                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-gc-{{control_grupo_control_id}}"></i>
+                                            <select onchange="uploadDatos({{control_grupo_control_id}},'{{control_grupo_control_control_id}}', this.value, 'valoration', 'gc')">
+                                                <option value="{{valorNull control_grupo_control_valoracion_id}}">{{valorNull valoracion_nombre}}</option>
+                                                {{#each valoracion}}
+                                                    <option style="background-color='#{{color_codigo}}'" value="{{valoracion_id}}">{{valoracion_nombre}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    
+                                    {{#each puntos_control}}
+                                    <tr class="gc-pc-part">
+                                        <td>{{control_punto_control_punto_control_nombre}}</td>
+                                        <td>
+                                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-pc-{{control_punto_control_id}}"></i>
+                                            <input type="text" value="{{valorNull control_punto_control_valor}}" placeholder="Valor.." onchange="uploadDatos({{control_punto_control_id}},'{{control_punto_control_control_id}}', this.value, 'value', 'pc')">
+                                        </td>
+                                        <td>
+                                            <select onchange="uploadDatos({{control_punto_control_id}},'{{control_punto_control_control_id}}', this.value, 'valoration', 'pc')">
+                                                <option value="{{valorNull control_valoracion_id}}">{{valorNull valoracion_nombre}}</option>
+                                                {{#each valoracion}}
+                                                    <option style="background-color='#{{color_codigo}}'" value="{{valoracion_id}}">{{valoracion_nombre}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </td>
+                                        <td><a href="punto-control/{{control_punto_control_punto_control_id}}/fotos" target="_blank" class="gc-part-img-link">{{total_fotos}}<i class="bi bi-images"></i></a></td>
+                                    </tr>
+                                    {{/each}}
+                                   
+                                </table>
+                            </div>
+                            {{/each}}
+
+
+                    </div>        
+
+                </div>
+
+            </div>
+        </div>
+    </div>

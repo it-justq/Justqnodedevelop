@@ -1,0 +1,49 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Estado del control</p>
+        <div class="contentDataContainer">
+            <label>Visibilidad del control</label>
+            <select onchange="uploadDatos('{{control_id}}', this.value, 'estado')">
+                <option value="{{data.informacion.control_estado}}">{{data.informacion.control_estado_nombre}}</option>
+                <option value="1">Visible por el cliente</option>
+                <option value="0">No visible por el cliente</option>
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_cliente_id"></i>
+        </div>
+        {{#if (esAdmin user.rol)}}<tr>
+            <div class="contentDataContainer">
+                <label>Eliminar control</label>
+                <button onclick="deleteControl('{{control_id}}', {{user.id}})"><i class="bi bi-trash"></i> Eliminar control</button>
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Informes</p>
+        <div class="contentDataContainer">
+            <label>PDF en Epañol</label>
+            <a href="/informe/pdf/es/{{control_id}}"><i class="bi bi-download"></i></a>
+        </div>
+        <div class="contentDataContainer">
+            <label>PDF en Inglés</label>
+            <a href="/informe/pdf/en/{{control_id}}"><i class="bi bi-download"></i></a>
+        </div>
+    </div>
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">E-mail</p>
+        <div class="contentDataContainer">
+            <label>Enviado</label>
+            <input type="text" value="Total: {{data.informacion.control_enviado_correo}} veces" disabled>
+        </div>
+        <div class="contentDataContainer">
+            <label>Enviar</label>
+            <button onclick="sendMailControlCliente('{{control_id}}')">Enviar E-mail</button>
+        </div>
+    </div>   
+
+</div>

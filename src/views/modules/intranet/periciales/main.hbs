@@ -1,0 +1,139 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+
+    <p id="container-titulo">Informes periciales {{#if (esCliente user.rol)}}{{else}}<a href="/intranet/nuevo/pericial">Nuevo informe <i class="bi bi-plus-circle"></i></a>{{/if}}</p>
+    <div class="containerFilter">
+      <button class='toggleFilter'>Filtros</button>
+
+      <form class="contentFilter" {{#if (esCliente user.rol)}}action="/clientes/periciales/search"{{else}}action="/intranet/periciales/search"{{/if}} method="POST">
+        <div class="contentFilterContainer">
+            <label>Informe</label>
+            <input type="text" name="informe"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>S/REF</label>
+            <input type="text" name="sref"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>N/REF</label>
+            <input type="text" name="nref"/>
+          </div>
+
+          <div class="contentFilterContainer">
+            <label>Fecha</label>
+            <input type="date" name="fecha"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>Fecha desde</label>
+            <input type="date" name="inicio"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>Fecha hasta</label>
+            <input type="date" name="fin"/>
+          </div>
+
+            {{#if (esCliente user.rol)}}
+            {{else}}
+                {{#if (esAdmin user.rol)}}
+                <div class="contentFilterContainer">
+                    <label>Técnico</label>
+                    <select name="tecnico">
+                        <option value=""></option>
+                        {{#each informes.tecnicos}}<option value="{{usuario_id}}">{{usuario_nombre}}</option>{{/each}}
+                    </select>
+                </div>
+                <div class="contentFilterContainer">
+                    <label>Estado del control</label>
+                    <select name="estado">
+                        <option value=""></option>
+                        <option value="1">Activo</option>
+                        <option value="0">No activo</option>
+                    </select>
+                </div>
+                <div class="contentFilterContainer">
+                    <label>Cliente</label>
+                    <select name="cliente">
+                        <option value=""></option>
+                        {{#each informes.clientes}}<option value="{{cliente_id}}">{{cliente_nombre}}</option>{{/each}}
+                    </select>
+                </div>
+                <div class="contentFilterContainer">
+                    <label>Empresa</label>
+                    <input type="text" name="empresa"/>
+                </div>
+                {{else}}
+                <div class="contentFilterContainer">
+                    <label>Estado del informe</label>
+                    <select name="estado">
+                        <option value=""></option>
+                        <option value="1">Activo</option>
+                        <option value="0">No activo</option>
+                    </select>
+                </div>
+                <div class="contentFilterContainer">
+                    <label>Cliente</label>
+                    <select name="cliente">
+                        <option value=""></option>
+                        {{#each informes.clientes}}<option value="{{cliente_id}}">{{cliente_nombre}}</option>{{/each}}
+                    </select>
+                </div>
+                <div class="contentFilterContainer">
+                    <label>Empresa</label>
+                    <input type="text" name="empresa"/>
+                </div>
+                {{/if}}
+            {{/if}}
+        
+          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+          <button id="list-search-btn" class="contentFilterSubmit" type="submit">Aplicar filtros</button>
+          
+      </form>
+    </div>
+    
+    {{#if informes.status}}
+        <table class="tableList">
+            <thead>
+                <tr>
+                    <td class="tableListNum">Informe</td>
+                    <td class="controles-list-fecha">Fecha</td>
+                    {{#if (esCliente user.rol)}}
+                    {{else}}
+                    <td class="tableListStat">Estado</td>
+                    <td class="tableListCustomer">Cliente</td>
+                    {{/if}}
+                    <td class="tableListRef">S/REF</td>
+                    <td class="tableListRef">N/REF</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if (esCliente user.rol)}}
+                    {{#each informes.informes}}
+                        <tr onclick="showControlData('/informe/web/{{informe_id}}/es')">
+                            <td class="tableListNum">{{informe_codigo}}</td>
+                            <td class="tableListDate">{{valorNull informe_fecha}}</td>
+                            <td class="tableListRef">{{valorNull informe_sref}}</td>
+                            <td class="tableListRef">{{valorNull informe_nref}}</td>
+                        </tr>
+                    {{/each}}
+                {{else}}
+                    {{#each informes.informes}}
+                        <tr onclick="showControlData('/intranet/pericial/{{informe_id}}')">
+                            <td class="tableListNum">{{informe_codigo}}</td>
+                            <td class="tableListDate">{{valorNull informe_fecha}}</td>
+                            <td class="tableListStat">{{#if (controlActivo informe_estado)}} <i class="bi bi-eye"></i> {{else}} <i class="bi bi-eye-slash"></i> {{/if}}</td>
+                            <td class="tableListCustomer">{{valorNull informe_cliente_nombre}}</td>
+                            <td class="tableListRef">{{valorNull informe_sref}}</td>
+                            <td class="tableListRef">{{valorNull informe_nref}}</td>
+                        </tr>
+                    {{/each}}
+                {{/if}}
+            </tbody>
+        </table>
+    {{else}}
+        <p id="common-list-no-data">No se han encontrado informes</p>
+    {{/if}}
+
+
+</div>

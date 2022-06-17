@@ -1,0 +1,31 @@
+{{#if DATA.pesos.content.mostrar}}
+  <div class="content" id="tab-pesos">
+      <table class="table">
+        <tr>
+          <th id="table-title">Tipo de unidad</th>
+          <th id="table-title">Peso</th>
+        </tr>
+        {{#each DATA.pesos.content.pesos}}
+        <tr>
+          <td>{{valorNull control_peso_tipo_unidad_nombre}}</td>
+          <td>{{valorNull control_peso_valor}} Kg</td>
+        </tr>
+        {{/each}}
+        <tr>
+          <th>Peso medio</th>
+          <th>{{valorNull DATA.pesos.content.pesos.peso_total}} Kg</th>
+        </tr>
+      </table>
+
+      {{#if DATA.pesos.content.mostrar_fotos}}
+      <p id="content-fotos-p">Fotos</p> 
+        <hr>
+              {{#each DATA.pesos.content.pesos.fotos}}
+              <div class="img-container">
+                <img src='https://fotos.justq.eu/{{foto_control_peso_foto_nombre}}'/>
+              </div>
+              {{/each}}
+      {{/if}}
+
+  </div>
+{{/if}}

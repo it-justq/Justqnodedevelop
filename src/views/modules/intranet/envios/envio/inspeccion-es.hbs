@@ -1,0 +1,46 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+
+        {{#if solicitado}}
+        {{> informes/es/tabs}}
+        {{> informes/es/datos}}
+        {{> informes/es/grupos-control}}
+        {{> informes/es/precarga}}
+        {{> informes/es/pesos}}
+        {{> informes/es/pallets}}
+        {{> informes/es/cajas}}
+        {{> informes/es/acciones}}
+        {{> informes/es/documentacion}}
+        {{> informes/es/fotos}}
+
+        {{else}}
+        <div class="container-width-min">
+                {{#if menuPrecarga}}
+                <div onclick="alert('Inspección Precarga no disponible: Envío en tránsito')" class="container-inspeccion" id="btn-inspeccion">
+                <!--div onclick="showForm('precarga')" class="container-inspeccion" id="btn-inspeccion"></div-->
+                        <p class="container-inspeccion-title">Solicitar inspección precarga</p>
+                        <i class="bi bi-file-plus-fill container-inspeccion-icon"></i>
+                </div>
+                <div id="form-inspeccion">
+                        <h2>Comprobar fechas</h2>
+                        <h2>Mandar correo</h2>
+                        <h2>Guardar datos en tabla control</h2>
+                </div>
+                {{else}}
+                {{#if menuDestino}}
+                <div onclick="alert('Inspección solicitada correctamente')" class="container-inspeccion" id="btn-inspeccion">
+
+                <!--div onclick="showForm('destino')" class="container-inspeccion" id="btn-inspeccion"-->
+                        <p class="container-inspeccion-title">Solicitar inspección destino</p>
+                        <i class="bi bi-file-plus-fill container-inspeccion-icon"></i>
+                </div>
+                <div id="form-inspeccion">
+                        <h2>Mandar correo</h2>
+                        <h2>Guardar datos en tabla control</h2>
+                </div>
+                {{/if}}
+                {{/if}}
+        </div>
+        {{/if}}
+</div>

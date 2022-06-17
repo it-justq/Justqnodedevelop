@@ -1,0 +1,156 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Control status</p>
+        <div class="contentDataContainer">
+            <label>Control visibility</label>
+            <select onchange="uploadDatos('{{control_id}}', this.value, 'estado')">
+                <option value="{{data.informacion.control_estado}}">{{data.informacion.control_estado_nombre_en}}</option>
+                <option value="1">Visible to the client</option>
+                <option value="0">Not visible to the client</option>
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_cliente_id"></i>
+        </div>
+        {{#if (esAdmin user.rol)}}<tr>
+            <div class="contentDataContainer">
+                <label>Delete control</label>
+                <button onclick="deleteControl('{{control_id}}', {{user.id}})"><i class="bi bi-trash"></i> Delete control</button>
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Report</p>
+        <div class="contentDataContainer">
+            <label>Spanish PDF</label>
+            <a href="/informe/pdf/es/{{control_id}}"><i class="bi bi-download"></i></a>
+        </div>
+        <div class="contentDataContainer">
+            <label>English PDF</label>
+            <a href="/informe/pdf/en/{{control_id}}"><i class="bi bi-download"></i></a>
+        </div>
+        <div class="contentDataContainer">
+            <label>WEB in Spanish</label>
+            <a href="/informe/web/{{control_id}}/es"><i class="bi bi-box-arrow-up-right"></i></a>
+        </div>
+        <div class="contentDataContainer">
+            <label>WEB in English</label>
+            <a href="/informe/web/{{control_id}}/en"><i class="bi bi-box-arrow-up-right"></i></a>
+        </div>
+    </div>
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">E-mail</p>
+        <div class="contentDataContainer">
+            <label>Sent</label>
+            <input type="text" value="Total: {{data.informacion.control_enviado_correo}} times" disabled>
+        </div>
+        <div class="contentDataContainer">
+            <!--label>Enviar</label-->
+            <button onclick="sendMailControlCliente('{{control_id}}')">Send E-mail</button>
+        </div>
+    </div>
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Templates</p>
+        {{#if data.informacion.plantillas}}
+            {{#each data.informacion.plantillas}}
+                <div class="contentDataContainer">
+                    <label>{{plantilla_nombre}}</label>
+                    <button onclick="deletePlantilla('{{control_id}}', '{{plantilla_id_hash}}')">Delete template</button>
+                </div>
+            {{/each}}
+        {{else}}
+            <div class="contentDataContainer">
+                Templates not found
+            </div>  
+        {{/if}}
+    </div>
+
+
+    <form action="/intranet/control/en/{{control_id}}/nueva/plantilla" method='post' class="contentData">
+        <p class="contentDataContainerTitle">New template</p>
+        <div class="contentDataContainer">
+            <label>Template name</label>
+            <input type="text" placeholder="Name" name='nombre' required>
+        </div>
+        <div class="contentDataContainer">
+            <label>Include data</label>
+            <select name='datos'>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Include preload</label>
+            <select name='precarga'>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Include control groups</label>
+            <select name='gc'>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Include comments</label>
+            <select name='acciones'>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Include weights</label>
+            <select name='pesos'>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Include pallets</label>
+            <select name='pallets'>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Include boxes</label>
+            <select name='cajas'>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Include documentation</label>
+            <select name='documentación'>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Include photos</label>
+            <select name='fotos'>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <!--label>Crear plantilla</label-->
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input type="hidden" name="control_id" value="{{control_id}}">
+            <button type='submit'>Create template</button>
+        </div>
+    </div>
+
+
+
+
+        
+
+</div>

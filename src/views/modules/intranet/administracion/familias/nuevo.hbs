@@ -1,0 +1,24 @@
+<div class="container-width-content">
+
+    <p id="container-titulo">Nueva familia</p>
+
+    <p id="back-main"><a href="/intranet/administracion/familias"><i class="bi bi-arrow-left"></i> Volver a familias</a></p>
+
+        <form id="new-common-form" class="contentData" method="POST" action="/intranet/administracion/familias/nuevo">
+            <p class="contentDataContainerTitle">Nueva familia</p>
+
+            <div class="contentDataContainer">
+                <label>Nombre familia (español)</label>
+                <input name="familia" type="text" required>
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Nombre familia (inglés)</label>
+                <input name="familia_en" type="text" required>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button type="submit">Crear familia</button>
+        </form>
+
+</div>

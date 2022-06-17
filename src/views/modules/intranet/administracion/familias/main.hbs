@@ -1,0 +1,34 @@
+<div class="container-width-content">
+    <p id="container-titulo">Familias <a href="/intranet/administracion/familias/nuevo">Nueva familia <i class="bi bi-plus-circle"></i></a></p>
+
+    <div class="containerFilter">
+        <button class='toggleFilter'>Filtros</button>
+        <form class="contentFilter" action="/intranet/administracion/familias/search" method="POST">
+            <div class="contentFilterContainer">
+                <label>Nombre</label>
+                <input type="text" name="nombre" placeholder="Familia">
+            </div>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button id="list-search-btn" class="contentFilterSubmit" type="submit">Aplicar filtros</button>
+        </form>
+
+    </div>
+
+            <table class="tableList" id="tableFamilias">
+                <thead>
+                    <tr>
+                        <td>Español</td>
+                        <td>English</td>
+                    </tr>
+                </thead>
+                <tbdoy>
+                    {{#each data}}
+                        <tr onclick="goFamilia('{{familia_id}}')">
+                            <td>{{valorNull familia_nombre}}</td>
+                            <td>{{valorNull familia_nombre_en}}</td>
+                        </tr>
+                    {{/each}}
+                </tbdoy>
+            </table>
+
+</div>

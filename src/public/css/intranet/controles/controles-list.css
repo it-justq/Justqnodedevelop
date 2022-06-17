@@ -1,0 +1,92 @@
+.tableListNum{
+    width: 150px;
+}
+.tableListDate{
+    width: 130px;
+}
+.tableListCustomer{
+    width: 250px;
+}
+.tableListPlat{
+    width: 250px;
+}
+.tableListFam{
+    width: 150px;
+}
+.tableListBrand{
+    width: 150px;
+}
+.tableListRef{
+    width: 150px;
+}
+.tableListStat{
+    width: 30px;
+}
+.tableListAction{
+    width: 30px;
+}
+
+.controles-list-nav {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.controles-list-nav a {
+    font-size: 12px;
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 4px;
+    background-color: #2f6a60;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+#previous-page,#next-page {
+    font-size: 10px;
+    padding: 5px;
+}
+
+#previous-page:hover,#next-page:hover{
+    background-color: #33bba5;
+    font-size: 12px;
+}
+
+#current-page {
+    background-color: #189c86;
+    font-size: 15px;
+}
+
+.controles-list-nav a:hover{
+    background-color: #33bba5;
+    font-size: 14px;
+}
+
+
+
+@media (max-width: 1400px) {
+    .tableListBrand{
+        display: none;
+    }
+}
+@media (max-width: 1000px) {
+    .tableListPlat{
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .tableListRef{
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .tableListStat{
+        display: none;
+    }
+    .tableListFam{
+        display: none;
+    }
+}
+  

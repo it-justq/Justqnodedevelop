@@ -1,0 +1,28 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+        {{> informes/es/tabs}}
+        {{> informes/es/datos}}
+        {{> informes/es/grupos-control}}
+        {{> informes/es/precarga}}
+        {{> informes/es/pesos}}
+        {{> informes/es/pallets}}
+        {{> informes/es/cajas}}
+        {{> informes/es/acciones}}
+        {{> informes/es/documentacion}}
+        {{> informes/es/fotos}}
+</div>
+
+
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	text: "https://www.pruebas.justq.eu/informe/web/831/es",
+	width: 256,
+	height: 256,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+});
+</script>
+
+

@@ -1,0 +1,51 @@
+.containerAdministration{
+    display: inline-block;
+    width: 23.8%;
+    text-align:center;
+    margin: 6px;
+    transition: .5s;
+    border: 1px solid #2e685e;
+    background-color: #3f8e8125;
+    padding: 20px 0 20px 0;
+    text-decoration: none;
+}
+.containerAdministration:hover{
+    background-color:#3f8e81d0;
+    cursor: pointer;
+}
+.containerAdministrationTitle{
+    width: 100%;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+
+}
+.containerAdministrationIcon{
+    width: 100%;
+    margin: 0;
+    font-size: 40px;
+    color: #4c5856;
+}
+
+
+@media (max-width: 1400px) {
+    .containerAdministration{
+        width: 32%;
+    }
+    
+}
+
+@media (max-width: 1200px) {
+    .containerAdministration{
+        width: 48%;
+    }
+}
+
+@media (max-width: 900px) {
+    .containerAdministration{
+        width: 99%;
+        margin: 0 0 10px 0;
+    }
+}
+  

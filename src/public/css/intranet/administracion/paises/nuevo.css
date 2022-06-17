@@ -1,0 +1,13 @@
+#back-main a{
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #000;
+    transition: 0.5s;
+}
+
+#back-main a:hover{
+    background-color: #2f6a6090;
+    color: #fff;
+
+}

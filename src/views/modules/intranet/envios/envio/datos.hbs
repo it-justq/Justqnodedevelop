@@ -1,0 +1,84 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+
+<div class="content" id="tab-datos">
+    <!--<div id="qrcode"></div>-->
+
+    <div id="datos-envio-ct">
+        <table class="table">
+            <tr>
+                <th>Estado</th>
+                <td>{{valorNull data.datos.envio_estado}}</td>
+                <th>Referencia transporte</th>
+                <td>{{valorNull data.datos.envio_transporte_referencia}}</td>
+                <th>Referencia PO</th>
+                <td>{{valorNull data.datos.envio_pedido_referencia}}</td>
+            </tr>
+
+            <tr>
+                <th>Proveedor</th>
+                <td>{{valorNull data.datos.envio_proveedor}}</td>
+                <th>Producto</th>
+                <td >{{valorNull data.datos.envio_producto_nombre}}</td>
+                <th>Nº Pallets</th>
+                <td >{{valorNull data.datos.envio_pallets}}</td>
+            </tr>
+
+            <tr>
+                <th>ETD</th>
+                <td>{{valorNull data.datos.envio_etd}}</td>
+                <th>ETA</th>
+                <td >{{valorNull data.datos.envio_eta}}</td>
+                <th>ETA actualizado</th>
+                <td >{{valorNull data.datos.envio_eta_actualizado}}</td>
+            </tr>
+
+            <tr>
+                <th>Lugar de carga</th>
+                <td colspan="2">{{valorNull data.datos.envio_carga_almacen}}</td>
+                <th>Consignatario</th>
+                <td colspan="2">{{valorNull data.datos.envio_consignatario}}</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="datos-transporte-ct">
+
+            <table class='table'>
+                <tr>
+                    <th colspan="8" id="table-title">Datos del transporte</th>
+                </tr>
+                <tr>
+                    <th>Origen</th>
+                    <td>{{valorNull data.datos.envio_pais_origen_nombre}}</td>
+                    <th>Destino</th>
+                    <td>{{valorNull data.datos.envio_pais_destino_nombre}}</td>
+                    <th>Fecha salida</th>
+                    <td>{{valorNull data.datos.envio_carga_fecha}}</td>
+                    
+                <tr>
+                    <th>Tipo transporte</th>
+                    <td>{{valorNull data.datos.envio_tipo_transporte_nombre}}</td>
+                {{#if (esTerrestre data.datos.envio_tipo_transporte_id)}}
+                    <th>Matrícula</th>
+                    <td>{{valorNull data.datos.envio_matricula}}</td>
+                    <th>Transportista</th>
+                    <td>{{valorNull data.datos.envio_transportista}}</td>
+                {{/if}}
+                {{#if (esMaritimo data.datos.envio_tipo_transporte_id)}}
+                    <th>Contenedor</th>
+                    <td>{{valorNull data.datos.envio_contenedor}}</td>
+                    <th>Vessel</th>
+                    <td>{{valorNull data.datos.envio_vessel}}</td>
+                    <th>BL</th>
+                    <td>{{valorNull data.datos.envio_bl}}</td>
+                {{/if}}
+                {{#if (esAereo data.datos.envio_tipo_transporte_id)}}
+                    <th>Nº Vuelo</th>
+                    <td>{{valorNull data.datos.envio_vuelo}}</td>
+                {{/if}}
+            </table>
+
+    </div>
+</div>

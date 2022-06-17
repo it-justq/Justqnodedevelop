@@ -1,0 +1,65 @@
+{{#if DATA.cajas.content.mostrar}}
+<div class="content" id="tab-cajas">
+    <table class="table">
+      <tr>
+          <th id="table-title">Nº</th>
+          <!--<th id="table-title">Family</th>-->
+          <th id="table-title">Units</th>
+          <th id="table-title">Weight</th>
+          <th id="table-title">Notes</th>
+          <th id="table-title"></th>
+      </tr>
+      {{#each DATA.cajas.content.cajas}}
+      <tr>
+        <th>{{valorNull control_caja_orden}}</th>
+        <!--<td>{{valorNull control_caja_familia}}</td>-->
+        <td>{{valorNull control_caja_unidades}}</td>
+        <td>{{valorNull control_caja_peso}}</td>
+        <td>{{valorNull control_caja_notas}}</td>
+        {{#each valoracion}}
+          <td style='background-color:#{{color_codigo}};'></td>
+        {{/each}}
+      </tr>
+      {{/each}}
+  </table>
+
+  {{#if cajas_control.tablas_cajas}}
+    {{#each cajas_control.tablas_cajas}}
+      <table class='table'> 
+        <tbody>
+          <tr>
+            <th colspan="{{control_tabla_filas}}">{{control_tabla_nombre}}</th>
+          <tr>
+          {{#each filas}}
+            <tr>
+            {{#each this}}
+              <th>{{valorNull control_tabla_data_valor}}</th>
+            {{/each}}
+            <tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/each}}
+{{/if}}
+
+
+  {{#if DATA.cajas.content.mostrar_fotos}}     
+    <p id="content-fotos-p">Pictures</p> 
+    <hr>
+
+        {{#each DATA.cajas.content.cajas.fotos}}
+          <div class="img-container">
+            <img src='https://fotos.justq.eu/{{foto_control_caja_foto_nombre}}'/>
+            <p>Box {{control_caja_orden}}</p>
+          </div>
+        {{/each}}
+
+        {{#each DATA.cajas.content.cajas.fotos_principal}}
+          <div class="img-container">
+            <img src='https://fotos.justq.eu/{{foto_control_caja_foto_nombre}}'/>
+          </div>
+        {{/each}}
+  {{/if}}
+
+</div>
+{{/if}}

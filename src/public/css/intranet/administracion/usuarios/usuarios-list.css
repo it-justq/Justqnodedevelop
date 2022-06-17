@@ -1,0 +1,25 @@
+.usuarios-list-table-status{
+    padding: 5px 10px 5px 10px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.usuarios-list-table-status-active{
+    background-color: #00cc66;
+}
+.usuarios-list-table-status-inactive{
+    background-color: #ff1a1a;
+}
+
+
+
+@media (max-width: 800px) {
+    .tableListUser{
+        display: none;
+    }
+    .tableListStatus label label{
+        display: none;
+    }
+}
+
+  
+  

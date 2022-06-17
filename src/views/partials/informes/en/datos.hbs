@@ -1,0 +1,178 @@
+<div class="content" id="tab-datos">
+    <!--<div id="qrcode"></div>-->
+
+  <div id="datos-control-ct">
+    <table class="table">
+          <tr>
+            <th>Nº Control</th>
+              <td>{{DATA.datos.control_codigo}}</td>
+            <th>Date</th>
+              <td>{{valorNull DATA.datos.control_fecha}}</td>
+            <th>Country</th>
+              <td>{{valorNull DATA.datos.control_lugar}}</td>
+          </tr>
+          
+          <tr>
+            <th>Place of control</th>
+              <td>{{valorNull DATA.datos.control_plataforma_nombre}}</td>
+            <th>Client</th>
+              <td colspan="3">{{valorNull DATA.datos.control_cliente_nombre}}</td>
+          </tr>
+
+          <tr>
+            <th>Surveyor</th>
+              <td>{{DATA.datos.control_tecnico_nombre}}</td>
+            <th>Reference</th>
+              <td colspan="3">{{valorNull DATA.datos.control_referencia}}</td>
+          </tr>
+          <tr>
+            <th colspan="6">Comment</th>
+          </tr>
+          <tr>
+            <td colspan="6">{{{valorNull DATA.datos.control_notas}}}</td>
+          </tr>
+
+        </table>
+  </div>
+
+
+  <!--RESULTADOS DEL CONTROL-->
+  <div id="resultados-control-ct">
+    <table class="table">
+          <tr>
+            <th colspan="2" id="table-title">Survey summary</th>
+          </tr>
+            
+            {{#each DATA.grupos_control.content.grupos_control}}{{#if mostrar}}
+              {{#if nombre_activo}}
+              <tr>
+                  <th>{{grupo_control_nombre}}</th>
+                  {{#if (empty valoracion)}}
+                      {{#each valoracion}}
+                        <td style='background-color: #{{color_codigo}};'></td>
+                      {{else}}
+                        <td></td>
+                      {{/each}}
+
+                  {{/if}}
+              </tr>
+              {{/if}}
+            {{/if}}{{/each}}
+
+            <tr>
+              <th>Conclusion</th>
+                <td style='background-color: #{{DATA.datos.control_valoracion_color}}'></td>
+                
+            </tr>
+    </table>
+  </div>
+
+
+  <div id="datos-expedicion-ct">
+
+    <div class="div-33">
+      <table class='table'>
+          <tr >
+            <th colspan="2" id="table-title">Shipping details</th>
+          </tr>
+          <tr>
+            <th>Date of arrival</th>
+            <td>{{valorNull DATA.datos.control_expedicion_fecha_llegada}}</td>
+          </tr>
+          <tr>
+            <th>Date of delivery</th>
+            <td>{{valorNull DATA.datos.control_expedicion_fecha_salida}}</td>
+          </tr>
+          <tr>
+            <th>Container</th>
+            <td>{{valorNull DATA.datos.control_expedicion_contenedor}}</td>
+          </tr>
+          <tr>
+            <th>Vessel</th>
+            <td>{{valorNull DATA.datos.control_expedicion_placa}}</td>
+          </tr>
+          <tr>
+            <th>Puc. Supplier</th>
+            <td>{{valorNull DATA.datos.control_expedicion_puc_proveedor}}</td>
+          </tr>
+          <tr>
+            <th>From</th>
+            <td>{{valorNull DATA.datos.control_expedicion_pais_origen_nombre}}</td>
+          </tr>
+          <tr>
+            <th>To</th>
+            <td>{{valorNull DATA.datos.control_expedicion_pais_destino_nombre}}</td>
+          </tr>
+      </table>
+    </div>
+
+    <div class="div-33">
+      <table class='table'>
+          <tr>
+            <th colspan="2" id="table-title">Goods</th>
+          </tr>
+          <tr>
+            <th>Type</th>
+            <td>{{DATA.datos.control_producto_familia_nombre}}</td>
+          </tr>
+          <tr>
+            <th>Variety</th>
+            <td>{{valorNull DATA.datos.control_producto_variedad_nombre}}</td>
+          </tr>
+          <tr>
+            <th>Size</th>
+            <td>{{valorNull DATA.datos.control_producto_calibre}}</td>
+          </tr>
+          <tr>
+            <th>Packaging</th>
+            <td>{{valorNull DATA.datos.control_producto_confeccion}}</td>
+          </tr>
+          <tr>
+            <th>Brand</th>
+            <td>{{valorNull DATA.datos.control_producto_marca}}</td>
+          </tr>
+          <tr>
+            <th>Lot number</th>
+            <td>{{valorNull DATA.datos.control_producto_lote}}</td>
+          </tr>
+          <tr>
+            <th>Packaging date</th>
+            <td>{{valorNull DATA.datos.control_producto_fecha_confeccion}}</td>
+          </tr>
+      </table>
+    </div>
+
+    <div class="div-33">
+      <table class='table'>
+            <tr>
+              <th colspan="2" id="table-title">Packaging</th>
+            </tr>
+            <tr>
+              <th>Packaging</th>
+              <td>{{valorNull DATA.datos.control_producto_tipo_confeccion_nombre}}</td>
+            </tr>
+            <tr>
+              <th>Net weight</th>
+              <td>{{valorNull DATA.datos.control_packaging_peso}}</td>
+            </tr>
+            <tr>
+              <th>Número de pallets</th>
+              <td>{{valorNull DATA.datos.control_packaging_pallets}}</td>
+            </tr>
+            <tr>
+              <th>Pallets</th>
+              <td>{{valorNull DATA.datos.control_packaging_cajas_pallet}}</td>
+            </tr>
+            <tr>
+              <th>Gross weight</th>
+              <td>{{valorNull DATA.datos.control_packaging_peso_bruto}}</td>
+            </tr>
+            <tr>
+              <th>Net weight</th>
+              <td>{{valorNull DATA.datos.control_packaging_peso_neto}}</td>
+            </tr>
+      </table>
+    </div>
+    
+  </div>
+</div>

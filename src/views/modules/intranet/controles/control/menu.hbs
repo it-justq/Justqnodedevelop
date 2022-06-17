@@ -1,0 +1,58 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+            
+    <div id="container-main-inicio">
+
+        <div class="container-width-min">
+
+            <p id="control-label-codigo"><strong>Control/</strong> {{control_codigo}}</p>
+
+            <a href="/intranet/control/{{control_id}}/informacion"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-tools"></i></p>
+                <p class="main-menu-box-title">Información: {{control_codigo}}</p>
+            </div></a>
+            <a href="/intranet/control/{{control_id}}/datos"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-clipboard-data"></i></p>
+                <p class="main-menu-box-title">Datos</p>
+            </div></a>
+            {{#if activePrecarga}}
+            <a href="/intranet/control/{{control_id}}/precarga"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-truck"></i></p>
+                <p class="main-menu-box-title">Precarga</p>
+            </div></a>
+            {{/if}}
+            <a href="/intranet/control/{{control_id}}/grupos-control"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-menu-app-fill"></i></p>
+                <p class="main-menu-box-title">Grupos de control</p>
+            </div></a>
+            <a href="/intranet/control/{{control_id}}/acciones"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-file-text"></i></p>
+                <p class="main-menu-box-title">Acciones</p>
+            </div></a>
+            <a href="/intranet/control/{{control_id}}/pesos"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-rulers"></i></p>
+                <p class="main-menu-box-title">Pesos</p>
+            </div></a>
+            <a href="/intranet/control/{{control_id}}/pallets"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-inbox"></i></p>
+                <p class="main-menu-box-title">Pallets</p>
+            </div></a>
+            <a href="/intranet/control/{{control_id}}/cajas"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-box-seam"></i></p>
+                <p class="main-menu-box-title">Cajas</p>
+            </div></a>
+            <a href="/intranet/control/{{control_id}}/documentacion"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-files"></i></p>
+                <p class="main-menu-box-title">Documentación</p>
+            </div></a>
+            <a href="/intranet/control/{{control_id}}/fotos"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-images"></i></p>
+                <p class="main-menu-box-title">Fotos</p>
+            </div></a>
+        </div>
+
+
+    </div>
+
+</div>

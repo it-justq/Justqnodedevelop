@@ -1,0 +1,27 @@
+<div class="container-width-content">
+
+    <p id="container-titulo">New place of control</p>
+
+    <p id="back-main"><a href="/intranet/administracion/plataformas/en"><i class="bi bi-arrow-left"></i> Back to places of control</a></p>
+
+        <form id="new-common-form" class="contentData" method="POST" action="/intranet/administracion/plataformas/en/nuevo">
+            <p class="contentDataContainerTitle">New place of control</p>
+
+            <div class="contentDataContainer">
+                <label>Name</label>
+                <input name="plataforma" type="text" required>
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Status</label>
+                    <select name="estado">
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option> 
+                    </select>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button type="submit">Create place of control</button>
+        </form>
+
+</div>

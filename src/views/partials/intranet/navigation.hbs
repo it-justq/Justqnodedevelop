@@ -1,0 +1,103 @@
+﻿<header id="common-header">
+    <div class="container-width">
+        <button id='toggleHeader'><i class="bi bi-list"></i></button>
+        {{#if menuControl}}
+            <button id='toggleSubHeader'><i class="bi bi-menu-down"></i></button>
+        {{/if}}
+        {{#if menuPericial}}
+            <button id='toggleSubHeader'><i class="bi bi-menu-down"></i></button>
+        {{/if}}
+        {{#if menuEnvio}}
+            <button id='toggleSubHeader'><i class="bi bi-menu-down"></i></button>
+        {{/if}}
+
+
+       <a href="/intranet"><img id="headerLogo" src='/images/corporative/JQ_logo.png'/></a> 
+
+        
+        <ul id="headerMenu">
+            {{#if (esCliente user.rol)}}
+                <li><a href="/intranet">Inicio</a></li>
+                <li><a href="/clientes/controles">Informes de Inspección</a></li>
+                <!--li><a href="/clientes/periciales">Informes periciales</a></li-->
+                <li><a href="/clientes/envios">Envíos</a></li>
+                <li><a href="/informe/registro">Estadísticas</a></li>
+            {{else}}
+
+                {{#if (esAdmin user.rol)}}
+                    <li><a href="/intranet/administracion">Administración</a></li>
+                    <li><a href="/intranet/controles">Informes de Inspección</a></li>
+                    <!--li><a href="/intranet/periciales">Informes periciales</a></li-->
+                    <li><a href="/intranet/plantillas">Plantillas</a></li>
+                    <li><a href="/informe/registro">Estadísticas</a></li>
+                {{else}}
+                    <li><a href="/intranet/controles">Controles de calidad</a></li>
+                    <!--li><a href="/intranet/periciales">Informes periciales</a></li-->
+                    {{#unless (esLink user.nombre)}}
+                    <li><a href="/intranet/plantillas">Plantillas</a></li>
+                    <li><a href="/informe/registro">Estadísticas</a></li>
+                    {{/unless}}
+                {{/if}}
+
+            {{/if}}
+            <li><a href="/intranet/perfil">Usuario: {{user.nombre}}</a></li>
+            <li><a href="/intranet/logout"><i class="bi bi-box-arrow-right"></i></a></li>
+
+        </ul> 
+    </div>
+</header>
+<div id="headerResponsiveCloser"></div>
+
+{{#if menuControl}}
+<div id="common-subheader">
+    <div class="container-width">
+        <ul>
+            <li><a style="color: #000; font-weight: bold; font-size: 16px;"><strong>{{control_codigo}}</strong></a></li>
+            <li {{#if menuInformacion}}class="subheader-top-selected"{{/if}}><a {{#if menuInformacion}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/informacion">{{#if menuInformacion}}<i class="bi bi-pencil-square"></i>{{/if}} Información</a></li>
+            <li {{#if menuDatos}}class="subheader-top-selected"{{/if}}><a {{#if menuDatos}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/datos">{{#if menuDatos}}<i class="bi bi-pencil-square"></i>{{/if}} Datos</a></li>
+            {{#if activePrecarga}}<li><a {{#if menuPrecarga}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/precarga">{{#if menuPrecarga}}<i class="bi bi-pencil-square"></i>{{/if}} Precarga</a></li>{{/if}}
+            <li {{#if menuGc}}class="subheader-top-selected"{{/if}}><a {{#if menuGc}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/grupos-control">{{#if menuGc}}<i class="bi bi-pencil-square"></i>{{/if}} Grupos control</a></li>
+            {{#if pc_nombre}}<li class="subheader-top-selected"><a {{#if pc_nombre}}style="font-weight: bold; color: #35756c;"{{/if}}><i class="bi bi-pencil-square"></i> Fotos {{pc_nombre}}</a></li>{{/if}}
+            <li {{#if menuAcciones}}class="subheader-top-selected"{{/if}}><a {{#if menuAcciones}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/acciones">{{#if menuAcciones}}<i class="bi bi-pencil-square"></i>{{/if}} Acciones</a></li>
+            <li {{#if menuPesos}}class="subheader-top-selected"{{/if}}><a {{#if menuPesos}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/pesos">{{#if menuPesos}}<i class="bi bi-pencil-square"></i>{{/if}} Pesos</a></li>
+            <li {{#if menuPallets}}class="subheader-top-selected"{{/if}}><a {{#if menuPallets}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/pallets">{{#if menuPallets}}<i class="bi bi-pencil-square"></i>{{/if}} Pallets</a></li>
+            <li {{#if menuCajas}}class="subheader-top-selected"{{/if}}><a {{#if menuCajas}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/cajas">{{#if menuCajas}}<i class="bi bi-pencil-square"></i>{{/if}} Cajas</a></li>
+            <li {{#if menuDocumentacion}}class="subheader-top-selected"{{/if}}><a {{#if menuDocumentacion}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/documentacion">{{#if menuDocumentacion}}<i class="bi bi-pencil-square"></i>{{/if}} Documentación</a></li>
+            <li {{#if menuFotos}}class="subheader-top-selected"{{/if}}><a {{#if menuFotos}}style="font-weight: bold; color: #35756c;"{{/if}} href="/intranet/control/{{control_id}}/fotos">{{#if menuFotos}}<i class="bi bi-pencil-square"></i>{{/if}} Fotos</a></li>
+        <ul>
+    </div>
+</div>
+
+{{/if}}
+
+{{#if menuPericial}}
+<div id="common-subheader">
+    <div class="container-width">
+        <ul>
+            <li><a style="color: #000; font-weight: bold; font-size: 16px;"><strong>{{informe_codigo}}</strong></a></li>
+            <li {{#if menuInformacion}}class="subheader-top-selected"{{/if}}><a href="/intranet/pericial/{{informe_id}}/informacion">{{#if menuInformacion}}<i class="bi bi-pencil-square"></i>{{/if}} Información</a></li>
+            <li {{#if menuDatos}}class="subheader-top-selected"{{/if}}><a href="/intranet/pericial/{{informe_id}}/datos">{{#if menuDatos}}<i class="bi bi-pencil-square"></i>{{/if}} Datos</a></li>
+            <li {{#if menuGc}}class="subheader-top-selected"{{/if}}><a href="/intranet/pericial/{{informe_id}}/grupos-control">{{#if menuGc}}<i class="bi bi-pencil-square"></i>{{/if}} Grupos control</a></li>
+            {{#if pc_nombre}}<li class="subheader-top-selected"><a><i class="bi bi-pencil-square"></i> Fotos {{pc_nombre}}</a></li>{{/if}}
+        <ul>
+    </div>
+</div>
+
+{{/if}}
+
+{{#if menuEnvio}}
+<div id="common-subheader">
+    <div class="container-width">
+        <ul>
+            <li style="color: #000; font-weight: bold; font-size: 16px;"><strong>{{envio_referencia}}</strong></li>
+            <li {{#if menuDatos}}class="subheader-top-selected"{{/if}}><a href="/clientes/envio/{{envio_id}}/datos">{{#if menuDatos}}<i class="bi bi-pencil-square"></i>{{/if}} Datos</a></li>
+            <li {{#if menuPrecarga}}class="subheader-top-selected"{{/if}}><a href="/clientes/envio/{{envio_id}}/inspeccion-precarga">{{#if menuPrecarga}}<i class="bi bi-pencil-square"></i>{{/if}} Inspección Precarga</a></li>
+            <li {{#if menuTermografo}}class="subheader-top-selected"{{/if}}><a href="/clientes/envio/{{envio_id}}/termografo">{{#if menuTermografo}}<i class="bi bi-pencil-square"></i>{{/if}} Termógrafo</a></li>
+            <li {{#if menuTracking}}class="subheader-top-selected"{{/if}}><a href="/clientes/envio/{{envio_id}}/tracking">{{#if menuTracking}}<i class="bi bi-pencil-square"></i>{{/if}} Tracking</a></li>
+            <li {{#if menuDestino}}class="subheader-top-selected"{{/if}}><a href="/clientes/envio/{{envio_id}}/inspeccion-destino">{{#if menuDestino}}<i class="bi bi-pencil-square"></i>{{/if}} Inspección Destino</a></li>
+            <li {{#if menuReclamaciones}}class="subheader-top-selected"{{/if}}><a href="/clientes/envio/{{envio_id}}/reclamaciones">{{#if menuReclamaciones}}<i class="bi bi-pencil-square"></i>{{/if}} Reclamaciones</a></li>
+        <ul>
+    </div>
+</div>
+
+{{/if}}

@@ -1,0 +1,297 @@
+    <!---------------------------------------------------------------->
+    <!--MAIN CONTAINER-->
+    <div id="common-main-container" onmousedown="clickedMainContainer(event)">
+        <div id="common-main-container-ct1">
+           <div id="common-main-container-ct2">
+
+                        <div id="info-container">
+                            <div id="info-ct">
+
+                                <div id="info-ct-2" class="info-cts">
+                                    <p class="info-cts-title">Informes PDF</p>
+                                    <table>
+                                        <tr class="info-cts-encabezado">
+                                            <td>Español</td>
+                                            <td>Inglés</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><a href=""><i class="bi bi-download"></i></a></td>
+                                            <td><a href=""><i class="bi bi-download"></i></a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                 <div id="info-ct-3" class="info-cts">
+                                    <p class="info-cts-title">Informes Web</p>
+                                    <table>
+                                        <tr class="info-cts-encabezado">
+                                            <td>Español</td>
+                                            <td>Inglés</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><a href="/informe/web/{{control_id}}/es" target="_blank"><i class="bi bi-box-arrow-up-right"></i></a></td>
+                                            <td><a href="/informe/web/{{control_id}}/en" target="_blank"><i class="bi bi-box-arrow-up-right"></i></a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="datos-ct">
+
+                            <div id="datos-ct-1" class="datos-ct">
+
+                                <div id="ct-1-tabs">
+                                    <button class="ct-1-tablinks" onclick="abrirDatosControl(event, 'datos')">Datos</button>
+                                    <button class="ct-1-tablinks" onclick="abrirDatosControl(event, 'expedicion')">Expedición</button>
+                                    <button class="ct-1-tablinks" onclick="abrirDatosControl(event, 'producto')">Producto</button>
+                                    <button class="ct-1-tablinks" onclick="abrirDatosControl(event, 'embalaje')">Embalaje</button>
+                                    <button class="ct-1-tablinks" onclick="abrirDatosControl(event, 'notas')">Notas</button>
+                                </div>
+
+
+
+                            <!--DATOS DEL CONTROL-->
+                            <div class="datos-part" id="datos-part-datos">
+                                <table>
+                                    <tr>
+                                        <td>Resultado</td>
+                                        <td>
+                                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_valoracion_id"></i>
+                                            <select onchange="uploadDatos('control_valoracion_id','{{control_id}}', this.value)">
+                                                <option value="{{valorNull data.datos.valoracion_id}}">{{valorNull data.datos.valoracion_nombre}}</option>
+                                                {{#each data.valoraciones}}
+                                                    <option value="{{valoracion_id}}">{{valoracion_nombre}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Cliente</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_cliente_id" onchange="uploadDatos('control_cliente_id','{{control_id}}', this.value)"></i>
+                                        <input type="text" value="{{valorNull data.datos.cliente_nombre}}" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Técnico</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm"></i>
+                                        <input type="text" value="{{valorNull data.datos.tecnico_nombre}}" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Fecha del control</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_fecha"></i>
+                                        <input type="date"value="{{data.datos.fecha_control}}" onchange="uploadDatos('control_fecha','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Plataforma</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_plataforma_id"></i>
+                                        <select onchange="uploadDatos('control_plataforma_id','{{control_id}}', this.value)">
+                                            <option value="{{valorNull data.datos.plataforma_id}}">{{valorNull data.datos.plataforma_nombre}}</option>
+                                            {{#each data.plataformas}}
+                                                <option value="{{plataforma_id}}">{{plataforma_nombre}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ref. cliente</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_referencia"></i>
+                                        <input type="text" value="{{valorNull data.datos.referencia}}" onchange="uploadDatos('control_referencia','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                        <!--DATOS DE LA EXPEDICION-->
+                        <div class="datos-part" id="datos-part-expedicion">
+                            <table>
+                                <tr>
+                                    <td>Fecha de llegada</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_fecha_llegada"></i>
+                                        <input type="date" value="{{data.expedicion.fecha_llegada}}" onchange="uploadDatos('control_expedicion_fecha_llegada','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Fecha de salida</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_fecha_salida"></i>
+                                        <input type="date" value="{{data.expedicion.fecha_salida}}" onchange="uploadDatos('control_expedicion_fecha_salida','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nª Contenedor</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_contenedor"></i>
+                                        <input type="text" value="{{valorNull data.expedicion.numero_contenedor}}" onchange="uploadDatos('control_expedicion_contenedor','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nº Placa</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_placa"></i>
+                                        <input type="text" value="{{valorNull data.expedicion.numero_placa}}" onchange="uploadDatos('control_expedicion_placa','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Puc. Proveedor</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_puc_proveedor"></i>
+                                        <input type="text" value="{{valorNull data.expedicion.puc_proveedor}}" onchange="uploadDatos('control_expedicion_puc_proveedor','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>País de origen</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_pais_origen_id"></i>
+                                        <select  onchange="uploadDatos('control_expedicion_pais_origen_id','{{control_id}}', this.value)">
+                                            <option value="{{valorNull data.expedicion.pais_origen_id}}">{{valorNull data.expedicion.pais_origen_nombre}}</option>
+                                            {{#each data.paises}}
+                                                <option value="{{pais_id}}">{{pais_nombre}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>País de destino</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_pais_destino_id"></i>
+                                        <select onchange="uploadDatos('control_expedicion_pais_destino_id','{{control_id}}', this.value)">
+                                            <option value="{{valorNull data.expedicion.pais_destino_id}}">{{valorNull data.expedicion.pais_destino_nombre}}</option>
+                                            {{#each data.paises}}
+                                                <option value="{{pais_id}}">{{pais_nombre}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!--DATOS DEL PRODUCTO-->
+                        <div class="datos-part" id="datos-part-producto">
+                            <table>
+                                <tr>
+                                    <td>Familia</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_familia_id"></i>
+                                        <select onchange="uploadDatos('control_producto_familia_id','{{control_id}}', this.value)">
+                                            <option value="{{valorNull data.producto.familia_id}}">{{valorNull data.producto.familia_nombre}}</option>
+                                            {{#each data.familias}}
+                                                <option value="{{familia_id}}">{{familia_nombre}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Variedad</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm"></i>
+                                        <select onchange="uploadDatos('control_referencia','{{control_id}}', this.value)">
+                                            <option value="{{valorNull data.producto.variedad_id}}">{{valorNull data.producto.variedad_nombre}}</option>
+                                             {{#each data.variedades}}
+                                                <option value="{{variedad_id}}">{{variedad_nombre}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Calibre</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_calibre"></i>
+                                        <input type="text" value="{{valorNull data.producto.calibre_nombre}}" onchange="uploadDatos('control_producto_calibre','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tipo de confección</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_tipo_confeccion_id"></i>
+                                        <select onchange="uploadDatos('control_producto_tipo_confeccion_id','{{control_id}}', this.value)">
+                                            <option value="{{valorNull data.producto.confeccion_id}}">{{valorNull data.producto.confeccion_nombre}}</option>
+                                            {{#each data.confecciones}}
+                                                <option value="{{confeccion_id}}">{{confeccion_nombre}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Confección</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_confeccion"></i>
+                                        <input type="text" value="{{valorNull data.producto.control_producto_confeccion}}" onchange="uploadDatos('control_producto_confeccion','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Fecha de confección</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_fecha_confeccion"></i>
+                                        <input type="date" value="{{data.producto.fecha_confeccion}}" onchange="uploadDatos('control_producto_fecha_confeccion','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Marca</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_marca"></i>
+                                        <input type="text" value="{{valorNull data.producto.marca}}" onchange="uploadDatos('control_producto_marca','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nº Lote</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_lote"></i>
+                                        <input type="text" value="{{valorNull data.producto.numero_lote}}" onchange="uploadDatos('control_producto_lote','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!--DATOS DEL EMBALAJE-->
+                        <div class="datos-part" id="datos-part-embalaje">
+                            <table>
+                                <tr>
+                                    <td>Cajas/Pallet</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_packaging_cajas_pallet"></i>
+                                        <input type="text" value="{{valorNull data.embalaje.cajas_pallet}}" onchange="uploadDatos('control_packaging_cajas_pallet','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nº Pallets</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_packaging_pallets"></i>
+                                        <input type="text" value="{{valorNull data.embalaje.numero_pallets}}" onchange="uploadDatos('control_packaging_pallets','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Peso del embalaje</td>
+                                    <td>
+                                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_packaging_peso"></i>
+                                        <input type="text" value="{{valorNull data.embalaje.peso_embalaje}}" onchange="uploadDatos('control_packaging_peso','{{control_id}}', this.value)">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                   <!--NOTAS-->
+                        <div class="datos-part" id="datos-part-notas">
+                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_observaciones"></i>
+                            <textarea placeholder="Notas.." onchange="uploadDatos('control_observaciones','{{control_id}}', this.value)">{{valorNull data.notas.notas}}</textarea>
+                        </div>
+
+                            </div>
+
+                        </div>
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,37 @@
+    <!---------------------------------------------------------------->
+    <!--MAIN CONTAINER-->
+    <div id="common-main-container" onmousedown="clickedMainContainer(event)">
+        <div id="common-main-container-ct1">
+           <div id="common-main-container-ct2">
+
+                <div id="fotos-nuevo-container">
+                    <form action="/intranet/control/{{control_id}}/fotos" id="fotos-nuevo-ct" method='post' enctype="multipart/form-data">
+                        <input id="fotos-nuevo-input" name="file" type="file" multiple>
+                        <button type="submit" id="fotos-nuevo-button-add">Añadir fotos</button>
+                    </form>
+                </div>
+
+                <div id="fotos-container">
+                    
+                    {{#if data}}
+                        {{#each data}}
+                            <div class="foto-ct">
+                                <img src="https://fotos.justq.eu/{{foto}}">
+                                <div class="foto-ct-data">
+                                    <button class="foto-btn-center"><i class="bi bi-arrow-repeat"></i> Modificar</button>
+                                    <button class="foto-btn-left"><i class="bi bi-arrows-fullscreen"></i></button>
+                                    <button class="foto-btn-right"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </div>
+                        {{/each}}
+
+                        <div id="fotos-del-ct">
+                            <button onclick="deleteAllImg({{control_id}})">Eliminar todas las fotos</button>
+                        </div>
+                    {{/if}}
+
+                </div>
+
+            </div>
+        </div>
+    </div>

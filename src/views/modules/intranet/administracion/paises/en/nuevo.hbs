@@ -1,0 +1,24 @@
+<div class="container-width-content">
+
+    <p id="container-titulo">New country</p>
+
+    <p id="back-main"><a href="/intranet/administracion/paises/en"><i class="bi bi-arrow-left"></i> Back to countries</a></p>
+
+        <form id="new-common-form" class="contentData" method="POST" action="/intranet/administracion/paises/en/nuevo">
+            <p class="contentDataContainerTitle">New country</p>
+
+            <div class="contentDataContainer">
+                <label>Name (english)</label>
+                <input name="pais_en" type="text" required>
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Name (spanish)</label>
+                <input name="pais" type="text" required>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button type="submit">Create country</button>
+        </form>
+
+</div>

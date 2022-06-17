@@ -1,0 +1,80 @@
+{{#if DATA.pallets.content.mostrar}}
+  <div class="content" id="tab-pallets">
+    <table class="table">
+      <tr>
+          <th id="table-title">SSC Supplier</th>
+          <th id="table-title">SSCC Place of control</th>
+          <th id="table-title">Date of delivery</th>
+          <th id="table-title">Lot</th>
+          <th id="table-title">Product</th>
+          <th id="table-title">Variety</th>
+          <th id="table-title">Making</th>
+          <th id="table-title">Brand</th>
+      </tr>
+      {{#each DATA.pallets.content.pallets}}
+      <tr>
+        <td>{{valorNull control_pallet_sscc_proveedor}}</td>
+        <td>{{valorNull control_pallet_sscc_plataforma}}</td>
+        <td>{{control_pallet_fecha}}</td>
+        <td>{{valorNull control_pallet_lote}}</td>
+        <td>{{valorNull control_pallet_producto_nombre}}</td>
+        <td>{{valorNull control_pallet_variedad_nombre}}</td>
+        <td>{{valorNull control_pallet_confeccion}}</td>
+        <td>{{valorNull control_pallet_marca}}</td>
+      </tr>
+      {{/each}}
+    </table>
+    {{#if pallets_control.tablas_pallets}}
+      {{#each pallets_control.tablas_pallets}}
+        <table> 
+          <tbody>
+            <tr>
+              <th colspan="{{control_tabla_filas}}">{{control_tabla_nombre}}</th>
+            </tr>
+            {{#each filas}}
+              <tr>
+              {{#each this}}
+                <th>{{valorNull control_tabla_data_valor}}</th>
+              {{/each}}
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{/each}}
+    {{/if}}
+
+  {{#if pallets_control.tablas_pallets}}          
+    {{#each pallets_control.tablas_pallets}}
+      <table> 
+        <tbody>
+          <tr>
+            <th colspan="{{control_tabla_filas}}">{{control_tabla_nombre}}</th>
+          </tr>
+          {{#each filas}}
+            <tr>
+            {{#each this}}
+              <th>{{valorNull control_tabla_data_valor}}</th>
+            {{/each}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/each}}
+  {{/if}}
+
+
+
+
+  {{#if DATA.pallets.content.mostrar_fotos}}
+    <p id="content-fotos-p">Pictures</p> 
+    <hr>
+    {{#each DATA.pallets.content.pallets.fotos}}
+      <div class="img-container">
+        <img src='https://fotos.justq.eu/{{foto_control_pallet_foto_nombre}}'/>
+      </div>
+    {{/each}}
+  {{/if}}
+
+
+  </div>
+{{/if}}

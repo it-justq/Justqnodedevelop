@@ -1,0 +1,39 @@
+.tableList tr td button{
+    min-height: 25px;
+    width: 80%;
+    padding: 5px 5px 5px 5px;
+    display: block;
+    color: #fff;
+    background-color: #2f6a60;
+    border-radius: 10px;
+}
+
+.plantillas-list-nav {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.plantillas-list-nav a {
+    font-size: 12px;
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 4px;
+    background-color: #2f6a60;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.plantillas-list-nav a:hover{
+    background-color: #33bba5;
+    font-size: 14px;
+}
+
+#previous-page,#next-page {
+    font-size: 10px;
+    padding: 5px;
+}
+
+#previous-page:hover,#next-page:hover{
+    background-color: #33bba5;
+    font-size: 12px;
+}

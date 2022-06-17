@@ -1,0 +1,37 @@
+<div class="container-width-content">
+    <p id="container-titulo">Controles del usuario</p>
+
+        <p id="back-main"><a href="/intranet/administracion/usuarios/usuario/{{data.usuario.usuario_id}}"><i class="bi bi-arrow-left"></i> Volver al panel del usuario</a></p>
+
+        
+         <table id="table-data-controles">
+            <thead>
+                <tr>
+                    <td colspan="3">Controles del usuario {{data.usuario.usuario_nombre}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-data-controles-text"><strong>Activar control</strong></td>
+                    <td>
+                        <select>
+                            <option>Selecciona un control</option>
+                            <option value="0">ASIGNAR TODOS LOS CONTROLES</option>
+                            {{#each data.controles}}
+                            <option value="{{control_tipo_id}}">{{control_tipo_nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td><button id="table-data-controles-btn-add"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                {{#each data.controles_asociados}}
+                <tr>
+                    <td class="table-data-controles-text">{{control_tipo_prefijo}}</td>
+                    <td>{{control_tipo_nombre}}</td>
+                    <td><button id="table-data-controles-btn-del"><i class="bi bi-trash"></i></button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+</div>

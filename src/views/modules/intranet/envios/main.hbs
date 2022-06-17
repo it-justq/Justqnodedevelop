@@ -1,0 +1,161 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+
+    <p id="container-titulo">Envíos
+    {{#if (esCliente user.rol)}}<a
+            href="/clientes/nuevo/envio/">Nuevo envio <i class="bi bi-plus-circle"></i></a>{{/if}}</p>
+        <!--<div class="containerFilter">
+        <button class='toggleFilter'>Filtros</button>
+
+        <form class="contentFilter" {{#if (esCliente user.rol)}}action="/clientes/envios/search"
+            {{else}}action="/intranet/envios/search" {{/if}} method="POST">
+
+            <div class="contentFilterContainer">
+                <label>Control</label>
+                <input type="text" name="control" />
+            </div>
+            <div class="contentFilterContainer">
+                <label>Referencia</label>
+                <input type="text" name="referencia" />
+            </div>
+            <div class="contentFilterContainer">
+                <label>Plataforma</label>
+                <input type="text" name="plataforma" />
+            </div>
+            <div class="contentFilterContainer">
+                <label>Familia</label>
+                <select name="familia">
+                    <option value=""></option>
+                    {{#each envios.familias}}<option value="{{familia_id}}">{{familia_nombre}}</option>{{/each}}
+                </select>
+            </div>
+            <div class="contentFilterContainer">
+                <label>Contenedor</label>
+                <input type="text" name="contenedor" />
+            </div>
+            <div class="contentFilterContainer">
+                <label>Fecha</label>
+                <input type="date" name="fecha" />
+            </div>
+            <div class="contentFilterContainer">
+                <label>Fecha desde</label>
+                <input type="date" name="inicio" />
+            </div>
+            <div class="contentFilterContainer">
+                <label>Fecha hasta</label>
+                <input type="date" name="fin" />
+            </div>
+
+            {{#if (esCliente user.rol)}}
+            {{else}}
+            {{#if (esAdmin user.rol)}}
+            <div class="contentFilterContainer">
+                <label>Técnico</label>
+                <select name="tecnico">
+                    <option value=""></option>
+                    {{#each envios.tecnicos}}<option value="{{usuario_id}}">{{usuario_nombre}}</option>{{/each}}
+                </select>
+            </div>
+            <div class="contentFilterContainer">
+                <label>Estado del control</label>
+                <select name="estado">
+                    <option value=""></option>
+                    <option value="1">Activo</option>
+                    <option value="0">No activo</option>
+                </select>
+            </div>
+            <div class="contentFilterContainer">
+                <label>Cliente</label>
+                <select name="cliente">
+                    <option value=""></option>
+                    {{#each envios.clientes}}<option value="{{cliente_id}}">{{cliente_nombre}}</option>{{/each}}
+                </select>
+            </div>
+            {{else}}
+            <div class="contentFilterContainer">
+                <label>Estado del control</label>
+                <select name="estado">
+                    <option value=""></option>
+                    <option value="1">Activo</option>
+                    <option value="0">No activo</option>
+                </select>
+            </div>
+            <div class="contentFilterContainer">
+                <label>Cliente</label>
+                <select name="cliente">
+                    <option value=""></option>
+                    {{#if (esLink user.nombre)}} <option
+                        value="2b34fbbe1f460ccedebd58fbd60695a8980a5e8d6180e6330ac7f3ec">Cliente pruebas</option>
+                    {{else}}
+                    {{#each envios.clientes}}<option value="{{cliente_id}}">{{cliente_nombre}}</option>{{/each}}
+                    {{/if}}
+                </select>
+            </div>
+            {{/if}}
+            {{/if}}
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+            <button id="list-search-btn" class="contentFilterSubmit" type="submit">Aplicar filtros</button>
+
+        </form>
+    </div>-->
+
+    {{#if envios.status}}
+    <p id="common-list-no-data">No se han encontrado envíos</p>
+    <input type="hidden" id='type' value='total-cliente'>
+    <div class="envios-list-nav" id="envios-list-nav">
+        <a class="envios-list-nav" id="page1" href="/clientes/envios/">Volver</a>
+    </div>
+
+    {{else}}
+    <table class="tableList">
+        <thead>
+            <tr>
+                <td class="envios-list-estado">Estado</td>
+                <td class="tableListRef">Referencia Transporte</td>
+                <td class="tableListRef">Referencia PO</td>
+                <td class="tableListFam">Producto</td>
+                <td class="envios-list-carga-lugar">Lugar Carga</td>
+                <td class="envios-list-carga-fecha">Fecha Carga</td>
+                <td class="envios-list-destinatario">Destinatario</td>
+                <td class="envios-list-etd">ETD</td>
+                <td class="envios-list-eta">ETA</td>
+                <td class="envios-list-termografo">Termógrafo</td>
+                <td ></td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each envios}}
+            <tr onclick="showEnvioData('https://pruebas.justq.eu/clientes/envio/{{envio_id}}')">
+                <td class="envios-list-estado">{{envio_estado_nombre}}</td>
+                <td class="tableListRef">{{envio_transporte_referencia}}</td>
+                <td class="tableListRef">{{envio_pedido_referencia}} </td>
+                <td class="tableListFam">{{valorNull envio_producto_nombre}}</td>
+                <td class="envios-list-carga-lugar">{{envio_carga_almacen}}</td>
+                <td class="envios-list-carga-fecha">{{valorNull envio_carga_fecha}}</td>
+                <td class="envios-list-destinatario">{{valorNull envio_consignatario}}</td>
+                <td class="envios-list-etd">{{valorNull envio_etd}}</td>
+                <td class="envios-list-eta">{{valorNull envio_eta}}</td>
+                <td class="envios-list-termografo">{{valorNull envio_termografo_id}}</td>
+                <td ><i onclick="showEnvioData('https://pruebas.justq.eu/clientes/envio/{{envio_id}}/mod-datos')" class="bi bi-pencil-square"></i></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <input type="hidden" id='type' value='total-cliente'>
+    <div class="envios-list-nav" id="envios-list-nav">
+        <a class="envios-list-nav" id="previous-page" href=""><i class="bi bi-arrow-left-circle"></i></a>
+        <a class="envios-list-nav" id="current-page">{{pagina}}</a>
+        <a class="envios-list-nav" id="page2" href="/clientes/envios/2">2</a>
+        <a class="envios-list-nav" id="page3" href="/clientes/envios/3">3</a>
+        <a class="envios-list-nav" id="page4" href="/clientes/envios/4">4</a>
+        <a class="envios-list-nav" id="page5" href="/clientes/envios/5">5</a>
+        <a class="envios-list-nav" id="next-page" href=""><i class="bi bi-arrow-right-circle"></i></a>
+    </div>
+
+    {{/if}}
+
+</div>

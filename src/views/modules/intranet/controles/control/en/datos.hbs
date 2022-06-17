@@ -1,0 +1,215 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Control data</p>
+        <div class="contentDataContainer">
+            <label>Result</label>
+            <select onchange="uploadDatos('control_valoracion_id','{{control_id}}', this.value)">
+                <option value="{{valorNull data.datos.control_valoracion_id}}">{{valorNull data.datos.control_valoracion_nombre_en}}</option>
+                {{#each data.valoraciones}}
+                    <option style="background-color='#{{color_codigo}}'" value="{{valoracion_id}}">{{valoracion_nombre_en}}</option>
+                {{/each}}
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_valoracion_id"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Client</label>
+            <select onchange="uploadDatos('control_cliente_id','{{control_id}}', this.value)">
+                <option value="{{valorNull data.datos.control_cliente_id}}">{{valorNull data.datos.control_cliente_nombre}}</option>
+                {{#if (esLink user.nombre)}} <option value="8">Cliente pruebas</option>
+                {{else}}
+                    {{#each data.clientes}}
+                        <option value="{{cliente_id}}">{{cliente_nombre}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_cliente_id"></i>
+            <input type="text" placeholder="Optional modifier" value="{{valorNull data.datos.control_cliente_mod}}" onchange="uploadDatos('control_cliente_mod','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_cliente_mod"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Surveyor</label>
+            <input type="text" value="{{valorNull data.datos.control_tecnico_nombre}}" disabled>
+            <input type="text" placeholder="Optional modifier" value="{{valorNull data.datos.control_tecnico_mod}}" onchange="uploadDatos('control_tecnico_mod','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Control date</label>
+            <input type="date"value="{{valorNull data.datos.control_fecha}}" onchange="uploadDatos('control_fecha','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_fecha"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Place of control</label>
+            <select onchange="uploadDatos('control_plataforma_id','{{control_id}}', this.value)">
+                <option value="{{valorNull data.datos.control_plataforma_id}}">{{valorNull data.datos.control_plataforma_nombre}}</option>
+                {{#each data.plataformas}}
+                    <option value="{{plataforma_id}}">{{plataforma_nombre}}</option>
+                {{/each}}
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_plataforma_id"></i>
+            <input class="table-content-doble" type="text" placeholder="Optional modifier" value="{{valorNull data.datos.control_plataforma_mod}}" onchange="uploadDatos('control_plataforma_mod','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_plataforma_mod"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Reference</label>
+            <input type="text"  placeholder="Client reference" value="{{valorNull data.datos.control_referencia}}" onchange="uploadDatos('control_referencia','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_referencia"></i>
+        </div>
+    </div>
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Shipping details</p>
+        <div class="contentDataContainer">
+            <label>Date of arrival</label>
+            <input type="date" value="{{valorNull data.expedicion.control_expedicion_fecha_llegada}}" onchange="uploadDatos('control_expedicion_fecha_llegada','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_fecha_llegada"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Date of delivery</label>
+            <input type="date" value="{{valorNull data.expedicion.control_expedicion_fecha_salida}}" onchange="uploadDatos('control_expedicion_fecha_salida','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_fecha_salida"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Container No.</label>
+            <input type="text"  placeholder="Container No." value="{{valorNull data.expedicion.control_expedicion_contenedor}}" onchange="uploadDatos('control_expedicion_contenedor','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_contenedor"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Vessel</label>
+            <input type="text"  placeholder="Vessel" value="{{valorNull data.expedicion.control_expedicion_placa}}" onchange="uploadDatos('control_expedicion_placa','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_placa"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Puc. Supplier</label>
+            <input type="text"  placeholder="Puc. Supplier" value="{{valorNull data.expedicion.control_expedicion_puc_proveedor}}" onchange="uploadDatos('control_expedicion_puc_proveedor','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_puc_proveedor"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>From</label>
+            <select  onchange="uploadDatos('control_expedicion_pais_origen_id','{{control_id}}', this.value)">
+                <option value="{{valorNull data.expedicion.control_expedicion_pais_origen_id}}">{{valorNull data.expedicion.control_expedicion_pais_origen_nombre_en}}</option>
+                {{#each data.paises}}
+                    <option value="{{pais_id}}">{{pais_nombre_en}}</option>
+                {{/each}}
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_pais_origen_id"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>To</label>
+            <select onchange="uploadDatos('control_expedicion_pais_destino_id','{{control_id}}', this.value)">
+                <option value="{{valorNull data.expedicion.control_expedicion_pais_destino_id}}">{{valorNull data.expedicion.control_expedicion_pais_destino_nombre_en}}</option>
+                {{#each data.paises}}
+                    <option value="{{pais_id}}">{{pais_nombre_en}}</option>
+                {{/each}}
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_expedicion_pais_destino_id"></i>
+        </div>
+    </div>
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Goods</p>
+        <div class="contentDataContainer">
+            <label>Product</label>
+            <select onchange="uploadDatos('control_producto_familia_id','{{control_id}}', this.value)">
+                <option value="{{valorNull data.producto.control_producto_familia_id}}">{{valorNull data.producto.control_producto_familia_nombre_en}}</option>
+                {{#each data.familias}}
+                    <option value="{{familia_id}}">{{familia_nombre_en}}</option>
+                {{/each}}
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_familia_id"></i>
+            <input class="table-content-doble" type="text" placeholder="Optional modifier" value="{{valorNull data.producto.control_producto_familia_mod}}" onchange="uploadDatos('control_producto_familia_mod','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_familia_mod"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Variety</label>
+            <select onchange="uploadDatos('control_producto_variedad_id','{{control_id}}', this.value)">
+                <option value="{{valorNull data.producto.control_producto_variedad_id}}">{{valorNull data.producto.control_producto_variedad_nombre}}</option>
+                {{#each data.variedades}}
+                    <option value="{{familia_variedad_id}}">{{familia_variedad_nombre}}</option>
+                {{/each}}
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_variedad_id"></i>
+            <input class="table-content-doble" type="text" placeholder="Optional modifier" value="{{valorNull data.producto.control_producto_variedad_mod}}" onchange="uploadDatos('control_producto_variedad_mod','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_variedad_mod"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Size</label>
+            <input class="table-content-doble" type="text"  placeholder="Size" value="{{valorNull data.producto.control_producto_calibre}}" onchange="uploadDatos('control_producto_calibre','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_calibre"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Packaging type</label>
+            <select onchange="uploadDatos('control_producto_tipo_confeccion_id','{{control_id}}', this.value)">
+                <option value="{{valorNull data.producto.control_producto_tipo_confeccion_id}}">{{valorNull data.producto.control_producto_tipo_confeccion_nombre}}</option>
+                {{#each data.confecciones}}
+                    <option value="{{familia_confeccion_tipo_id}}">{{familia_confeccion_tipo_nombre}}</option>
+                {{/each}}
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_tipo_confeccion_id"></i>
+            <input class="table-content-doble" type="text" placeholder="Optional modifier" value="{{valorNull data.producto.control_producto_tipo_confeccion_mod}}" onchange="uploadDatos('control_producto_tipo_confeccion_mod','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_tipo_confeccion_mod"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Packaging</label>
+            <input type="text"  placeholder="Packaging" value="{{valorNull data.producto.control_producto_confeccion}}" onchange="uploadDatos('control_producto_confeccion','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_confeccion"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Packaging date</label>
+            <input type="date" value="{{valorNull data.producto.control_producto_fecha_confeccion}}" onchange="uploadDatos('control_producto_fecha_confeccion','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_fecha_confeccion"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Brand</label>
+            <input type="text"  placeholder="Brand" value="{{valorNull data.producto.control_producto_marca}}" onchange="uploadDatos('control_producto_marca','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_marca"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Lot No.</label>
+            <input type="text"  placeholder="Lot number" value="{{valorNull data.producto.control_producto_lote}}" onchange="uploadDatos('control_producto_lote','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_producto_lote"></i>
+        </div>
+    </div>
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Packaging</p>
+        <div class="contentDataContainer">
+            <label>Boxes/Pallets</label>
+            <input type="text"  placeholder="Boxes per pallet" value="{{valorNull data.embalaje.control_packaging_cajas_pallet}}" onchange="uploadDatos('control_packaging_cajas_pallet','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_packaging_cajas_pallet"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Pallets No.</label>
+            <input type="text"  placeholder="Pallets number" value="{{valorNull data.embalaje.control_packaging_pallets}}" onchange="uploadDatos('control_packaging_pallets','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_packaging_pallets"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Packaging weight</label>
+            <input type="text"  placeholder="Net weight" value="{{valorNull data.embalaje.control_packaging_peso}}" onchange="uploadDatos('control_packaging_peso','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_packaging_peso"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Gross weight</label>
+            <input type="text"  placeholder="Gross weight" value="{{valorNull data.embalaje.control_packaging_peso_bruto}}" onchange="uploadDatos('control_packaging_peso_bruto','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_packaging_peso_bruto"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Net weight</label>
+            <input type="text"  placeholder="Net weight" value="{{valorNull data.embalaje.control_packaging_peso_neto}}" onchange="uploadDatos('control_packaging_peso_neto','{{control_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_packaging_peso_neto"></i>
+        </div>
+
+        
+    </div>
+
+    <div class="contentDataTextarea">
+        <p class="contentDataContainerTitle">Notes</p>
+        <div class="contentDataContainer">
+            <textarea placeholder="Notes.." onchange="uploadDatos('control_observaciones','{{control_id}}', this.value)">{{valorNull data.notas.control_observaciones}}</textarea>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_observaciones"></i>
+        </div>
+    </div>
+            
+</div>

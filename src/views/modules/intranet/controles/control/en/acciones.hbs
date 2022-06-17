@@ -1,0 +1,89 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+    <div id="container-acciones">
+
+        <!--div id="options-container">
+            <div id="options-ct">
+                <button onclick="uploadDatosNew('{{control_id}}', 'txt')">Insertar Texto</button>
+                <button onclick="openNew('img')">Insertar Imagen</button>
+            </div>
+        
+            <div class="acciones-nueva-type-ct" id="acciones-nueva-img">
+                <hr>
+                <form action="/intranet/control/{{control_id}}/accion/add/img" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="file" id="acciones-nueva-img-input">
+                    <div id="acciones-nueva-pre-img-ct"></div>
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <button type="submit" class="acciones-nueva-type-submit">Guardar</button>
+                </form>
+            </div>
+           
+        </div-->
+
+        <div id="acciones-container" class="container-width-min">
+            {{#each data.acciones.imagenesRef0}}
+                <div class="accion-ct">
+                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_valoracion_id"></i>
+                    <img src='https://fotos.justq.eu/{{foto_control_accion_foto}}' onclick="showImgAcciones('{{foto_control_accion_foto}}')"/>
+
+                    <div class="ct-edit-accion">
+                        <button class="btn-edit-accion-delete" onclick="deleteAccion('{{foto_control_accion_control_id}}', '{{foto_control_accion_id}}', 'img')"><i class="bi bi-trash"></i></button>
+                    </div>
+                </div>
+            {{/each}}
+
+            {{#each data.acciones}}
+                <div class="accion-ct">
+                    <form action="/intranet/control/en/{{control_accion_control_id}}/accion/mod/{{control_accion_id}}" method="post">
+                        <i class="bi bi-check-lg tick-confirm" id="tick-confirm-text_{{control_accion_id}}"></i>
+                        <!--<textarea  class="accion-textarea" id='{{control_accion_id}}' maxlength="10000" onchange="uploadDatos({{control_accion_id}},'{{control_accion_control_id}}', this.value, 'text')">{{replacebr control_accion_nombre}}</textarea>-->
+                        <textarea name="value" class="accion-textarea" id='accion-textarea-{{control_accion_id}}' placeholder="Write a comment.." maxlength="10000">{{control_accion_nombre_en}}</textarea>
+                        <input type="hidden" class="csrf_token_input" name="_csrf" value="{{csrfToken}}">
+
+                        <div class="ct-edit-accion">
+                            <button type="button" class="btn-edit-accion-delete" onclick="deleteAccion('{{control_accion_control_id}}', '{{control_accion_id}}', 'txt')"><i class="bi bi-trash"></i></button>
+                            <button type="submit" class="btn-edit-accion-edit" id="submit-accion-text-{{control_accion_id}}"><i class="bi bi-cloud-upload"></i> Save</button>
+                        </div>
+                    </form>
+                </div>
+
+                    {{#each imagenes}}
+                        <div class="accion-ct">
+                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_valoracion_id"></i>
+                            <img src='https://fotos.justq.eu/{{foto_control_accion_foto}}' onclick="showImgAcciones('{{foto_control_accion_foto}}')"/>
+
+                            <div class="ct-edit-accion">
+                                <button class="btn-edit-accion-delete" onclick="deleteAccion('{{foto_control_accion_control_id}}', '{{foto_control_accion_id}}', 'img')"><i class="bi bi-trash"></i></button>
+                            </div> 
+                        </div>
+                    {{/each}}
+            {{/each}}
+
+        </div>
+
+    </div>
+
+    <!--div id="options-container"-->
+        <div id="options-ct">
+            <button onclick="uploadDatosNew('{{control_id}}', 'txt')">Insert text</button>
+            <button onclick="openNew('img')">Insert image</button>
+        </div>
+    
+        <div class="acciones-nueva-type-ct" id="acciones-nueva-img">
+            <hr>
+            <form action="/intranet/control/en/{{control_id}}/accion/add/img" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="acciones-nueva-img-input">
+                <div id="acciones-nueva-pre-img-ct"></div>
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <button type="submit" class="acciones-nueva-type-submit">Save</button>
+            </form>
+        </div>
+        
+    <!--/div-->
+
+    <div id="show-img-acciones-ct">
+        <button id="show-img-acciones-btn" onclick="closeImgAcciones()"><i class="bi bi-x-square"></i></button>
+        <img id="show-img-acciones" src="">
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="container-width-content content-subheader">
+    <p id="container-titulo">{{data.control_tipo_nombre}}</p>
+    <p id="back-main"><a href="/intranet/administracion/controles"><i class="bi bi-arrow-left"></i> Volver a tipos de control</a></p>
+
+    {{#each data.grupos_control}}
+        <div class="contentData">
+            <p class="contentDataContainerTitle">Editar grupo de control: {{grupo_control_nombre}}</p>
+            <table id="table-data-tc">
+                <thead>
+                    <tr>
+                        <td>Modificar nombre (español)</td>
+                        <td>Modificar nombre (inglés)</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" value="{{grupo_control_nombre}}" placeholder="{{grupo_control_nombre}}" onchange="modDatos('{{grupo_control_id}}','{{grupo_control_tipo_id}}', this.value, 'gc', 'es')">
+                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-gc-{{grupo_control_id}}-es"></i>
+                        </td>
+                        <td>
+                            <input type="text" value="{{grupo_control_nombre_en}}" placeholder="{{grupo_control_nombre_en}}" onchange="modDatos('{{grupo_control_id}}','{{grupo_control_tipo_id}}', this.value, 'gc', 'en')">
+                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-gc-{{grupo_control_id}}-en"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="contentDataContainerTitle">Editar puntos de control</p>
+            <table id="table-data-tc">
+                <thead>
+                    <tr>
+                        <td>Modificar nombre (español)</td>
+                        <td>Modificar nombre (inglés)</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each puntos_control}}
+                    <tr>
+                        <td>
+                            <input type="text" value="{{valorNull punto_control_nombre}}" placeholder="{{punto_control_nombre}}" onchange="modDatos('{{punto_control_id}}','{{punto_control_tipo_id}}', this.value, 'pc', 'es')">
+                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-pc-{{punto_control_id}}-es"></i>
+                        </td>
+                        <td>
+                            <input type="text" value="{{valorNull punto_control_nombre_en}}" placeholder="{{punto_control_nombre_en}}" onchange="modDatos('{{punto_control_id}}','{{punto_control_tipo_id}}', this.value, 'pc', 'en')">
+                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-pc-{{punto_control_id}}-en"></i>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Nuevo punto de control" id="add_pc_es_{{grupo_control_id}}">
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Nuevo punto de control" id="add_pc_en_{{grupo_control_id}}">
+                        </td>
+                        <td>
+                            <button class="button-add" onclick="addPuntoControl('{{grupo_control_id}}', '{{grupo_control_tipo_id}}')"><i class="bi bi-cloud-upload"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    {{/each}}
+    <button class="button-add" onclick="addGrupoControl()"><i class="bi bi-plus"></i> Añadir grupo de control</button>
+
+    <div class="popup-form" id="formGrupoControl">
+        <form id="options-ct" method="POST" action="/intranet/administracion/controles/tipo-control/{{data.control_tipo_id}}/grupos-control/nuevo/">
+            <p class="contentDataContainerTitle">Nuevo grupo de control</p>
+            
+            <div class="contentDataContainer">
+                <label>Nombre (español)</label>
+                <input id="grupo_control_es" name="grupo_control_es" type="text" required>
+            </div>
+            <div class="contentDataContainer">
+                <label>Nombre (ingles)</label>
+                <input id="grupo_control_en" name="grupo_control_en" type="text" required>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">     
+            <input type="hidden" name="tipo_control" value="{{data.control_tipo_id}}">     
+
+            <button type="submit">Guardar</button>
+            <button type="button" onclick="closeForm()">Cerrar</button>
+        </form>
+    </div>
+</div>

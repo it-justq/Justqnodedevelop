@@ -1,0 +1,53 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+
+
+    <div class="container-width-min">
+        <p id="container-titulo">Panel de control {{#if (esCliente user.rol)}}{{else}}<a
+                href="/intranet/nuevo/control">Nuevo control <i class="bi bi-plus-circle"></i></a>{{/if}}</p>
+        <p id="inicio-saludo">Hola, {{user.nombre}}</p>
+
+        
+            {{#if (esCliente user.rol)}}
+            <div id="inicio-stats-container-cliente">
+            <a href='/clientes/controles' class="container-inicio-cliente">
+                <p class="container-inicio-cliente-title">Ver mis informes de inspección</p>
+                <i class="bi bi-file-earmark-text-fill container-inicio-cliente-icon"></i>
+            </a>
+
+            <a href='/clientes/envios' class="container-inicio-cliente">
+                <p class="container-inicio-cliente-title">Ver mis envíos</p>
+                <i class="bi bi-truck container-inicio-cliente-icon"></i>
+            </a>
+
+            <a href='/clientes/nuevo/envio' class="container-inicio-cliente">
+                <p class="container-inicio-cliente-title">Dar de alta nuevo envío</p>
+                <i class="bi bi-plus-circle-fill container-inicio-cliente-icon"></i>
+            </a>
+
+            <!--<a href='https://cloud.justq.eu' class="container-inicio-cliente">
+                <p class="container-inicio-cliente-title">Solicitar nueva orden de inspección</p>
+                <i class="bi bi-file-earmark-plus-fill container-inicio-cliente-icon"></i>
+            </a>-->
+            </div>
+
+            {{else}}
+            <div id="inicio-stats-container">
+            <div class="inicio-stat" onClick="goFinalizados()">
+                <p class="inicio-stat-title">Controles finalizados</p>
+                <div class="inicio-stat-circle"><label>{{data.controles_activos}}</label></div>
+            </div>
+            <div class="inicio-stat" onClick="goPendientes()">
+                <p class="inicio-stat-title">Controles pendientes</p>
+                <div class="inicio-stat-circle"><label>{{data.controles_no_activos}}</label></div>
+            </div>
+            <div class="inicio-stats-container">
+                <a class="inicio-stats-container-btn" href='/intranet/controles'>Ver todos mis controles</a>
+            </div>
+            {{/if}}
+        </div>
+
+    </div>
+
+</div>

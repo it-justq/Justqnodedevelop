@@ -1,0 +1,66 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+
+    <p id="container-titulo">{{data.usuario.usuario_nombre}}</p>
+
+    <table id="table-data-perfil">
+        <thead>
+            <tr>
+                <td colspan="3">Your user info</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-data-perfil-text">Username</td>
+                <td><input type="text" id="usuario-acceso" value="{{data.usuario.usuario_user}}"></td>
+                <td><button onclick="modPerfil({{data.usuario.usuario_id}}, 'usuario-acceso')"><i class="bi bi-cloud-upload"></i></button></td>
+            </tr>
+            <tr>
+                <td class="table-data-perfil-text">Password</td>
+                <td><input id="contraseña" type="password"></td>
+                <td><button  onclick="modPerfil({{data.usuario.usuario_id}}, 'contraseña')"><i class="bi bi-cloud-upload"></i></button></td>
+            </tr>
+            <tr>
+                <td class="table-data-perfil-text">Name</td>
+                <td><input id="nombre" type="text" value="{{data.usuario.usuario_nombre}}"></td>
+                <td><button onclick="modUser({{data.usuario.usuario_id}}, 'nombre')"><i class="bi bi-cloud-upload"></i></button></td>
+            </tr>
+            {{#unless (esCliente user.rol)}}
+                <tr>
+                    <td class="table-data-perfil-text">Surname 1</td>
+                    <td><input id="apellido1" type="text" value="{{data.usuario.usuario_apellido_1}}"></td>
+                    <td><button  onclick="modUser({{data.usuario.usuario_id}}, 'apellido1')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-perfil-text">Surname 2</td>
+                    <td><input id="apellido2" type="text" value="{{data.usuario.usuario_apellido_2}}"></td>
+                    <td><button  onclick="modUser({{data.usuario.usuario_id}}, 'apellido2')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+            {{/unless}}
+            <tr>
+                <td class="table-data-perfil-text">E-mail</td>
+                <td><input id="email" type="text" value="{{data.usuario.usuario_email}}"></td>
+                <td><button  onclick="modPerfil({{data.usuario.usuario_id}}, 'email')"><i class="bi bi-cloud-upload"></i></button></td>
+            </tr>
+            <tr>
+                <td class="table-data-perfil-text">Phone number</td>
+                <td><input id="telefono" type="phone" value="{{data.usuario.usuario_telefono}}"></td>
+                <td><button  onclick="modPerfil({{data.usuario.usuario_id}}, 'telefono')"><i class="bi bi-cloud-upload"></i></button></td>
+            </tr>
+            <tr>
+                <td class="table-data-perfil-text">Language</td>
+                <td>
+                    <select id="idioma">
+                        <option value="{{data.usuario.usuario_idioma_id}}">{{data.usuario.usuario_idioma_nombre}}</option>
+                        <option value="0">No language</option>
+                        <option value="1">Español</option>
+                        <option value="2">English</option>
+                    </select>
+                </td>
+                <td  onclick="modPerfil({{data.usuario.usuario_id}}, 'idioma')"><button><i class="bi bi-cloud-upload"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

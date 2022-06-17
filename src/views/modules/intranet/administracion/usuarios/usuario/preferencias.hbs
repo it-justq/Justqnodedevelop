@@ -1,0 +1,124 @@
+<div class="container-width-content">
+
+        <p id="container-titulo">Preferencias del cliente</p>
+
+
+        <p id="back-main"><a href="/intranet/administracion/usuarios/usuario/{{data.cliente_usuario_id}}"><i class="bi bi-arrow-left"></i> Volver al panel del usuario</a></p>
+
+        <table id="table-data-user">
+            <thead>
+                <tr>
+                    <td colspan="3">Preferencias del cliente {{data.usuario.usuario_nombre}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-data-user-text">Nombre del cliente</td>
+                    <td><input type="text" id="cliente_nombre" value="{{data.cliente_nombre}}"></td>
+                    <td><button onclick="modUser({{data.cliente_id}}, 'cliente_nombre')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">Idioma</td>
+                    <td>
+                        <select id="cliente_idioma_id">
+                            <option value="{{data.cliente_idioma_id}}">{{data.cliente_idioma_nombre}}</option>
+                            <option value="0">Sin idioma</option>
+                            <option value="1">Español</option>
+                            <option value="2">Inglés</option>
+                        </select>
+                    </td>
+                    <td><button  onclick="modUser({{data.cliente_id}}, 'cliente_idioma_id')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">País</td>
+                    <td>
+                        <select id="cliente_pais_id">
+                            <option value="{{data.cliente_pais_id}}">{{data.cliente_pais_nombre}}</option>
+                            <option value="0">Sin país</option>
+                        </select>
+                    </td>
+                    <td><button onclick="modUser({{data.cliente_id}}, 'cliente_pais_id')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+
+                <tr>
+                    <td class="table-data-user-text">Logo activo</td>
+                    <td>
+                        <select id="cliente_logo_activo">
+                            <option value="{{data.cliente_logo_activo_id}}">{{data.cliente_logo_activo_nombre}}</option>
+                            <option value="0">No activo</option>
+                            <option value="1">Activo</option>
+                        </select>
+                    </td>
+                    <td><button  onclick="modUser({{data.cliente_id}}, 'cliente_logo_activo')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+
+                <tr>
+                    <td class="table-data-user-text">Encabezado personalizado</td>
+                    <td>
+                        <select id="cliente_encabezado_personalizado">
+                            <option value="{{data.cliente_encabezado_personalizado}}">{{data.cliente_encabezado_personalizado_nombre}}</option>
+                            <option value="0">No activo</option>
+                            <option value="1">Activo</option>
+                        </select>
+                    </td>
+                    <td><button  onclick="modUser({{data.cliente_id}}, 'cliente_encabezado_personalizado')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+
+                <tr>
+                    <td class="table-data-user-text">Firma de JustQ activa</td>
+                    <td>
+                        <select id="cliente_firma_justq">
+                            <option value="{{data.cliente_firma_justq}}">{{data.cliente_firma_justq_nombre}}</option>
+                            <option value="0">No activo</option>
+                            <option value="1">Activo</option>
+                        </select>
+                    </td>
+                    <td><button  onclick="modUser({{data.cliente_id}}, 'cliente_firma_justq')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+
+                <tr>
+                    <form>
+                    <td class="table-data-user-text" style="background-color: inherit;"><img style="max-width: 200px;" src="data:image/png;base64, {{data.cliente_logo}}"></td>
+                    <td><input type="file" id="cliente-nombre"></td>
+                    <td><button type="submit"><i class="bi bi-cloud-upload"></i></button></td>
+                    </form>
+                </tr> 
+
+            </tbody>
+        </table>
+
+        <table id="table-data-user">
+            <thead>
+                <tr>
+                    <td colspan="3">Listado de direcciones de correo</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data.cliente_email}}   
+                <tr>
+                    <td></td>
+                    <td><input type="text" id="mod_email_{{email_contacto_id}}" value="{{email_contacto_email}}"></td>
+                    <td><button  onclick="modUser({{email_contacto_cliente_id}}, 'mod_email_{{email_contacto_id}}')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td class="table-data-user-text">Nuevo email</td>
+                    <td><input type="text" id="add_email"></td>
+                    <td><button  onclick="modUser({{data.cliente_id}}, 'add_email')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+
+                <tr>
+                    <td class="table-data-user-text">Envio de email</td>
+                    <td>
+                        <select id="cliente_control_enviar">
+                            <option value="{{data.cliente_control_enviar}}">{{#if data.cliente_control_enviar}}Activo{{else}}No activo{{/if}}</option>
+                            <option value="0">No activo</option>
+                            <option value="1">Activo</option>
+                        </select>
+                    </td>
+                    <td><button  onclick="modUser({{data.cliente_id}}, 'cliente_control_enviar')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+
+</div>

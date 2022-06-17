@@ -1,0 +1,117 @@
+.formData{
+	width: 98%;
+    height: auto;
+    margin: 0 auto 20px auto;
+	display: flex;
+	vertical-align: top; 
+    justify-content: center;
+    align-items: center;
+}
+.formData:hover{
+	background-color: #3f8e8117;
+}
+
+.formDataContainer{
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+}
+
+.formDataContainer input{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    border: 1px solid #aaaaaa;
+	margin: 0;
+	padding-left: 5px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+h3, h4{
+    padding-left: 10px;
+}
+
+#precarga{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: block !important;
+    border-radius: 20px;
+    padding: 0;
+    height: 43px;
+    outline: none;
+    border: 1px solid #aaaaaa;
+	margin: 0;
+	
+}
+.formDataContainer label{
+    min-height: 20px;
+	padding: 11px;
+	background-color: #3f8e81;
+    border: 1px solid #fff;
+    color: white;
+    max-width: 50%;
+	min-width: 30%;
+    text-align: left;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+.formDataContainer select{
+    width: 100%;
+    height: 43px;
+    outline: none;
+    border: none;
+    border: 1px solid #aaaaaa;
+	margin: 0;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+.formData button{
+    width: 200px;
+    background-color: #2f6a60;
+    border: 0;
+    padding: 10px 0 10px 0;
+    margin: 20px auto 0 auto;
+    display: inline-block;
+    color: #fff
+    
+}
+
+#paso-2, #paso-3{
+    display: none;
+}
+
+#datos_terrestre, #datos_maritimo, #datos_aereo{
+    display: none;
+}
+
+
+
+
+@media only screen and (min-width: 1200px) {
+	.formData{
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.formDataContainer{
+		display: inline-block;
+		margin-bottom: 15px;
+	}
+	.formDataContainer label, select, input{
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+		display: block !important;
+		border-radius: 20px;
+		padding: 0;
+	}
+	.formDataContainer label{
+		padding: 10px 0;
+		text-indent: 10px;
+		
+	}
+}

@@ -1,0 +1,302 @@
+
+.container-reclamacion{
+    display: block;
+    width: 20%;
+    height: 100px;
+    text-align: center;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 130px;
+    transition: .5s;
+    border: 1px solid #2e685e;
+    background-color: #3f8e8125;
+    padding: 20px 0 20px 0;
+    box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    text-decoration: none;
+}
+.container-reclamacion:hover {
+    background-color:#3f8e81d0;
+    cursor: pointer;
+}
+.container-reclamacion-title{
+    width: 100%;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+
+}
+.container-reclamacion-icon{
+    width: 100%;
+    margin: 0;
+    font-size: 40px;
+    color: #4c5856;
+}
+.formData{
+	width: 98%;
+    height: auto;
+    margin: 0 auto 20px auto;
+	display: flex;
+	vertical-align: top; 
+    justify-content: center;
+    align-items: center;
+}
+.formData:hover{
+	background-color: #3f8e8117;
+}
+
+.formDataContainer{
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+}
+
+.formDataContainer input{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    border: 1px solid #aaaaaa;
+	margin: 0;
+	padding-left: 5px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+h3, h4{
+    padding-left: 10px;
+}
+
+#precarga{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: block !important;
+    border-radius: 20px;
+    padding: 0;
+    height: 43px;
+    outline: none;
+    border: 1px solid #aaaaaa;
+	margin: 0;
+	
+}
+.formDataContainer label{
+    min-height: 20px;
+	padding: 11px;
+	background-color: #3f8e81;
+    border: 1px solid #fff;
+    color: white;
+    max-width: 50%;
+	min-width: 30%;
+    text-align: left;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+.formDataContainer select{
+    width: 100%;
+    height: 43px;
+    outline: none;
+    border: none;
+    border: 1px solid #aaaaaa;
+	margin: 0;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+.formData button{
+    width: 200px;
+    background-color: #2f6a60;
+    border: 0;
+    padding: 10px 0 10px 0;
+    margin: 20px auto 0 auto;
+    display: inline-block;
+    color: #fff
+    
+}
+
+#paso-2, #paso-3{
+    display: none;
+}
+
+
+
+
+@media only screen and (min-width: 1200px) {
+	.formData{
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.formDataContainer{
+		display: inline-block;
+		margin-bottom: 15px;
+	}
+	.formDataContainer label, select, input{
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+		display: block !important;
+		border-radius: 20px;
+		padding: 0;
+	}
+	.formDataContainer label{
+		padding: 10px 0;
+		text-indent: 10px;
+		
+	}
+}
+#form-reclamacion{
+    display: none;
+    margin-top: 130px;
+}
+
+
+#inicio-saludo{
+    color: #7e7e7e;
+    margin: 10px 0 0 0;
+    padding: 0;
+    font-size: 18px;
+    width: fit-content;
+    width: moz-fit-content;
+}
+
+#inicio-stats-container{
+    width: 90%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+}
+
+#inicio-stats-container-cliente{
+    height: auto;
+    display: block;
+    margin-top: 200px;
+    margin-left: 50px;
+}
+.inicio-stat{
+    width: 40%;
+    height: auto;
+    display: inline-block;
+    background-color: #fafafa;
+    border-radius: 30px;
+    padding: 10px 0 10px 0;
+    margin: 0 10px 0 10px;
+    box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+}
+.inicio-stats-container-btn{
+    display: block;
+    width: 175px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 35%;
+    margin-top: 40px;
+    background-color: #3f7c6e;
+    padding: 5px 10px 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+}
+.inicio-stat-title{
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.inicio-stat-circle{
+    display: table;
+    margin: 10px auto 0 auto;
+    border: 2px solid #2f6a60;
+    height:100px;
+    width:100px;
+    -moz-border-radius:50px;
+    -webkit-border-radius:50px;
+    border-radius:50px;
+}
+.inicio-stat-circle label{
+    display: table-cell;
+	vertical-align: middle;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #000
+}
+.inicio-stat:hover{
+    background-color:#3f8e8125;
+    cursor: pointer;
+}
+.inicio-stat-circle label:hover{
+    cursor: pointer;
+}
+
+.container-inicio-cliente{
+    display: inline-block;
+    width: 30%;
+    height: 120px;
+    text-align: center;
+    border-radius: 30px;
+    margin: 0 10px 0 10px;
+    transition: .5s;
+    border: 1px solid #2e685e;
+    background-color: #3f8e8125;
+    padding: 20px 0 20px 0;
+    margin: 0 10px 0 10px;
+    box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    text-decoration: none;
+}
+.container-inicio-cliente:hover {
+    background-color:#3f8e81d0;
+    cursor: pointer;
+}
+.container-inicio-cliente-title{
+    width: 100%;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+
+}
+.container-inicio-cliente-icon{
+    width: 100%;
+    margin: 0;
+    font-size: 40px;
+    color: #4c5856;
+}
+
+
+@media (max-width:806px) {
+    .inicio-stat {
+        width: 49.5%;
+        margin-bottom: 10px;
+    }
+    .container-inicio-cliente {
+        width: 49.5%;
+        margin-bottom: 10px;
+    }
+    #inicio-stats-container a{
+        margin-left: 12%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .inicio-stat {
+        width: 85%;
+    }
+    .container-inicio-cliente {
+        width: 80%;
+    }
+    #inicio-stats-container a{
+        margin-left: 20%;
+    }
+}

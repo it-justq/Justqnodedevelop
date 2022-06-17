@@ -1,0 +1,36 @@
+<div class="container-width-content">
+    <p id="container-titulo">User permissions</p>
+
+        <p id="back-main"><a href="/intranet/administracion/usuarios/en/usuario/{{data.usuario.usuario_id}}"><i class="bi bi-arrow-left"></i> Back to user panel</a></p>
+
+        
+         <table id="table-data-permisos">
+            <thead>
+                <tr>
+                    <td colspan="3">{{data.usuario.usuario_nombre}} permissions</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-data-permisos-text"><strong>Grant permissions</strong></td>
+                    <td>
+                        <select id="permiso">
+                            <option>Select a permission</option>
+                            {{#each data.permisos}}
+                            <option value="{{rol_permisos_id}}"><strong></strong>{{rol_permisos_nombre}} ({{rol_permisos_descripcion}})</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <input type="hidden" name="usuario_id" value="{{data.usuario.usuario_id}}" id = "idUsuario">
+                    <td><button onclick="modUser({{data.usuario.usuario_id}}, 'permiso')" id="table-data-permisos-btn-add"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                {{#each data.persmisos_asociados}}
+                <tr>
+                    <td class="table-data-permisos-text">{{rol_permisos_nombre}}</td>
+                    <td>{{rol_permisos_descripcion}}</td>
+                    <td><button onclick="delPermiso('{{usuario_rol_permisos_id}}', 'idUsuario')" id="table-data-permisos-btn-del"><i class="bi bi-trash"></i></button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+</div>

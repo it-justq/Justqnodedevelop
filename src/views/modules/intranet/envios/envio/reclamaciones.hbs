@@ -1,0 +1,61 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+{{#if reclamacion}}
+    <div id="inicio-stats-container-cliente">
+            <a href='/downloads/certificado_de_inspeccion.pdf' class="container-inicio-cliente">
+                <p class="container-inicio-cliente-title">Reclamación del cliente</p>
+                <i class="bi bi-file-earmark-text-fill container-inicio-cliente-icon"></i>
+            </a>
+
+            <a href='/downloads/pericial.pdf' class="container-inicio-cliente">
+                <p class="container-inicio-cliente-title">Pericial</p>
+                <i class="bi bi-file-earmark-text-fill container-inicio-cliente-icon"></i>
+            </a>
+
+            <a href='/downloads/soporte_juridico.pdf' class="container-inicio-cliente">
+                <p class="container-inicio-cliente-title">Soporte Jurídico</p>
+                <i class="bi bi-file-earmark-text-fill container-inicio-cliente-icon"></i>
+            </a>
+
+            
+    </div>
+{{else}}
+    <div class="container-width-min">
+            <div onclick="showForm()" class="container-reclamacion" id="btn-reclamacion">
+                <p class="container-reclamacion-title">Reclamar el envío</p>
+                <i class="bi bi-exclamation-square-fill container-reclamacion-icon"></i>
+            </div>
+        <div id="form-reclamacion">
+            <h3>Datos de la reclamación</h3>
+            <form class="formData"  >
+        <div class="form-body">
+            <div class="active">
+                <div class="formDataContainer">
+                    <label>Fecha de reclamación</label>
+                    <input name="reclamacion_fecha" type="date" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>Motivo</label>
+                    <input name="motivo" type="text" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>% Reclamado</label>
+                    <input name="reclamado" type="number" required>
+                </div>
+
+                <div class="formDataContainer">
+                    <label>Subir Documentación</label>
+                    <input name="docs" type="file" required>
+                </div>
+                    
+                   <!-- <input type="hidden" name="_csrf" value="{{csrfToken}}"-->
+                    <button>Enviar Datos</button>
+                </div>
+           
+        </div>
+    </form>
+        </div>
+        
+{{/if}}
+    </div> 

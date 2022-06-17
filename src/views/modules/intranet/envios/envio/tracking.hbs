@@ -1,0 +1,14 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container" id="frame">
+        {{#if tk}}
+        <iframe class="iframe" id="frame" src={{url}} frameborder="0"></iframe>
+        {{else}}
+         <div class="container-width-min">
+            <div onclick="showForm()" class="container-tracking" id="btn-tracking">
+                <p class="container-tracking-title">Seguimiento no disponible</p>
+                <i class="bi bi-exclamation-square-fill container-tracking-icon"></i>
+            </div>
+        {{/if}}
+
+</div>

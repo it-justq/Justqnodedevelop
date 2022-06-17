@@ -1,0 +1,714 @@
+
+<!--DETALLES DEL CONTROL--->    
+<div style="width: auto;" class="mx-auto">
+
+    <div style="width: 74%; display: inline-flex;">
+
+          <table id="table" style="width: 100%;">
+            <tr id="tr">
+              <th id="th">Nº Control</th>
+                <td id="td">{{DATA.datos.control_codigo}}</td>
+              <th id="th">Date</th>
+                <td id="td">{{valorNull DATA.datos.control_fecha}}</td>
+              <th id="th">Country</th>
+                <td id="td">{{valorNull DATA.datos.control_lugar}}</td>
+            </tr>
+            
+            <tr id="tr">
+              <th id="th">Place of control</th>
+                <td id="td">{{valorNull DATA.datos.control_plataforma_nombre}}</td>
+              <th id="th">Client</th>
+                <td id="td" colspan="3">{{valorNull DATA.datos.control_cliente_nombre}}</td>
+            </tr>
+
+            <tr id="tr">
+              <th id ="th">Surveyor</th>
+                <td id="td">{{DATA.datos.control_tecnico_nombre}}</td>
+              <th id="th">Reference</th>
+                <td id="td" colspan="3">{{valorNull DATA.datos.control_referencia}}</td>
+            </tr>
+
+            <tr id="tr">
+              <th id="th" colspan="6" style="font-size:12px;">Comment</th>
+            </tr>
+            <tr id="tr">
+              <td id="td" colspan="6">{{{valorNull DATA.datos.control_notas}}}</td>
+            </tr>
+          </table>
+
+    </div>
+
+    <div style="width: 25%; display: inline-flex;">
+
+          <table id="table" style="width: 100%;">
+            <tr id='tr'>
+              <th id="th" colspan="2" style="text-align:center; font-size:12px; background-color:#e6f0ff;">Survey summary</th>
+            </tr>
+              
+              {{#each DATA.grupos_control.content.grupos_control}}{{#if mostrar}}
+                {{#if nombre_activo}}
+                <tr id='tr'>
+                    <th id='th' style='padding:10px;'>{{grupo_control_nombre}}</th>
+                    {{#if (empty valoracion)}}
+                        {{#each valoracion}}
+                          <td id='td' style='text-align:center; padding:10px; background-color: #{{color_codigo}};'></td>
+                        {{else}}
+                          <td id='td'></td>
+                        {{/each}}
+
+                    {{/if}}
+                </tr>
+                {{/if}}
+              {{/if}}{{/each}}
+
+              <tr id='tr'>
+                <th id='th' style="font-size:12px; text-align:center; padding:10px;">Conclusion</th>
+                  <td id='td' style='background-color: #{{DATA.datos.control_valoracion_color}}'></td>
+                  
+              </tr>
+          </table>
+
+    </div>
+
+<div>
+
+
+
+
+<div style="background-color:#b3d1ff; width:100%; height:30px; display:block; margin-top: 50px;">
+  <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px; font-family: Arial;">Shipping information</p>
+</div>
+
+
+<div style="margin-top:30px; width: auto; padding-left: 15px;" class="mx-auto">
+
+    <div style="width: 33%; display: inline-flex;">
+
+            <table id='table' style="width: 100%;">
+                <tr id="tr">
+                  <th id="th" colspan="2" style="text-align:center; font-size:12px; background-color:#e6f0ff;">Shipping details</th>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Date of arrival</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_expedicion_fecha_llegada}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Date of delivery</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_expedicion_fecha_salida}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Container</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_expedicion_contenedor}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Vessel</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_expedicion_placa}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Client</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_expedicion_puc_proveedor}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>From</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_expedicion_pais_origen_nombre}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>to</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_expedicion_pais_destino_nombre}}</td>
+                </tr>
+            </table>
+    </div>
+
+    <div style="width: 33%; display: inline-flex;">
+           <table id='table' style="width: 100%;">
+                <tr id="tr">
+                  <th id="th" colspan="2" style="text-align:center; font-size:12px; background-color:#e6f0ff;">Goods</th>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Type of fruit</th>
+                  <td id='td' style='padding:10px;'>{{DATA.datos.control_producto_familia_nombre}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Variety</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_producto_variedad_nombre}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Size</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_producto_calibre}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Packaging</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_producto_confeccion}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Brand</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_producto_marca}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Lot number</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_producto_lote}}</td>
+                </tr>
+                <tr id='tr'>
+                  <th id='th' style='padding:10px;'>Packaging date</th>
+                  <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_producto_fecha_confeccion}}</td>
+                </tr>
+            </table>
+    </div>
+
+    <div style="width: 32%; display: inline-flex;">
+            <table id='table' style="width: 100%;">
+                  <tr id="tr">
+                    <th id="th" colspan="2" style="text-align:center; font-size:12px; background-color:#e6f0ff;">Packaging</th>
+                  </tr>
+                  <tr id='tr'>
+                    <th id='th' style='padding:10px;'>Packaging</th>
+                    <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_producto_tipo_confeccion_nombre}}</td>
+                  </tr>
+                  <tr id='tr'>
+                    <th id='th' style='padding:10px;'>Net weight</th>
+                    <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_packaging_peso}}</td>
+                  </tr>
+                  <tr id='tr'>
+                    <th id='th' style='padding:10px;'>Pallets</th>
+                    <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_packaging_pallets}}</td>
+                  </tr>
+                  <tr id='tr'>
+                    <th id='th' style='padding:10px;'>Boxes</th>
+                    <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_packaging_cajas_pallet}}</td>
+                  </tr>
+                  <tr id='tr'>
+                    <th id='th' style='padding:10px;'>Gross weight</th>
+                    <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_packaging_peso_bruto}}</td>
+                  </tr>
+                  <tr id='tr'>
+                    <th id='th' style='padding:10px;'>Net weight</th>
+                    <td id='td' style='padding:10px;'>{{valorNull DATA.datos.control_packaging_peso_neto}}</td>
+                  </tr>
+            </table>
+    </div>
+</div>
+
+
+{{#if DATA.grupos_control.content.mostrar}}
+<div class="page-n">
+
+
+            <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+                <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Quality inspection</p>
+            </div>
+
+            <div style="width: auto; padding-left: 12px;">
+
+                {{#each DATA.grupos_control.content.grupos_control}}{{#if mostrar}}
+                  <div style="width: 48%; display: inline-flex; margin-top: 30px; margin-right: 10px;">
+                    <table id='table' style='width: 100%;'>
+
+                      {{#if nombre_activo}}
+                        <tr id='tr'>
+                          <th id='th' style='font-size:12px; background-color:#e6f0ff;'>{{grupo_control_nombre}}</th>
+                          <th id='th' style='background-color: #e6f0ff;'>Result</th>
+                            {{#each valoracion}}
+                              <td id='td' style='background-color:#{{color_codigo}};'></td>
+                            {{else}}
+                              <td id='td'></td>
+                            {{/each}}
+                        </tr>
+                      {{/if}}
+                      
+                        {{#each puntos_control}}
+                          {{#if (pdf_value_mostrar control_punto_control_valor)}}
+                            <tr id='tr'>   
+                              <th id='th'>{{punto_control_nombre}}</th>
+                              <td id='td'>{{valorNull control_punto_control_valor}}</td>
+                                {{#each valoracion}}
+                                  <td id='td' style='background-color:#{{color_codigo}};'></td>
+                                {{else}}
+                                  <td id='td'></td>
+                                {{/each}}
+                            </tr>
+                          {{/if}}
+                        {{/each}}
+
+                        {{#each puntos_control_añadidos}}
+                          {{#if (pdf_value_mostrar control_punto_control_añadidos_valor)}}
+                            <tr id='tr'>   
+                              <th id='th'>{{valorNull control_punto_control_añadidos_nombre}}</th>
+                              <td id='td'>{{valorNull control_punto_control_añadidos_valor}}</td>
+                                {{#each valoracion}}
+                                  <td id='td' style='background-color:#{{color_codigo}};'></td>
+                                {{else}}
+                                  <td id='td'></td>
+                                {{/each}}
+                            </tr>      
+                          {{/if}}                  
+                        {{/each}}
+
+                        <!--<tr id='tr'><td id='td'>Total</td><td id='td'>gdfgdfg</td><td id='td'></td></tr>-->
+                    </table>
+                  </div>
+                {{/if}}{{/each}}  
+
+            </div>       
+</div>
+{{/if}}
+
+
+{{#if (esPrecarga DATA.datos.control_tipo_id)}}
+
+<div class="page-n">
+
+            <div style="width: 100%; page-break-before: auto;">
+
+                {{#each DATA.precarga.data}}
+                <div style="width: 100%; display: block; margin-bottom: 5px; display: block;">
+                  <table id='table' style='width: 100%;'>
+                      <tr id='tr'>
+                        <th id='th' style='font-size:12px; background-color:#d9d9d9;' colspan="8">{{grupo_control_nombre}}</th>
+                       
+                      </tr>
+
+
+                      {{#each puntos_control}}
+                      {{#if (precargaTipoDato punto_control_tipo_dato_id)}}
+                        <tr id='tr'>   
+                          <th id='th'>{{punto_control_nombre}}</th>
+
+                          {{#each agrupacion}}
+
+                            <th id='th'>{{punto_control_agrupacion_nombre}}</th>
+                            <td id='td'>{{valorNull control_punto_control_agrupacion_valor}}</td>                           
+
+                          {{/each}}
+
+                        </tr>                      
+                      {{else}}
+                        <tr id='tr'>   
+                          <th id='th'>{{punto_control_nombre}}</th>
+                          <td id='td'>{{valorNull control_punto_control_valor}}</td>
+                        </tr>
+                      {{/if}}
+                      {{/each}}
+                  </table>
+                </div>
+                {{/each}}  
+
+            </div>       
+</div>
+{{/if}}
+
+
+
+{{#if DATA.pesos.content.mostrar}}
+<div class="page-n">
+
+            <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+                <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Weights</p>
+            </div>
+
+            <table  style='width: 100%;  margin-top: 20px;'>
+              
+                <tr id='tr'>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Type of unit</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Weight</th>
+                </tr>
+
+
+                {{#each DATA.pesos.content.pesos}}
+                <tr id='tr'>
+                  <th id='th'  style="background-color: white; font-weight: normal;">{{valorNull control_peso_tipo_unidad_nombre}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_peso_valor}} Kg</th>
+                </tr>
+                {{/each}}
+
+                <tr id='tr'>
+                  <th id='th' style="font-size: 12px;">Middle weight</th>
+                  <th id='th'>{{valorNull peso_total}} Kg</th>
+                </tr>
+
+            </table>
+
+</div>
+{{/if}}
+
+
+{{#if DATA.pallets.content.mostrar}}
+<div class="page-n">
+
+            <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+                <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Pallets</p>
+            </div>
+
+            <table  style='width: 100%;  margin-top: 20px;'>
+              
+                <tr id='tr'>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>SSC Supplier</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>SSCC Place of control</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Date of delivery</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Lot</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Product</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Variety</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Making</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Brand</th>
+                </tr>
+
+
+                {{#each DATA.pallets.content.pallets}}
+                <tr id='tr'>
+                  <th id='th'  style="background-color: white; font-weight: normal;">{{valorNull control_pallet_sscc_proveedor}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_pallet_sscc_plataforma}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{control_pallet_fecha}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_pallet_lote}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_pallet_producto_nombre}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_pallet_variedad_nombre}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_pallet_confeccion}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_pallet_marca}}</th>
+                </tr>
+                {{/each}}
+
+            </table>
+
+            {{#if pallets_control.tablas_pallets}}
+              {{#each pallets_control.tablas_pallets}}
+                <table id='table' style='width: 100%;  margin-top: 20px;'> 
+                  <tbody>
+                    <tr id='tr'>
+                      <th id="th" style="text-align: center; font-size:12px; background-color:#e6f0ff;" colspan="{{control_tabla_filas}}">{{control_tabla_nombre}}</th>
+                    <tr>
+                    {{#each filas}}
+                      <tr id='tr'>
+                      {{#each this}}
+                        <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_tabla_data_valor}}</th>
+                      {{/each}}
+                      <tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              {{/each}}
+            {{/if}}
+
+</div>
+
+{{else}}
+
+            {{#if pallets_control.tablas_pallets}}
+            <div class="page-n">
+              <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+                  <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Pallets</p>
+              </div>            
+              {{#each pallets_control.tablas_pallets}}
+                <table id='table' style='width: 100%;  margin-top: 20px;'> 
+                  <tbody>
+                    <tr id='tr'>
+                      <th id="th" style="text-align: center; font-size:12px; background-color:#e6f0ff;" colspan="{{control_tabla_filas}}">{{control_tabla_nombre}}</th>
+                    <tr>
+                    {{#each filas}}
+                      <tr id='tr'>
+                      {{#each this}}
+                        <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_tabla_data_valor}}</th>
+                      {{/each}}
+                      <tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              {{/each}}
+            </div>
+            {{/if}}
+
+{{/if}}
+
+{{#if DATA.cajas.content.mostrar}}
+<div class="page-n">
+            <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+                <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Boxes</p>
+            </div>
+
+            <table  style='width: 100%;  margin-top: 20px;'>
+              
+                <tr id='tr'>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Nº</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Family</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Units</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Weight</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'>Notes</th>
+                   <th id='th' style='font-size:12px; background-color:#e6f0ff;'></th>
+                </tr>
+
+
+                {{#each DATA.cajas.content.cajas}}
+                <tr id='tr'>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_caja_orden}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_caja_familia}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_caja_unidades}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_caja_peso}}</th>
+                  <th id='th' style="background-color: white; font-weight: normal; ">{{valorNull control_caja_notas}}</th>
+                  {{#each valoracion}}
+                    <th id='th' style='background-color:#{{color_codigo}};'></th>
+                  {{/each}}
+                </tr>
+                {{/each}}
+
+            </table>
+
+            {{#if cajas_control.tablas_cajas}}
+              {{#each cajas_control.tablas_cajas}}
+                <table id='table' style='width: 100%;  margin-top: 20px;'> 
+                  <tbody>
+                    <tr id='tr'>
+                      <th id="th" style="text-align: center; font-size:12px; background-color:#e6f0ff;" colspan="{{control_tabla_filas}}">{{control_tabla_nombre}}</th>
+                    <tr>
+                    {{#each filas}}
+                      <tr id='tr'>
+                      {{#each this}}
+                        <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_tabla_data_valor}}</th>
+                      {{/each}}
+                      <tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              {{/each}}
+            {{/if}}
+
+</div>
+
+{{else}}
+
+            {{#if cajas_control.tablas_cajas}}
+            <div class="page-n">
+              <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+                  <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Boxes</p>
+              </div>            
+              {{#each cajas_control.tablas_cajas}}
+                <table id='table' style='width: 100%;  margin-top: 20px;'> 
+                  <tbody>
+                    <tr id='tr'>
+                      <th id="th" style="text-align: center; font-size:12px; background-color:#e6f0ff;" colspan="{{control_tabla_filas}}">{{control_tabla_nombre}}</th>
+                    <tr>
+                    {{#each filas}}
+                      <tr id='tr'>
+                      {{#each this}}
+                        <th id='th' style="background-color: white; font-weight: normal;">{{valorNull control_tabla_data_valor}}</th>
+                      {{/each}}
+                      <tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              {{/each}}
+            </div>
+            {{/if}}
+
+{{/if}}
+
+
+{{#if DATA.acciones.content.mostrar}}
+<div class="page-n">
+
+          <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+            <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Comments</p>
+          </div>
+
+          <table id='table' style="width:100%; margin-top:30px;">
+            <tbody>
+
+              {{#each DATA.acciones.content.acciones.imagenesRef0}}
+                <tr>
+                    <td style='width:90%; max-height: 850px;'>
+                      <img style='width:100%; max-height: 850px; display: block; margin-left: auto; margin-right: auto;' src='https://fotos.justq.eu/{{foto_control_accion_foto}}'/>
+                    </td>
+                </tr>
+              {{/each}}
+
+              {{#each DATA.acciones.content.acciones}}
+                <tr id='tr' style='border:0;'>
+                  <td>
+                   {{{valorNull control_accion_nombre}}}
+                  </td>
+                </tr>
+
+                {{#each imagenes}}
+                  <tr>
+                    <td style='width:90%; max-height: 850px;'>
+                      <img style='width:100%; max-height: 850px; display: block;  margin-left: auto; margin-right: auto;' src='https://fotos.justq.eu/{{foto_control_accion_foto}}'/>
+                    </td>
+                  </tr>
+                {{/each}}
+
+              {{/each}}
+
+
+
+              {{#if cliente_firma}}<tr id='tr' style='border:0;'><td id='td' style='border:0;'><img src="/img/sello.jpeg" style="width:150px;"/></td></tr>{{/if}}
+            
+            </tbody>
+          </table>
+
+</div>
+{{/if}}
+
+
+{{#if DATA.documentacion.content.mostrar}}
+<div class="page-n">
+
+          <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+            <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Documentation</p>
+          </div>
+
+      <table id='table' style='width:100%; margin-top:4px;'>
+
+        {{#each DATA.documentacion.content.documentacion}}
+        <tr>
+          <td style='width:90%;  max-height: 850px;'>
+            <img style='width:100%; max-height: 850px; margin-top: 5px; display: block; margin-left:auto; margin-right: auto;' src='https://fotos.justq.eu/{{foto_control_documentacion_foto}}'/>
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+
+</div>
+{{/if}}
+
+
+{{#if DATA.pesos.content.mostrar_fotos}}
+<div class="page-n">
+              
+          <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+            <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Weights photos</p>
+          </div>
+              
+    <table id='table' style='width:100%; margin-top:5px;'>
+
+      <tbody>
+        {{#each DATA.pesos.content.pesos.fotos}}
+          <tr>
+            <img style='width: 450px; height: 448px; display: block; margin-left:auto; margin-right: auto; margin-top: 5px;' src='https://fotos.justq.eu/{{foto_control_peso_foto_nombre}}'/>
+          </tr>
+        {{/each}}
+      </tbody>
+                      
+    </table>
+</div>
+{{/if}}
+
+
+{{#if DATA.pallets.content.mostrar_fotos}}
+<div class="page-n">
+              
+          <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+            <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Pallets photos</p>
+          </div>
+              
+    <table id='table' style='width:100%; margin-top:5px;'>
+
+      <tbody>
+        {{#each DATA.pallets.content.pallets.fotos}}
+          <tr>
+            <img style='width: 450px; height: 448px; display: block; margin-left:auto; margin-right: auto; margin-top: 5px;' src='https://fotos.justq.eu/{{foto_control_pallet_foto_nombre}}'/>
+          </tr>
+        {{/each}}
+      </tbody>
+                      
+    </table>
+</div>
+{{/if}}
+
+
+{{#if DATA.cajas.content.mostrar_fotos}}
+<div class="page-n">
+              
+          <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+            <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Boxes photos</p>
+          </div>
+              
+    <table id='table' style='width:100%; margin-top:5px;'>
+
+      <tbody>
+        {{#each DATA.cajas.content.cajas.fotos}}
+          <tr>
+            <img style='width: 450px; height: 435px; display: block; margin-left:auto; margin-right: auto; margin-top: 0px;' src='https://fotos.justq.eu/{{foto_control_caja_foto_nombre}}'/>
+            <p style='text-align: center; width:450px; font-size: 10px; font-weight: bold; background-color:#b3d1ff; display: block; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0px;'>Box {{control_caja_orden}}</p>
+          </tr>
+        {{/each}}
+
+        {{#each DATA.cajas.content.cajas.fotos_principal}}
+          <tr>
+            <img style='width: 450px; height: 435px; display: block; margin-left:auto; margin-right: auto; margin-top: 0px; margin-top: 5px;' src='https://fotos.justq.eu/{{foto_control_caja_foto_nombre}}'/>
+          </tr>
+        {{/each}}
+      </tbody>
+                      
+    </table>
+</div>
+{{/if}}
+
+
+
+{{#if pc_fotos_total}}
+<div class="page-n">
+              
+          <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+            <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Checkpoints photos</p>
+          </div>
+              
+    <table id='table' style='width:100%; margin-top:5px;'>
+
+      <tbody>
+        {{#each gc}}
+
+          {{#each puntos_control}}
+
+            {{#each fotos}}
+                <tr>
+                  <img style='width: 450px; height: 435px; display: block; margin-left:auto; margin-right: auto; margin-top: 0px;' src='https://fotos.justq.eu/{{foto_punto_control_foto}}'/>
+                  <p style='text-align: center; width:450px; font-size: 10px; font-weight: bold; background-color:#b3d1ff; display: block; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0px;'>{{punto_control_nombre}}</p>
+                </tr>
+            {{/each}}
+            
+          {{/each}}
+
+          {{#each puntos_control_añadidos}}
+
+            {{#each fotos}}
+                <tr>
+                  <img style='width: 450px; height: 435px; display: block; margin-left:auto; margin-right: auto; margin-top: 0px;' src='https://fotos.justq.eu/{{foto_punto_control_añadido_foto}}'/>
+                  <p style='text-align: center; width:450px; font-size: 10px; font-weight: bold; background-color:#b3d1ff; display: block; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0px;'>{{valorNull control_punto_control_añadidos_nombre}}</p>
+                </tr>
+            {{/each}}
+          
+          {{/each}}
+
+        {{/each}}
+      </tbody>
+                      
+    </table>
+</div>
+{{/if}}
+
+
+
+          
+{{#if DATA.fotos.content.mostrar}}
+<div class="page-n">
+              
+          <div style="background-color:#b3d1ff; width:100%; height:30px; display:block;">
+            <p style="font-weight:bold; text-align:center;margin-top: 5px; height: 100%; display: block; padding-top: 4px;">Photo report</p>
+          </div>
+              
+    <table id='table' style='width:100%; margin-top:5px;'>
+
+      <tbody>
+        {{#each DATA.fotos.content.fotos}}
+          <tr>
+            <img style='width: 450px; height: 448px; display: block; margin-left:auto; margin-right: auto; margin-top: 5px;' src='https://fotos.justq.eu/{{foto_control_foto}}'/>
+          </tr>
+        {{/each}}
+      </tbody>
+                      
+    </table>
+</div>
+{{/if}}
+           
+
+        
+
+
+
+    <!--<div style="page-break-before: always;">the third page</div>-->

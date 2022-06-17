@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'RobotoR';
+    src: url('/fonts/Roboto-Regular.ttf')
+  }
+
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'RobotoR';
+    height: 100%;
+}
+textarea{
+    font-family: 'RobotoR';
+}
+select{
+    font-family: 'RobotoR';
+}
+option{
+    font-family: 'RobotoR';
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #2f6a60 #f2f2f250;
+    
+  }
+  
+  /* Chrome, Edge, y Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #f2f2f250;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #2f6a60;
+    border-radius: 20px;
+    border: 3px solid #f2f2f250;
+    
+  }

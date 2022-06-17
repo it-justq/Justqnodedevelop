@@ -1,0 +1,47 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+
+    <p id="container-titulo">Estadísticas</p>
+
+    <div class="containerFilter">
+        <button class='toggleFilter'>Filtros</button>
+
+        <form class="contentFilter" action="/informe/registro" method="POST">
+            {{#if (noCliente user.rol)}}
+            <div class="contentFilterContainer">
+                <label>Cliente</label>
+                <select name="cliente">
+                    <option></option>
+                    {{#each data.clientes}}<option value="{{cliente_id_hash}}">{{cliente_nombre}}</option>{{/each}}
+                </select>
+            </div>
+            {{/if}}
+            {{#if (esAdmin user.rol)}}
+            <div class="contentFilterContainer">
+                <label>Técnico</label>
+                <select name="tecnico">
+                    <option value=""></option>
+                    {{#each data.tecnicos}}<option value="{{usuario_id}}">{{usuario_nombre}}</option>{{/each}}
+                </select>
+            </div>
+            {{/if}}
+            <div class="contentFilterContainer">
+                <label>Fecha desde</label>
+                <input type="date" name="inicio" />
+            </div>
+            <div class="contentFilterContainer">
+                <label>Fecha hasta</label>
+                <input type="date" name="fin" />
+            </div>
+            <div class="contentFilterContainer">
+                <label>Fecha</label>
+                <input type="date" name="fecha" />
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+            <button id="list-search-btn" class="contentFilterSubmit" type="submit">Aplicar filtros</button>
+        </form>
+    </div>
+</div>

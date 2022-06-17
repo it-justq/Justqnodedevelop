@@ -1,0 +1,21 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+
+    {{#each data.gc}}
+        <div class="contentData" style="width: 100%;">
+            <p class="contentDataContainerTitle">{{valorNullGc informe_grupo_control_nombre}}</p>
+            
+            {{#each puntos_control}}
+                <div class="contentDataContainer" style="width: 100%;">
+                    <label>{{informe_punto_control_nombre}}</label>
+                    <textarea type="text" placeholder="Valor.." onchange="uploadDatos('{{informe_data_id_hash}}', this.value, '{{infrome_id}}')">{{valorNull value}}</textarea>
+                    <a class="img-link" href="punto-control/{{informe_data_id_hash}}/fotos">{{total_fotos}} <i class="bi bi-images"></i></a>
+                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-pc-{{informe_data_id_hash}}"></i>
+                </div>  
+            {{/each}}
+            
+        </div>
+    {{/each}}
+
+</div>

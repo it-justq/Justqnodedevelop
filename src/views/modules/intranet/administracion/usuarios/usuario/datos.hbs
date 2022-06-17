@@ -1,0 +1,89 @@
+<div class="container-width-content">
+
+        <p id="container-titulo">Datos del usuario</p>
+
+
+        <p id="back-main"><a href="/intranet/administracion/usuarios/usuario/{{data.usuario.usuario_id}}"><i class="bi bi-arrow-left"></i> Volver al panel del usuario</a></p>
+
+        <table id="table-data-user">
+            <thead>
+                <tr>
+                    <td colspan="3">Datos del usuario {{data.usuario.usuario_nombre}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-data-user-text">Usuario de acceso</td>
+                    <td><input type="text" id="usuario-acceso" value="{{data.usuario.usuario_user}}"></td>
+                    <td><button onclick="modUser({{data.usuario.usuario_id}}, 'usuario-acceso')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">Contraseña</td>
+                    <td><input id="contraseña" type="password"></td>
+                    <td><button  onclick="modUser({{data.usuario.usuario_id}}, 'contraseña')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">Nombre</td>
+                    <td><input id="nombre" type="text" value="{{data.usuario.usuario_nombre}}"></td>
+                    <td><button onclick="modUser({{data.usuario.usuario_id}}, 'nombre')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">Apellido 1</td>
+                    <td><input id="apellido1" type="text" value="{{data.usuario.usuario_apellido_1}}"></td>
+                    <td><button  onclick="modUser({{data.usuario.usuario_id}}, 'apellido1')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">Apellido 2</td>
+                    <td><input id="apellido2" type="text" value="{{data.usuario.usuario_apellido_2}}"></td>
+                    <td><button  onclick="modUser({{data.usuario.usuario_id}}, 'apellido2')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">E-mail</td>
+                    <td><input id="email" type="text" value="{{data.usuario.usuario_email}}"></td>
+                    <td><button  onclick="modUser({{data.usuario.usuario_id}}, 'email')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">Teléfono</td>
+                    <td><input id="telefono" type="phone" value="{{data.usuario.usuario_telefono}}"></td>
+                    <td><button  onclick="modUser({{data.usuario.usuario_id}}, 'telefono')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">Idioma</td>
+                    <td>
+                        <select id="idioma">
+                            <option value="{{data.usuario.usuario_idioma_id}}">{{data.usuario.usuario_idioma_nombre}}</option>
+                            <option value="0">Sin idioma</option>
+                            <option value="1">Español</option>
+                            <option value="2">Inglés</option>
+                        </select>
+                    </td>
+                    <td  onclick="modUser({{data.usuario.usuario_id}}, 'idioma')"><button><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">Rol</td>
+                    <td>
+                        <select id="rol">
+                            <option value="{{data.usuario.usuario_rol_id}}">{{data.usuario.usuario_rol_nombre}}</option>
+                            <option value="0">Sin rol</option>
+                            <option value="1">Administrador</option>
+                            <option value="2">Técnico</option>
+                            <option value="2">Cliente</option>
+                        </select>
+                    </td>
+                    <td><button  onclick="modUser({{data.usuario.usuario_id}}, 'rol')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                <tr>
+                    <td class="table-data-user-text">Estado</td>
+                    <td>
+                        <select id="estado">
+                            <option value="{{data.usuario.usuario_estado_id}}">{{data.usuario.usuario_estado_nombre}}</option>
+                            <option value="0">No activo</option>
+                            <option value="1">Activo</option>
+                        </select>
+                    </td>
+                    <td><button  onclick="modUser({{data.usuario.usuario_id}}, 'estado')"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+
+</div>

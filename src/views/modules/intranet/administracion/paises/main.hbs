@@ -1,0 +1,35 @@
+<div class="container-width-content">
+    <p id="container-titulo">Paises <a href="/intranet/administracion/paises/nuevo">Nuevo pais <i class="bi bi-plus-circle"></i></a></p>
+
+
+
+    <div class="containerFilter">
+        <button class='toggleFilter'>Filtros</button>
+        <form class="contentFilter" action="/intranet/administracion/paises/search" method="POST">
+            <div class="contentFilterContainer">
+                <label>Nombre</label>
+                <input type="text" name="pais_nombre" placeholder="Nombre">
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button id="list-search-btn" class="contentFilterSubmit" type="submit">Aplicar filtros</button>
+        </form>
+    </div>
+
+        <table class="tableList" id="tablePaises">
+            <thead>
+                <tr>
+                    <td>Español</td>
+                    <td>English</td>
+                </tr>
+            </thead>
+            <tbdoy>
+                {{#each data}}
+                    <tr class="plataformas-list-table-content">
+                        <td>{{pais_nombre}}</td>
+                        <td>{{pais_nombre_en}}</td>
+                    </tr>
+                {{/each}}
+            </tbdoy>
+        </table>
+</div>

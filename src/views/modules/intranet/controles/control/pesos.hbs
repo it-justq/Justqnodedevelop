@@ -1,0 +1,51 @@
+<div class="container-width-content content-subheader">
+
+
+        <div id="options-container">
+            <div id="options-ct">
+                <input placeholder="Nº" type="number" id="pesos-nuevo-number">
+                <button onclick="addPesos('{{control_id}}')">Añadir pesos</button>
+                <!--a href='/intranet/utilidades/tabla' target="_blank">Generador de tablas</a-->
+            </div>
+        </div>
+
+
+        {{#if data.pesos}}
+
+        <div id="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Valor</td>
+                        <td>Unidad</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data.pesos}}
+                        <tr>
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-valor_{{control_peso_id}}"></i>
+                                <input id="{{control_peso_id}}" type="text" value="{{valorNull control_peso_valor}}" onchange="modPeso(this.value, this.id, '{{control_peso_control_id}}', 'valor')">
+                            </td>
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-unidad_{{control_peso_id}}"></i>
+                                <select id="{{control_peso_id}}" onchange="modPeso(this.value, this.id, '{{control_peso_control_id}}', 'unidad')">
+                                    <option value="">{{valorNull control_peso_tipo_unidad_nombre}}</option>
+                                    {{#each tipo_unidad}}
+                                        <option value="{{tipo_unidad_id}}">{{valorNull tipo_unidad_nombre}}</option>
+                                    {{/each}}
+                                </select>
+                            </td>
+                            <td><a href="/intranet/control/{{control_peso_control_id}}/peso/{{control_peso_id}}/fotos" class="pesos-img-link">{{total_fotos}} <i class="bi bi-images"></i></a></td>
+                            <td><button class="btn-del" onclick="delPeso('{{control_peso_id}}', '{{control_peso_control_id}}')"><i class="bi bi-trash"></i></button></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+                
+            </table>
+        </div>
+        {{/if}}
+
+</div>

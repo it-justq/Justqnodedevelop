@@ -1,0 +1,81 @@
+    <!---------------------------------------------------------------->
+    <!--MAIN CONTAINER-->
+    <div id="common-main-container" onmousedown="clickedMainContainer(event)">
+        <div id="common-main-container-ct1">
+           <div id="common-main-container-ct2">
+
+
+                <div id="acciones-nueva-container">
+                    <div id="acciones-nueva-ct">
+                        <button onclick="openNew('txt')">Insertar Texto</button>
+                        <button onclick="openNew('img')">Insertar Imagen</button>
+                    </div>
+
+                    <div class="acciones-nueva-type-ct" id="acciones-nueva-img">
+                        <hr>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <input type="file" id="acciones-nueva-img-input">
+                            <div id="acciones-nueva-pre-img-ct"></div>
+                            <button type="button" class="acciones-nueva-type-submit" onclick="uploadDatosNew({{control_id}}, 'img')">Guardar</button>
+                        </form>
+                    </div>
+
+
+                    <div class="acciones-nueva-type-ct" id="acciones-nueva-txt">
+                        <hr>
+                        <form action="" method="POST">
+                            <textarea maxlength="10000" id="acciones-nueva-txt-input"></textarea>
+                            <br>
+                            <button type="button" class="acciones-nueva-type-submit" onclick="uploadDatosNew({{control_id}}, 'txt')">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="acciones-container">
+                    {{#each data.imagenesRef0}}
+                        <div class="accion-ct">
+                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_valoracion_id"></i>
+                            <img src='https://fotos.justq.eu/{{foto_control_accion_foto}}'/>
+
+                            <div class="ct-edit-accion">
+                                <button><i class="bi bi-trash"></i></button>
+                                <button>Insertar Imagen <i class="bi bi-arrow-bar-down"></i></button>
+                                <button>Insertar Texto <i class="bi bi-arrow-bar-down"></i></button>
+                                <button>Modificar Imagen</button>
+                            </div>
+                        </div>
+                    {{/each}}
+
+                    {{#each data}}
+                        <div class="accion-ct">
+                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-text_{{control_accion_id}}"></i>
+                            <textarea  class="accion-textarea" id='{{control_accion_id}}' maxlength="10000" onchange="uploadDatos({{control_accion_id}},'{{control_accion_control_id}}', this.value, 'text')">{{replacebr control_accion_nombre}}</textarea>
+
+                            <div class="ct-edit-accion">
+                                <button><i class="bi bi-trash"></i></button>
+                                <button><i class="bi bi-translate"></i></button>
+                                <button>Insertar Imagen <i class="bi bi-arrow-bar-down"></i></button>
+                                <button>Insertar Texto <i class="bi bi-arrow-bar-down"></i></button>
+                            </div>
+                        </div>
+ 
+                            {{#each imagenes}}
+                                <div class="accion-ct">
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_valoracion_id"></i>
+                                    <img src='https://fotos.justq.eu/{{foto_control_accion_foto}}'/>
+
+                                    <div class="ct-edit-accion">
+                                        <button><i class="bi bi-trash"></i></button>
+                                        <button>Insertar Imagen <i class="bi bi-arrow-bar-down"></i></button>
+                                        <button>Insertar Texto <i class="bi bi-arrow-bar-down"></i></button>
+                                        <button>Modificar Imagen</button>
+                                    </div> 
+                                </div>
+                            {{/each}}
+                    {{/each}}
+
+                </div>
+
+            </div>
+        </div>
+    </div>

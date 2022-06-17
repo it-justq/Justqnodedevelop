@@ -1,0 +1,61 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+
+    <div class="contentData">
+        <div class="contentDataContainer">
+            <label>Cliente</label>
+            <select onchange="uploadDatos('informe_cliente_id','{{informe_id}}', this.value)">
+                <option value="{{valorNull data.datos.informe_cliente_id}}">{{valorNull data.datos.cliente_nombre}}</option>
+                {{#each data.clientes}}
+                    <option value="{{cliente_id}}">{{cliente_nombre}}</option>
+                {{/each}}
+            </select>
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-informe_cliente_id"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Empresa</label>
+            <input type="text"  placeholder="Empresa" value="{{valorNull data.datos.informe_empresa}}" onchange="uploadDatos('informe_empresa','{{informe_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-informe_empresa"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Fecha</label>
+            <input type="date"value="{{valorNull data.datos.informe_fecha}}" onchange="uploadDatos('informe_fecha','{{informe_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-informe_fecha"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>S/REF</label>
+            <input type="text"  placeholder="S/REF" value="{{valorNull data.datos.informe_sref}}" onchange="uploadDatos('informe_sref','{{informe_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-informe_sref"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>N/REF</label>
+            <input type="text"  placeholder="N/REF" value="{{valorNull data.datos.informe_nref}}" onchange="uploadDatos('informe_nref','{{informe_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-informe_nref"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Póliza</label>
+            <input type="text"  placeholder="Póliza" value="{{valorNull data.datos.informe_poliza}}" onchange="uploadDatos('informe_poliza','{{informe_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-informe_poliza"></i>
+        </div>
+    </div>
+
+
+
+    {{#each data.gc}}
+        <div class="contentData">
+            <p class="contentDataContainerTitle">{{valorNullGc informe_grupo_control_nombre}}</p>
+            
+            {{#each puntos_control}}
+                <div class="contentDataContainer">
+                    <label>{{informe_punto_control_nombre}}</label>
+                    <input type="text" placeholder="Valor.." value="{{valorNull value}}" onchange="uploadDatos('{{informe_data_punto_control_id}}', '{{informe_id}}', this.value)">
+                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-pc-{{informe_data_id_hash}}"></i>
+                </div>  
+            {{/each}}
+            
+        </div>
+    {{/each}}
+
+            
+</div>

@@ -1,0 +1,51 @@
+.tableList{
+    width: 100%;
+    background: #fff;
+    border-collapse: collapse;
+    border: none;
+}
+.tableList thead{
+    background-color: #3f8e81;
+    color: #fff;
+}
+.tableList thead tr td{
+    padding-left: 5px;
+    height: 35px;
+
+}
+
+.tableList thead tr td{
+    font-size: 16px;
+    letter-spacing: 1.1px;
+}
+
+.tableList tbody{
+    color: #000;
+}
+.tableList tbody tr{
+    border-bottom: 1px solid #eee;
+}
+.tableList tbody tr td{
+    padding: 10px 0 10px 5px;
+
+}
+
+.tableList tbody tr:hover{
+    opacity: .5;
+    cursor: pointer;
+    background-color: #3f8e8120;
+}
+
+.reportBtnAction{
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    background-color: inherit;
+}
+.reportBtnAction:hover{
+    cursor: pointer;
+}
+
+
+  

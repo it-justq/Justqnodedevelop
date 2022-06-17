@@ -1,0 +1,30 @@
+#tableControles{
+    max-width: 650px;
+    margin: 0 auto 0 auto;
+}
+
+.tc-list-table-status{
+    padding: 5px 10px 5px 10px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.tc-list-table-status-active{
+    background-color: #00cc66;
+}
+.tc-list-table-status-inactive{
+    background-color: #ff1a1a;
+}
+
+.popup-form {
+    display: none;
+    top: 50%; 
+    left: 50%;
+    width: 500px;
+    height: 260px;
+    margin-top: -120px;
+    margin-left: -250px;
+    text-align: center;
+    position: fixed;
+    border: 3px solid #f1f1f1;
+    background-color: #fff;
+}

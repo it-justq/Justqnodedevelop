@@ -1,0 +1,21 @@
+<!-- <div id="options">
+    <a href="/informe/web/{{control_id}}/en">Ver en Inglés</a>
+    <a href="/informe/pdf/es/{{control_id}}"><i class="bi bi-file-earmark-arrow-down"></i> Pdf Epañol</a>
+    <a href="/informe/pdf/en/{{control_id}}"><i class="bi bi-file-earmark-arrow-down"></i> Pdf Inglés</a>
+</div-->
+<div id="options">
+    <a >Ver en Inglés</a>
+    <a ><i class="bi bi-file-earmark-arrow-down"></i> Pdf Epañol</a>
+    <a ><i class="bi bi-file-earmark-arrow-down"></i> Pdf Inglés</a>
+</div>
+<div id="tabs">
+    <button class="tablinks" onclick="openTab(event, 'datos')">Datos</button>
+    {{#if DATA.grupos_control.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'gc')">Grupos de control</button>{{/if}}
+    {{#if (esPrecarga DATA.datos.control_tipo_id)}}<button class="tablinks" onclick="openTab(event, 'precarga')">Precarga</button>{{/if}}
+    {{#if DATA.acciones.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'acciones')">Acciones</button>{{/if}}
+    {{#if DATA.pesos.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'pesos')">Pesos</button>{{/if}}
+    {{#if DATA.pallets.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'pallets')">Pallets</button>{{/if}}
+    {{#if DATA.cajas.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'cajas')">Cajas</button>{{/if}}
+    {{#if DATA.documentacion.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'documentacion')">Documentación</button>{{/if}}
+    {{#if DATA.fotos.content.mostrar}}<button class="tablinks" onclick="openTab(event, 'fotos')">Fotos</button>{{/if}}
+</div>

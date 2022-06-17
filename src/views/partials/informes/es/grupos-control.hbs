@@ -1,0 +1,83 @@
+
+{{#if DATA.grupos_control.content.mostrar}}
+<div class="content" id="tab-gc">
+  {{#each DATA.grupos_control.content.grupos_control}}
+    {{#if mostrar}}
+      <div id="ct-table-gc">
+        <table class='table'>
+          {{#if nombre_activo}}
+            <tr>
+              <th id="table-title">{{grupo_control_nombre}}</th>
+              <th id="table-title">Resultado</th>
+                {{#each valoracion}}
+                  <td style='background-color:#{{color_codigo}};'></td>
+                {{else}}
+                  <td></td>
+                {{/each}}
+            </tr>
+          {{/if}}
+
+            {{#each puntos_control}}
+              {{#if (pdf_value_mostrar control_punto_control_valor)}}
+                <tr>   
+                  <th>{{punto_control_nombre}}</th>
+                  <td>{{valorNull control_punto_control_valor}}</td>
+                    {{#each valoracion}}
+                      <td style='background-color:#{{color_codigo}};'></td>
+                    {{else}}
+                      <td></td>
+                    {{/each}}
+                </tr>
+              {{/if}}
+            {{/each}}
+
+            {{#each puntos_control_añadidos}}
+              {{#if (pdf_value_mostrar control_punto_control_añadidos_valor)}}
+                <tr>   
+                  <th>{{valorNull control_punto_control_añadidos_nombre}}</th>
+                  <td>{{valorNull control_punto_control_añadidos_valor}}</td>
+                    {{#each valoracion}}
+                      <td style='background-color:#{{color_codigo}};'></td>
+                    {{else}}
+                      <td></td>
+                    {{/each}}
+                </tr>      
+              {{/if}}                  
+            {{/each}}
+            
+        </table>
+      </div>
+    {{/if}}
+  {{/each}}  
+
+
+  {{#if DATA.grupos_control.content.mostrar_fotos}}
+  <p id="content-fotos-p">Fotos</p> 
+        <hr>
+    {{#each DATA.grupos_control.content.grupos_control}}
+      {{#each puntos_control}}
+        {{#each fotos}}
+        <div class="img-container">
+          <img src='https://fotos.justq.eu/{{foto_punto_control_foto}}'/>
+          <p>{{punto_control_nombre}}</p>
+        </div>
+            
+        {{/each}}
+      {{/each}}
+
+      {{#each puntos_control_añadidos}}
+        {{#each fotos}}
+            <div class="img-container">
+              <img src='https://fotos.justq.eu/{{foto_punto_control_añadido_foto}}'/>
+              <p>{{valorNull control_punto_control_añadidos_nombre}}</p>
+            </div>
+        {{/each}}
+      {{/each}}
+      
+    {{/each}}
+
+  {{/if}}
+
+
+</div>
+{{/if}}

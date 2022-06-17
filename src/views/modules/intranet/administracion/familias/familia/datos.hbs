@@ -1,0 +1,74 @@
+<div class="container-width-content">
+
+        <p id="container-titulo">{{data.familia_nombre}}</p>
+        <p id="back-main"><a href="/intranet/administracion/familias"><i class="bi bi-arrow-left"></i> Volver a familias</a></p>
+
+
+        <form class="contentData" method="POST" action="/intranet/administracion/familias/familia/editar">
+            <p class="contentDataContainerTitle">Editar familia</p>
+
+            <div class="contentDataContainer">
+                <label>Nombre familia (español)</label>
+                <input name="familia" value="{{data.familia_nombre}}" type="text" required>
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Nombre familia (inglés)</label>
+                <input name="familia_en" value="{{data.familia_nombre_en}}" type="text" required>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input type="hidden" name="familia_id" value="{{data.familia_id}}">
+            <button type="submit">Actualizar datos</button>
+        </form>
+                        
+        <form class="contentData" method="POST" action="/intranet/administracion/familias/familia/nueva-variedad">
+            <p class="contentDataContainerTitle">Nueva variedad</p>
+
+            <div class="contentDataContainer">
+                <label>Nombre variedad</label>
+                <input name="variedad" type="text" required>
+            </div>
+            <input type="hidden" name="familia_id" value="{{data.familia_id}}"> 
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+            <button type="submit">Añadir variedad</button>
+        </form>
+
+        <br>
+
+        {{#if data.variedades}}
+        <table class="tableList" id="tableFamilias">
+            <thead>
+                <tr>
+                    <td>Variedades</td>
+                </tr>
+            </thead>
+            <tbdoy>
+                {{#each data.variedades}}
+                    <tr onclick="goFormVariedad('{{familia_variedad_id}}', '{{familia_variedad_nombre}}')">
+                        <td>{{familia_variedad_nombre}}</td>
+                    </tr>
+                {{/each}}
+            </tbdoy> 
+        </table>
+        {{/if}}
+
+        <div class="popup-form" id="formVariedad">
+            <form id="options-ct" method="POST" action="/intranet/administracion/familias/familia/editar-variedad">
+                <p class="contentDataContainerTitle">Modificar variedad</p>
+               
+                <div class="contentDataContainer">
+                    <label>Nombre variedad</label>
+                    <input id="variedad_mod" name="variedad_mod" type="text" required>
+                </div>
+
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <input type="hidden" name="familia_id" value="{{data.familia_id}}">  
+                <input type="hidden" name="variedad_id" value="" id = "idVariedad">               
+
+                <button type="submit">Guardar</button>
+                <button type="button" onclick="closeForm()">Cerrar</button>
+            </form>
+        </div>
+</div>

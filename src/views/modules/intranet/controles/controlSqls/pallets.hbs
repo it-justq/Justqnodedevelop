@@ -1,0 +1,65 @@
+
+    <!---------------------------------------------------------------->
+    <!--MAIN CONTAINER-->
+    <div id="common-main-container" onmousedown="clickedMainContainer(event)">
+        <div id="common-main-container-ct1">
+           <div id="common-main-container-ct2">
+
+                <div id="pallets-nuevo-container">
+                    <div id="pallets-nuevo-ct">
+                        <input placeholder="Nº" type="number" id="pallets-nuevo-number">
+                        <button>Añadir pallets</button>
+                    </div>
+                </div>
+
+
+                <div id="pallets-container">
+                    <table>
+                        <tr id="pallets-container-head">
+                            <td>SSCC Proveedor</td>
+                            <td>SSCC Plataforma</td>
+                            <td>Fecha llegada</td>
+                            <td>Lote</td>
+                            <td>Confección</td>
+                            <td>Marca</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        {{#each data}}
+                        <tr class="pallets-container-data">
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_sscc_proveedor_{{control_pallet_id}}"></i>
+                                <input type="text" id="{{control_pallet_id}}" value={{valorNull control_pallet_sscc_proveedor}} onchange="uploadDatos(this.id, this.value, {{control_pallet_control_id}}, 'control_pallet_sscc_proveedor')">
+                            </td>
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_sscc_plataforma_{{control_pallet_id}}"></i>
+                                <input type="text" id="{{control_pallet_id}}" value={{valorNull control_pallet_sscc_plataforma}} onchange="uploadDatos(this.id, this.value, {{control_pallet_control_id}}, 'control_pallet_sscc_plataforma')">
+                            </td>
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_fecha_{{control_pallet_id}}"></i>
+                                <input type="date" id="{{control_pallet_id}}" value={{valorNull control_pallet_fecha}} onchange="uploadDatos(this.id, this.value, {{control_pallet_control_id}}, 'control_pallet_fecha')">
+                            </td>
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_lote_{{control_pallet_id}}"></i>
+                                <input type="text" id="{{control_pallet_id}}" value={{valorNull control_pallet_lote}} onchange="uploadDatos(this.id, this.value, {{control_pallet_control_id}}, 'control_pallet_lote')">
+                            </td>
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_confeccion_{{control_pallet_id}}"></i>
+                                <input type="text" id="{{control_pallet_id}}" value={{valorNull control_pallet_confeccion}} onchange="uploadDatos(this.id, this.value, {{control_pallet_control_id}}, 'control_pallet_confeccion')">
+                            </td>
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_marca_{{control_pallet_id}}"></i>
+                                <input type="text" id="{{control_pallet_id}}" value={{valorNull control_pallet_marca}} onchange="uploadDatos(this.id, this.value, {{control_pallet_control_id}}, 'control_pallet_marca')">
+                            </td>
+                            <td><a href=""><i class="bi bi-images"></i></a></td>
+                            <td><button><i class="bi bi-trash"></i></button></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>

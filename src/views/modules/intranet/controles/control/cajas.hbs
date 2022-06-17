@@ -1,0 +1,60 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+
+
+        <div id="options-container">
+            <div id="options-ct">
+                <input placeholder="Nº" type="number" id="cajas-nuevo-number">
+                <button onclick="addCajas('{{control_id}}')">Añadir cajas</button>
+            </div>
+        </div>
+
+        {{#if data.cajas}}
+            <div id="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Unidades</td>
+                            <td>Peso</td>
+                            <td>Notas</td>
+                            <td>Valoración</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data.cajas}}
+                            <tr>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_caja_unidades_{{control_caja_id}}"></i>
+                                    <input type="text" id="{{control_caja_id}}" value="{{control_caja_unidades}}" onchange="uploadDatos(this.id, this.value, '{{control_caja_control_id}}', 'control_caja_unidades')">
+                                </td>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_caja_peso_{{control_caja_id}}"></i>
+                                    <input type="text" id="{{control_caja_id}}" value="{{control_caja_peso}}" onchange="uploadDatos(this.id, this.value, '{{control_caja_control_id}}', 'control_caja_peso')">
+                                </td>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_caja_notas_{{control_caja_id}}"></i>
+                                    <input type="text" id="{{control_caja_id}}" value="{{control_caja_notas}}" onchange="uploadDatos(this.id, this.value, '{{control_caja_control_id}}', 'control_caja_notas')">
+                                </td>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_caja_valoracion_id_{{control_caja_id}}"></i>
+                                    <select id="{{control_caja_id}}" onchange="uploadDatos(this.id, this.value, '{{control_caja_control_id}}', 'control_caja_valoracion_id')">
+                                        <option value="{{control_caja_valoracion_id}}">{{control_caja_valoracion_nombre}}</option>
+                                        {{#each valoraciones}}
+                                            <option value="{{valoracion_id}}">{{valoracion_nombre}}</option>
+                                        {{/each}}
+                                    </select>
+                                </td>
+                                <td><a href="/intranet/control/{{control_caja_control_id}}/caja/{{control_caja_id}}/fotos">{{total_fotos}} <i class="bi bi-images"></i></a></td>
+                                <td><button class="btn-del" onclick="delCaja('{{control_caja_id}}', '{{control_caja_control_id}}')"><i class="bi bi-trash"></i></button></td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        {{/if}}
+
+
+</div>

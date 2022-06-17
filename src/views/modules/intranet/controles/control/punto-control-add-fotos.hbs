@@ -1,0 +1,44 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+
+        
+        <a id="btn-back" href='javascript:history.back(-1);' title='Cerrar pestaña de fotos'><i class="bi bi-arrow-90deg-left"></i> Volver al control</a>
+
+        <div id="options-container">
+            <div id="options-ct">
+                <form action="/intranet/control/{{control_id}}/punto-control-add/{{pc_id}}/fotos" id="fotos-nuevo-ct" method='post' enctype="multipart/form-data">
+                    <input id="fotos-nuevo-input" name="file" type="file" multiple>
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <button type="submit" id="fotos-nuevo-button-add">Añadir fotos</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <div id="fotos-container">
+            
+            {{#if data.fotos}}
+                {{#each data.fotos}}
+                    <div class="foto-ct">
+                        <img width="100%" src="https://fotos.justq.eu/{{foto}}" onclick="showImgFotos('{{foto}}')">
+                        <div class="foto-ct-data">
+                            <button class="foto-btn-right" onclick="deleteImg('{{foto_punto_control_id}}', '{{control_punto_control_id}}', '{{foto_punto_control_control_id}}')"><i class="bi bi-trash"></i></button>
+                        </div>
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+
+        {{#if data.fotos}}
+            <div id="fotos-del-ct">
+                <button onclick="deleteAllImg('{{pc_id}}', '{{control_id}}')">Eliminar todas las fotos</button>
+            </div>
+        {{/if}}
+
+        <div id="show-img-fotos-ct">
+            <button id="show-img-fotos-btn" onclick="closeImgFotos()"><i class="bi bi-x-square"></i></button>
+            <img id="show-img-fotos" src="">
+        </div>
+</div>

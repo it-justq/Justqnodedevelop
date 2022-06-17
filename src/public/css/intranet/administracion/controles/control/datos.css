@@ -1,0 +1,97 @@
+#back-main a{
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #000;
+    transition: 0.5s;
+}
+
+#back-main a:hover{
+    background-color: #2f6a6090;
+    color: #fff;
+
+}
+
+#table-data-tc{
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+}
+
+#table-data-tc thead{
+    width: 95%;
+    background-color: #2f6a60;
+    color: #fff;
+}
+#table-data-tc thead tr td{
+	padding: 10px 15px 10px 15px;
+}
+#table-data-tc tbody{
+    background-color: #fff;
+    color: #000;
+}
+#table-data-tc tbody tr {
+    border-bottom: 1px solid #2f6a6030;
+}
+#table-data-tc tbody tr:hover {
+    background-color:#3f8e81;
+    color: white;
+    cursor: pointer;
+}
+#table-data-tc tr td{
+	padding: 10px 15px 10px 15px;
+}
+
+#table-data-tc tbody tr td input{
+    width: 100%;
+    padding: 10px 5px 10px 5px;
+    background-color: #ffffb3;
+    border: 1px solid #f2f2f2;
+}
+#table-data-tc tbody tr td select{
+    width: 100%;
+    background-color: #ffffb3;
+    border: 1px solid #f2f2f2;
+    height: 35px;
+}
+
+#table-data-tc tbody tr td button{
+    width: 80%;
+    padding: 10px 5px 10px 5px;
+    display: block;
+    margin: 0 auto 0 auto;
+    color: #fff;
+    border: none;
+    background-color: #2f6a60;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+#table-data-tc tbody tr td button:hover{
+    background-color: #2f6a6090;
+}
+
+
+.table-data-tc-text{
+    max-width: 100px;
+    background-color: #2f6a6030;
+}
+
+/* The popup form - hidden by default */
+.popup-form {
+    display: none;
+    top: 50%; 
+    left: 50%;
+    width: 500px;
+    height: 240px;
+    margin-top: -120px;
+    margin-left: -250px;
+    text-align: center;
+    position: fixed;
+    border: 3px solid #f1f1f1;
+    background-color: #fff;
+}

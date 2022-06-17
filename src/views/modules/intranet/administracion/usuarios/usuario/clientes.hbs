@@ -1,0 +1,37 @@
+<div class="container-width-content">
+    <p id="container-titulo">Clientes del usuario</p>
+
+        <p id="back-main"><a href="/intranet/administracion/usuarios/usuario/{{data.usuario.usuario_id}}"><i class="bi bi-arrow-left"></i> Volver al panel del usuario</a></p>
+
+        
+         <table id="table-data-clientes">
+            <thead>
+                <tr>
+                    <td colspan="3">Clientes del usuario {{data.usuario.usuario_nombre}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-data-clientes-text"><strong>Activar cliente</strong></td>
+                    <td>
+                        <select>
+                            <option>Selecciona un cliente</option>
+                            <option value="0">Todos</option>
+                            {{#each data.clientes}}
+                            <option value="{{cliente_id}}">{{cliente_nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td><button id="table-data-clientes-btn-add"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                {{#each data.clientes_asociados}}
+                <tr>
+                    <td class="table-data-clientes-text">{{cliente_nombre}}</td>
+                    <td>{{cliente_nombre}}</td>
+                    <td><button id="table-data-clientes-btn-del"><i class="bi bi-trash"></i></button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+</div>

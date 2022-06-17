@@ -1,0 +1,86 @@
+.envios-list-estado{
+    width: 150px;
+}
+.envios-list-carga-fecha, .envios-list-eta, .envios-list-etd{
+    width: 120px;
+}
+.envios-list-carga-lugar{
+    width: 210px;
+}
+.tableListFam{
+    width: 150px;
+}
+.envios-list-destinatario{
+    width: 160px;
+}
+.tableListRef{
+    width: 180px;
+}
+.envios-list-termografo{
+    width: 30px;
+}
+
+.envios-list-nav {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.envios-list-nav a {
+    font-size: 12px;
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 4px;
+    background-color: #2f6a60;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+#previous-page,#next-page {
+    font-size: 10px;
+    padding: 5px;
+}
+
+#previous-page:hover,#next-page:hover{
+    background-color: #33bba5;
+    font-size: 12px;
+}
+
+#current-page {
+    background-color: #189c86;
+    font-size: 15px;
+}
+
+.envios-list-nav a:hover{
+    background-color: #33bba5;
+    font-size: 14px;
+}
+
+
+
+@media (max-width: 1400px) {
+    .envios-list-destinatario{
+        display: none;
+    }
+}
+@media (max-width: 1000px) {
+    .envios-list-carga-lugar{
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .tableListRef{
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .envios-list-termografo{
+        display: none;
+    }
+    .tableListFam{
+        display: none;
+    }
+}
+  

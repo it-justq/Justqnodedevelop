@@ -1,0 +1,34 @@
+{{#if DATA.acciones.content.mostrar}}
+<div class="content" id="tab-acciones">
+  <table class='table' id="acciones-table">
+      {{#each DATA.acciones.content.acciones.imagenesRef0}}
+        <tr>
+            <td>
+              <img style='width:100%; display: block; margin-left: auto; margin-right: auto;' src='https://fotos.justq.eu/{{foto_control_accion_foto}}'/>
+            </td>
+        </tr>
+      {{/each}}
+
+      {{#each DATA.acciones.content.acciones}}
+        <tr>
+          <td>
+            {{{valorNull control_accion_nombre}}}
+          </td>
+        </tr>
+
+        {{#each imagenes}}
+          <tr>
+            <td>
+              <img style='width:100%; display: block;  margin-left: auto; margin-right: auto;' src='https://fotos.justq.eu/{{foto_control_accion_foto}}'/>
+            </td>
+          </tr>
+        {{/each}}
+
+      {{/each}}
+
+
+
+      {{#if cliente_firma}}<tr><td><img src="/img/sello.jpeg" style="width:150px;"/></td></tr>{{/if}}
+  </table>
+</div>
+{{/if}}

@@ -1,0 +1,83 @@
+       <!---------------------------------------------------------------->
+    <!--MAIN CONTAINER-->
+    <div id="common-main-container" onmousedown="clickedMainContainer(event)">
+        <div id="common-main-container-ct1">
+           <div id="common-main-container-ct2">
+
+                <div id="precarga-container">
+
+                    <div id="precarga-ct">
+
+                                <div id="precarga-tabs">
+                                    {{#each data}}
+                                    <button class="precarga-tablinks" onclick="abrirPrecargaGruposControl(event, {{control_grupo_control_grupo_control_id}})">{{grupo_control_nombre}}</button>
+                                    {{/each}}
+                                </div>
+
+
+                            {{#each data}}
+                            <div class="precarga-part" id="precarga-part-{{control_grupo_control_grupo_control_id}}">
+                                <table>
+                                    {{#each puntos_control}}
+                                
+                                    <tr>
+                                        <td><strong>{{punto_control_nombre}}</strong></td>
+                                        
+                                        <!-- ENTRADA AGRUPACION -->
+
+                                        {{#if (precargaTipoDato punto_control_tipo_dato_id)}}
+                                            <td>
+                                                {{#each agrupacion}}
+                                                    <tr class="precarga-agrupacion">
+                                                        <td>{{punto_control_agrupacion_nombre}}</td>
+                                                        <td>
+                                                            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-{{control_punto_control_agrupacion_id}}"></i>
+                                                            <input id="{{punto_control_agrupacion_id}}" value='{{valorNull control_punto_control_agrupacion_valor}}' onchange="uploadDatos({{control_punto_control_agrupacion_id}},'{{control_punto_control_agrupacion_control_id}}', this.value, 3)">
+                                                        </td>
+                                                    </tr>
+                                                {{/each}}
+                                            </td>
+                                
+                                        {{/if}}
+
+                                        <!-- ENTRADA SELECT -->
+
+                                        {{#if (listboxTipoDato punto_control_tipo_dato_id)}}
+                                            <td>
+                                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-{{control_punto_control_id}}"></i>
+                                                <select onchange="uploadDatos({{control_punto_control_id}},'{{control_punto_control_control_id}}', this.value, {{punto_control_tipo_dato_id}})">
+                                                    <option value='' selected>{{valorNull control_punto_control_valor}}</option>
+                                                    <option value='null'>Sin datos</option>
+                                                    <option value='SI'>SI</option>
+                                                    <option value='NO'>NO</option>
+                                                </select>
+                                            </td>
+                                        {{/if}}
+
+                                        <!-- ENTRADA DE TEXTO -->
+
+                                        {{#if (textoTipoDato punto_control_tipo_dato_id)}}
+                                            <td>
+                                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-{{control_punto_control_id}}"></i>
+                                                <input type='text' value='{{valorNull control_punto_control_valor}}' onchange="uploadDatos({{control_punto_control_id}},'{{control_punto_control_control_id}}', this.value, {{punto_control_tipo_dato_id}})">
+                                            </td>
+                                        {{/if}}
+
+                                
+                                    </tr>
+
+                                    {{/each}}
+                                   
+                                </table>
+                            </div>
+
+                            {{/each}}
+
+
+                    </div>        
+
+                </div>
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,32 @@
+#tablePlataformas{
+    max-width: 800px;
+    margin: 0 auto 0 auto;
+}
+
+.plataformas-list-table-status{
+    padding: 5px 10px 5px 10px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.plataformas-list-table-status-active{
+    background-color: #00cc66;
+}
+.plataformas-list-table-status-inactive{
+    background-color: #ff1a1a;
+}
+
+/* The popup form - hidden by default */
+.popup-form {
+    display: none;
+    vertical-align: top;
+    top: 50%; 
+    left: 50%;
+    width: 500px;
+    height: 240px;
+    margin-top: -120px;
+    margin-left: -250px;
+    text-align: center;
+    position: fixed;
+    border: 3px solid #f1f1f1;
+    background-color: #fff;
+  }

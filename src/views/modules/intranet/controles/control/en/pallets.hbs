@@ -1,0 +1,70 @@
+
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+
+
+
+        <div id="options-container">
+            <div id="options-ct">
+                <input placeholder="No." type="number" id="pallets-nuevo-number">
+                <button onclick="addPallets('{{control_id}}')">Add pallets</button>
+            </div>
+        </div>
+
+        {{#if data.pallets}}
+            <div id="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>SSCC Supplier</td>
+                            <td>SSCC Place of control</td>
+                            <td>Date of arrival</td>
+                            <td>Lot</td>
+                            <td>Packaging</td>
+                            <td>Brand</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        {{#each data.pallets}}
+                            <tr>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_sscc_proveedor_{{control_pallet_id}}"></i>
+                                    <input type="text" id="{{control_pallet_id}}" value="{{valorNull control_pallet_sscc_proveedor}}" onchange="uploadDatos(this.id, this.value, '{{control_pallet_control_id}}', 'control_pallet_sscc_proveedor')">
+                                </td>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_sscc_plataforma_{{control_pallet_id}}"></i>
+                                    <input type="text" id="{{control_pallet_id}}" value="{{valorNull control_pallet_sscc_plataforma}}" onchange="uploadDatos(this.id, this.value, '{{control_pallet_control_id}}', 'control_pallet_sscc_plataforma')">
+                                </td>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_fecha_{{control_pallet_id}}"></i>
+                                    <input type="date" id="{{control_pallet_id}}" value="{{valorNull control_pallet_fecha}}" onchange="uploadDatos(this.id, this.value, '{{control_pallet_control_id}}', 'control_pallet_fecha')">
+                                </td>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_lote_{{control_pallet_id}}"></i>
+                                    <input type="text" id="{{control_pallet_id}}" value="{{valorNull control_pallet_lote}}" onchange="uploadDatos(this.id, this.value, '{{control_pallet_control_id}}', 'control_pallet_lote')">
+                                </td>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_confeccion_{{control_pallet_id}}"></i>
+                                    <input type="text" id="{{control_pallet_id}}" value="{{valorNull control_pallet_confeccion}}" onchange="uploadDatos(this.id, this.value, '{{control_pallet_control_id}}', 'control_pallet_confeccion')">
+                                </td>
+                                <td>
+                                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-control_pallet_marca_{{control_pallet_id}}"></i>
+                                    <input type="text" id="{{control_pallet_id}}" value="{{valorNull control_pallet_marca}}" onchange="uploadDatos(this.id, this.value, '{{control_pallet_control_id}}', 'control_pallet_marca')">
+                                </td>
+                                <td><a href="/intranet/control/en/{{control_pallet_control_id}}/pallet/{{control_pallet_id}}/fotos">{{total_fotos}} <i class="bi bi-images"></i></a></td>
+                                <td><button class="btn-del" onclick="delPallet('{{control_pallet_id}}', '{{control_pallet_control_id}}')"><i class="bi bi-trash"></i></button></td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+        {{/if}}
+
+
+</div>

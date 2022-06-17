@@ -1,0 +1,73 @@
+<div class="container-width-content">
+
+    <p id="container-titulo">Nuevo usuario</p>
+
+        <form id="new-common-form" class="contentData" method="POST" action="/intranet/administracion/usuarios/nuevo">
+            <p class="contentDataContainerTitle">Nuevo usuario</p>
+
+            <div class="contentDataContainer">
+                <label>Usuario de acceso</label>
+                <input name="usuario" type="text" required>
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Contraseña</label>
+                <input name="password" type="text" required>
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Nombre del usuario</label>
+                <input name="nombre" type="text" required>
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Apellido 1</label>
+                <input name="apellido1" type="text">
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Apellido 2</label>
+                <input name="apellido2" type="text">
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Correo electrónico</label>
+                <input name="email" type="text">
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Número de telefono</label>
+                <input name="telefono" type="text">
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Idioma</label>
+                <select name="idioma">
+                    {{#each data.idioma}}
+                        <option value="{{idioma_id}}">{{idioma_nombre}}</option>
+                    {{/each}}
+                </select>  
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Rol</label>
+                <select name="rol">
+                    {{#each data.rol}}
+                        <option value="{{rol_id}}">{{rol_nombre}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="contentDataContainer">
+                <label>Estado</label>
+                <select name="estado">
+                    <option value="1">Activo</option>
+                    <option value="0">No activo</option>
+                </select>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button type="submit">Crear usuario</button>
+        </form>
+
+</div>

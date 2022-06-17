@@ -1,0 +1,37 @@
+<div class="container-width-content">
+
+    <p id="container-titulo">New type of control</p>
+
+    <p id="back-main"><a href="/intranet/administracion/controles/en"><i class="bi bi-arrow-left"></i> Back to types of control</a></p>
+
+    <form id="new-common-form" class="contentData" method="POST" action="/intranet/administracion/controles/en/nuevo/">
+        <p class="contentDataContainerTitle">New type of control</p>
+
+        <div class="contentDataContainer">
+            <label>Name (English)</label>
+            <input name="tipo_control_en" type="text" required>
+        </div>
+
+        <div class="contentDataContainer">
+            <label>Name (Spanish)</label>
+            <input name="tipo_control" type="text" required>
+        </div>
+
+        <div class="contentDataContainer">
+            <label>Prefix</label>
+            <input name="tipo_control_prefijo" type="text" required>
+        </div>
+
+        <!--<div class="contentDataContainer">
+            <label>Familia asociada</label>
+            <select name="estado">
+                <option value="1">Activo</option>
+                <option value="0">No activo</option> 
+            </select>
+        </div>-->
+
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <button type="submit">Create type of control</button>
+    </form>
+
+</div>

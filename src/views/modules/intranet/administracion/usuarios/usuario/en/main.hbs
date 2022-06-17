@@ -1,0 +1,39 @@
+<div class="container-width-content">
+
+        <p id="container-titulo">{{data.usuario.usuario_nombre}}</p>
+
+
+        <p id="back-main"><a href="/intranet/administracion/usuarios/en"><i class="bi bi-arrow-left"></i> Back to users</a></p>
+
+        <a href="/intranet/administracion/usuarios/en/usuario/{{data.usuario.usuario_id}}/datos"><div class="main-menu-box">
+            <p class="main-menu-box-icon"><i class="bi bi-person"></i></p>
+            <p class="main-menu-box-title">Info</p>
+        </div></a>
+
+        {{#if menuClienteAdmin}}
+        <a href="/intranet/administracion/usuarios/en/usuario/{{data.usuario.usuario_id}}/preferencias"><div class="main-menu-box">
+            <p class="main-menu-box-icon"><i class="bi bi-gear"></i></p>
+            <p class="main-menu-box-title">Preferences</p>
+        </div></a>
+        {{else}}
+            {{#if (esAdmin data.usuario.usuario_rol_id)}}
+            <a href="/intranet/administracion/usuarios/en/usuario/{{data.usuario.usuario_id}}/permisos"><div class="main-menu-box">
+                <p class="main-menu-box-icon"><i class="bi bi-check2-all"></i></p>
+                <p class="main-menu-box-title">Permissions</p>
+            </div></a>
+            {{/if}}
+        <a href="/intranet/administracion/usuarios/en/usuario/{{data.usuario.usuario_id}}/controles"><div class="main-menu-box">
+            <p class="main-menu-box-icon"><i class="bi bi-files"></i></p>
+            <p class="main-menu-box-title">Controls</p>
+        </div></a>
+        <a href="/intranet/administracion/usuarios/en/usuario/{{data.usuario.usuario_id}}/familias"><div class="main-menu-box">
+            <p class="main-menu-box-icon"><i class="bi bi-egg-fried"></i></p>
+            <p class="main-menu-box-title">Products</p>
+        </div></a>
+        <a href="/intranet/administracion/usuarios/en/usuario/{{data.usuario.usuario_id}}/clientes"><div class="main-menu-box">
+            <p class="main-menu-box-icon"><i class="bi bi-person-badge"></i></p>
+            <p class="main-menu-box-title">Clients</p>
+        </div></a>
+        {{/if}}
+
+</div>

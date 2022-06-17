@@ -1,0 +1,75 @@
+#container-main{
+    margin-top: 50px;
+}
+
+#table-data-perfil{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+}
+
+#table-data-perfil thead{
+    background-color: #2f6a60;
+    color: #fff;
+}
+#table-data-perfil thead tr td{
+	padding: 10px 15px 10px 15px;
+}
+#table-data-perfil tbody{
+    background-color: #fff;
+    color: #000;
+}
+#table-data-perfil tbody tr {
+    border-bottom: 1px solid #2f6a6030;
+}
+#table-data-perfil tbody tr:hover {
+    background-color:#3f8e81;
+    color: white;
+    cursor: pointer;
+}
+#table-data-perfil tr td{
+	padding: 10px 15px 10px 15px;
+}
+
+#table-data-perfil tbody tr td input{
+    width: 100%;
+    padding: 10px 5px 10px 5px;
+    background-color: #ffffb3;
+    border: 1px solid #f2f2f2;
+}
+#table-data-perfil tbody tr td select{
+    width: 100%;
+    height: 35px;
+    background-color: #ffffb3;
+    border: 1px solid #f2f2f2;
+}
+
+#table-data-perfil tbody tr td button{
+    width: 80%;
+    padding: 10px 5px 10px 5px;
+    display: block;
+    margin: 0 auto 0 auto;
+    color: #fff;
+    border: none;
+    background-color: #2f6a60;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+#table-data-perfil tbody tr td button:hover{
+    background-color: #2f6a6090;
+}
+
+
+.table-data-perfil-text{
+    max-width: 100px;
+    background-color: #2f6a6030;
+}
+
+@media only screen and (max-width: 1500px) {
+    #container-main{
+        margin-top: 50px;
+    }
+}

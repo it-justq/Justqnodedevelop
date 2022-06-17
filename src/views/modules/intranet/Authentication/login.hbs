@@ -1,0 +1,32 @@
+    <div id="ct-login">
+
+        <img id="logo-login" src="/images/logo.png" />
+
+
+        <form id="form-login" action="/intranet/login" method="POST">
+            <input type="text" name="username" class="form-login-text" id="l_u" placeholder="Usuario">
+            <input type="password" name="password" class="form-login-text" id="l_p" placeholder="Contraseña">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input type="submit" value="Entrar" id="form-login-submit">
+        </form>
+
+        <a href="" id="login-re-data">¿Olvidó algún dato?</a>
+
+        <p id="msg-error-login"></p>
+
+    </div>
+    
+
+
+    <div id="page-loader">
+        <span class="preloader-interior"></span>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/scripts/utils/jquery-3.6.0.js"></script>
+    <script src="/scripts/intranet/authentication/login.js" type="text/javascript"></script>
+    <script src="/scripts/intranet/common/common-spinner.js"></script>
+
+
+

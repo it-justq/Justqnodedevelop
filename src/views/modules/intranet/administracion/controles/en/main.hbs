@@ -1,0 +1,66 @@
+<div class="container-width-content">
+    <p id="container-titulo">Types of control <a href="/intranet/administracion/controles/en/nuevo">New type of control <i class="bi bi-plus-circle"></i></a></p>
+
+    <div class="containerFilter">
+        <button class='toggleFilter'>Filters</button>
+        <form class="contentFilter" action="/intranet/administracion/controles/en/search" method="POST">
+            <div class="contentFilterContainer">
+                <label>Name</label>
+                <input type="text" name="control_tipo_nombre" placeholder="Type of control">
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button id="list-search-btn" class="contentFilterSubmit" type="submit">Apply filters</button>
+        </form>
+
+    </div>
+
+    <table class="tableList" id="tableControles">
+        <thead>
+            <tr>
+                <td>Name (English)</td>
+                <td>Name (Spanish)</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbdoy>
+            {{#each data}}
+                <tr onclick="modTipoControl('{{control_tipo_id}}','{{control_tipo_nombre}}', '{{control_tipo_nombre_en}}')">
+                    <td>{{control_tipo_nombre_en}}</td>
+                    <td>{{control_tipo_nombre}}</td>
+                    <td><label class="tc-list-table-status {{#iffcond control_tipo_estado_id '===' 0}}tc-list-table-status-inactive"{{/iffcond}}{{#iffcond control_tipo_estado_id '===' 1}}tc-list-table-status-active"{{/iffcond}}>{{control_tipo_estado_nombre}}</label></td>
+                </tr>
+            {{/each}}
+        </tbdoy>
+    </table>
+
+    <div class="popup-form" id="formTipoControl">
+        <form id="options-ct" method="POST" action="/intranet/administracion/controles/en/tipo-control/tipoControl.value">
+            <p class="contentDataContainerTitle">Edit type of control</p>
+            
+            <div class="contentDataContainer">
+                <label>Name (English)</label>
+                <input id="tipo_control_en" name="tipo_control_en" type="text" required>
+            </div>
+            <div class="contentDataContainer">
+                <label>Name (Spanish)</label>
+                <input id="tipo_control_es" name="tipo_control_es" type="text" required>
+            </div>
+            <div class="contentDataContainer">
+                <label>Status</label>
+                <select name="estado">
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                </select>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}"> 
+            <input type="hidden" name="tipo_control_id" value="" id="tipoControl">          
+
+            <button type="submit">Save</button>
+            <button type="button" onclick="goTipoControl(tipoControl.value)">More</button>
+            <button type="button" onclick="closeForm()">Close</button>
+        </form>
+    </div> 
+
+</div>

@@ -1,0 +1,155 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+    <p id="container-titulo">Modificación Envío: {{data.datos.envio_transporte_referencia}}<a
+            href="/clientes/envios">Finalizar <i class="bi bi-arrow-left-circle"></i></a></p>
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Información general</p>
+        <div class="contentDataContainer">
+            <label>Referencia Transporte</label>
+            <input type="text"  placeholder="Referencia del transporte" value="{{valorNull data.datos.envio_transporte_referencia}}" onchange="uploadDatos('envio_transporte_referencia','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_transporte_referencia"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Referencia Pedido</label>
+            <input type="text"  placeholder="Referencia del pedido" value="{{valorNull data.datos.envio_pedido_referencia}}" onchange="uploadDatos('envio_pedido_referencia','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_pedido_referencia"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Fecha de carga</label>
+            <input type="date"value="{{valorNull data.datos.envio_carga_fecha}}" onchange="uploadDatos('envio_carga_fecha','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_carga_fecha"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Producto</label>
+            <input type="text"  placeholder="Producto" value="{{valorNull data.datos.envio_producto_nombre}}" readonly>
+
+            <!--input type="text"  placeholder="Producto" value="{{valorNull data.datos.envio_producto_nombre}}" onchange="uploadDatos('envio_producto','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_producto"></i-->
+        </div>
+        <div class="contentDataContainer">
+            <label>Proveedor</label>
+            <input type="text"  placeholder="Proveedor" value="{{valorNull data.datos.envio_proveedor}}" onchange="uploadDatos('envio_proveedor','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_proveedor"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Destinatario</label>
+            <input type="text"  placeholder="Destinatario" value="{{valorNull data.datos.envio_consignatario}}" onchange="uploadDatos('envio_consignatario','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_consignatario"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Pais destino</label>
+            <input type="text"  placeholder="Pais" value="{{valorNull data.datos.envio_pais_destino_nombre}}" readonly>
+
+            <!--input type="text"  placeholder="Pais destino" value="{{valorNull data.datos.envio_pais_destino_nombre}}" onchange="uploadDatos('envio_pais_destino_nombre','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_pais_destino_nombre"></i-->
+        </div>
+    </div>
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Lugar de carga</p>
+        <div class="contentDataContainer">
+            <label>Almacén de carga</label>
+            <input type="text"  placeholder="Almacén" value="{{valorNull data.datos.envio_carga_almacen}}" onchange="uploadDatos('envio_carga_almacen','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_carga_almacen"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Provincia</label>
+            <input type="text"  placeholder="Provincia" value="{{valorNull data.datos.envio_carga_provincia}}" onchange="uploadDatos('envio_carga_provincia','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_carga_provincia"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Pais</label>
+            <input type="text"  placeholder="Pais" value="{{valorNull data.datos.envio_pais_origen_nombre}}" readonly>
+
+            <!--input type="text"  placeholder="Pais" value="{{valorNull data.datos.envio_pais_origen_nombre}}" onchange="uploadDatos('envio_pais_origen_nombre','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_pais_origen_nombre"></i-->
+        </div>
+        <p class="contentDataContainerTitle">Persona de contacto</p>
+        <div class="contentDataContainer">
+            <label>Nombre</label>
+            <input type="text"  placeholder="Nombre" value="{{valorNull data.datos.envio_contacto_nombre}}" onchange="uploadDatos('envio_contacto_nombre','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_contacto_nombre"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Teléfono</label>
+            <input type="text"  placeholder="Teléfono" value="{{valorNull data.datos.envio_contacto_telefono}}" onchange="uploadDatos('envio_contacto_telefono','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_contacto_telefono"></i>
+        </div>
+    </div>
+
+   
+
+    <div class="contentData">
+        <p class="contentDataContainerTitle">Transporte</p>
+        {{#if (esTerrestre data.datos.envio_tipo_transporte_id)}}
+        <div class="contentDataContainer">
+            <label>Matrícula</label>
+            <input type="text"  placeholder="Matrícula" value="{{valorNull data.datos.envio_matricula}}" onchange="uploadDatos('envio_matricula','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_matricula"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Transportista</label>
+            <input type="text"  placeholder="Transportista" value="{{valorNull data.datos.envio_trasnportista}}" onchange="uploadDatos('envio_trasnportista','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_trasnportista"></i>
+        </div>
+        {{/if}}
+        {{#if (esMaritimo data.datos.envio_tipo_transporte_id)}}
+        <div class="contentDataContainer">
+            <label>Nº Contenedor</label>
+            <input type="text"  placeholder="Número de contenedor" value="{{valorNull data.datos.envio_contenedor}}" onchange="uploadDatos('envio_contenedor','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_contenedor"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Naviera</label>
+            <input type="text"  placeholder="Naviera" value="{{valorNull data.datos.envio_naviera}}" onchange="uploadDatos('envio_naviera','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_naviera"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Vessel</label>
+            <input type="text"  placeholder="Vessel" value="{{valorNull data.datos.envio_vessel}}" onchange="uploadDatos('envio_vessel','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_vessel"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Puerto de carga</label>
+            <input type="text"  placeholder="Puerto de carga" value="{{valorNull data.datos.envio_pol}}" onchange="uploadDatos('envio_pol','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_pol"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Puerto de descarga</label>
+            <input type="text"  placeholder="Puerto de descarga" value="{{valorNull data.datos.envio_pod}}" onchange="uploadDatos('envio_pod','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_pod"></i>
+        </div>
+        {{/if}}
+        {{#if (esAereo data.datos.envio_tipo_transporte_id)}}
+        <div class="contentDataContainer">
+            <label>Nº vuelo</label>
+            <input type="text"  placeholder="Número de vuelo" value="{{valorNull data.datos.envio_vuelo}}" onchange="uploadDatos('envio_vuelo','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_vuelo"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>AWB</label>
+            <input type="text"  placeholder="AWB" value="{{valorNull data.datos.envio_awb}}" onchange="uploadDatos('envio_awb','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_awb"></i>
+        </div>
+        {{/if}}
+        <div class="contentDataContainer">
+            <label>ETD</label>
+            <input type="date"value="{{valorNull data.datos.envio_etd}}" onchange="uploadDatos('envio_etd','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_etd"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>ETA</label>
+            <input type="date"value="{{valorNull data.datos.envio_eta}}" onchange="uploadDatos('envio_eta','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_eta"></i>
+        </div>
+        <div class="contentDataContainer">
+            <label>Termógrafo ID</label>
+            <input type="text"  placeholder="Termógrafo ID" value="{{valorNull data.datos.envio_termografo_id}}" onchange="uploadDatos('envio_termografo_id','{{envio_id}}', this.value)">
+            <i class="bi bi-check-lg tick-confirm" id="tick-confirm-envio_termografo_id"></i>
+        </div>
+
+        
+    </div>
+            
+</div>

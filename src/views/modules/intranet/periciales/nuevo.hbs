@@ -1,0 +1,32 @@
+<div class="container-width-content">
+
+    <p id="container-titulo">Nuevo informe</p>
+
+    <form id="new-common-form" method="POST" action="/intranet/nuevo/pericial" class="contentData">
+        <p class="contentDataContainerTitle">Informe</p>
+        <div class="contentDataContainer">
+            <label>Tipo de informe</label>
+            <select name="tipo_informe" required>
+                {{#each data.tipo_control}}
+                    <option value="{{informe_tipo_id}}">{{informe_tipo_nombre}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Cliente</label>
+            <select name="cliente">
+                {{#each data.clientes}}
+                    <option value="{{cliente_id}}">{{cliente_nombre}}</option>
+                {{/each}}
+            </select>  
+        </div>
+        <div class="contentDataContainer">
+            <label>Empresa</label>
+            <input type="text" name="empresa">  
+        </div>
+
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <button type="submit">Generar informe</button>
+    </form>
+
+</div>

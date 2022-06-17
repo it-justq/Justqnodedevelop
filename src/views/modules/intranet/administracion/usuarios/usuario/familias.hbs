@@ -1,0 +1,37 @@
+<div class="container-width-content">
+    <p id="container-titulo">Familias del usuario</p>
+
+        <p id="back-main"><a href="/intranet/administracion/usuarios/usuario/{{data.usuario.usuario_id}}"><i class="bi bi-arrow-left"></i> Volver al panel del usuario</a></p>
+
+        
+         <table id="table-data-familias">
+            <thead>
+                <tr>
+                    <td colspan="3">Familias del usuario {{data.usuario.usuario_nombre}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-data-familias-text"><strong>Activar familia</strong></td>
+                    <td>
+                        <select>
+                            <option>Selecciona una familia</option>
+                            <option value="0">Todas</option>
+                            {{#each data.familias}}
+                            <option value="{{familia_id}}">{{familia_nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td><button id="table-data-familias-btn-add"><i class="bi bi-cloud-upload"></i></button></td>
+                </tr>
+                {{#each data.familias_asociadas}}
+                <tr>
+                    <td class="table-data-familias-text">{{familia_codigo}}</td>
+                    <td>{{familia_nombre}}</td>
+                    <td><button id="table-data-familias-btn-del"><i class="bi bi-trash"></i></button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+</div>

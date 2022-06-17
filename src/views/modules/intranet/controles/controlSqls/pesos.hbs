@@ -1,0 +1,48 @@
+    <!---------------------------------------------------------------->
+    <!--MAIN CONTAINER-->
+    <div id="common-main-container" onmousedown="clickedMainContainer(event)">
+        <div id="common-main-container-ct1">
+           <div id="common-main-container-ct2">
+
+                <div id="pesos-nuevo-container">
+                    <div id="pesos-nuevo-ct">
+                        <input placeholder="Nº" type="number" id="pesos-nuevo-number">
+                        <button onclick="addPeso()">Añadir pesos</button>
+                    </div>
+                </div>
+
+
+                <div id="pesos-container">
+                    <table>
+                        <tr id="pesos-container-head">
+                            <td>Valor</td>
+                            <td>Unidad</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {{#each data}}
+                        <tr class="pesos-container-data">
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-valor_{{control_peso_id}}"></i>
+                                <input id="{{control_peso_id}}" type="text" value="{{valorNull control_peso_valor}}" onchange="uploadDatos(this.value, this.id, {{control_peso_control_id}}, 'valor')">
+                            </td>
+                            <td>
+                                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-unidad_{{control_peso_id}}"></i>
+                                <select id="{{control_peso_id}}" onchange="uploadDatos(this.value, this.id, {{control_peso_control_id}}, 'unidad')">
+                                    <option value="">{{valorNull control_peso_tipo_unidad_nombre}}</option>
+                                    {{#each tipo_unidad}}
+                                        <option value="{{tipo_unidad_id}}">{{valorNull tipo_unidad_nombre}}</option>
+                                    {{/each}}
+                                </select>
+                            </td>
+                            <td><a href=""><i class="bi bi-images"></i></a></td>
+                            <td><button><i class="bi bi-trash"></i></button></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>

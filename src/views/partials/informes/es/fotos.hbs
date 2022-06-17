@@ -1,0 +1,11 @@
+{{#if DATA.fotos.content.mostrar}}    
+<div class="content" id="tab-fotos">
+
+  {{#each DATA.fotos.content.fotos}}
+    <div class="img-container">
+      <img src='https://fotos.justq.eu/{{foto_control_foto}}'/>
+    </div>
+  {{/each}}
+
+</div>
+{{/if}}

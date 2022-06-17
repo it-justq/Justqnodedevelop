@@ -1,0 +1,65 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+
+        
+    <p id="container-titulo">Plantillas</p>
+
+    <div class="containerFilter">
+        <button class='toggleFilter'>Filtros</button>
+
+        <form class="contentFilter">
+            
+            <div class="contentFilterContainer">
+                <label>Cliente</label>
+                <select name="cliente">
+                    <option value=""></option>
+                    {{#each data}}<option value="{{plantilla_cliente_id}}">{{plantilla_cliente_nombre}}</option>{{/each}}
+                </select>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+            <button id="list-search-btn" class="contentFilterSubmit" type="submit">Aplicar filtros</button>
+          
+        </form>
+    </div>
+              
+            {{#if data}}
+            <table class="tableList">
+                <thead>
+                    <tr>
+                        <td>Cliente</td>
+                        <td>Técnico</td>
+                        <td>Nombre</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                        <tr>
+                            <td>{{valorNull plantilla_cliente_nombre}}</td>
+                            <td>{{valorNull plantilla_usuario_nombre}}</td>
+                            <td>{{valorNull plantilla_nombre}}</td>
+                            <td><button onclick="generateControlPlantilla('{{plantilla_id}}')">Generar control</button></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+            {{/if}}
+
+
+
+            <input type="hidden" id='plantillas-total' value='{{data.total}}'>
+
+            <div class="plantillas-list-nav" id="plantillas-list-nav">
+                <a class="plantillas-list-nav" id="previous-page" href=""><i class="bi bi-arrow-left-circle"></i></a>
+                <a class="plantillas-list-nav" id="current-page" >{{pagina}}</a>
+                <a class="plantillas-list-nav" id="page2" href="/intranet/plantillas/2">2</a>
+                <a class="plantillas-list-nav" id="page3" href="/intranet/plantillas/3">3</a>
+                <a class="plantillas-list-nav" id="page4" href="/intranet/plantillas/4">4</a>
+                <a class="plantillas-list-nav" id="page5" href="/intranet/plantillas/5">5</a>
+                <a class="plantillas-list-nav" id="next-page" href=""><i class="bi bi-arrow-right-circle"></i></a>
+            </div>
+    </div>

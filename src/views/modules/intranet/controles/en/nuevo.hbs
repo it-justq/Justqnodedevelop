@@ -1,0 +1,47 @@
+<div class="container-width-content">
+
+    <p id="container-titulo">New control</p>
+
+    <form id="new-common-form" method="POST" action="/intranet/nuevo/control/en" class="contentData">
+        <p class="contentDataContainerTitle">Quality control</p>
+        <div class="contentDataContainer">
+            <label>Type of control</label>
+            <select name="tipo_control">
+                {{#each data.tipo_control}}
+                    <option value="{{control_tipo_id}}">{{control_tipo_nombre_en}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Quality</label>
+            <select name="subtipo_control">
+                <option value="5">Generic quality</option>
+                {{#each data.subtipo_control}}
+                    <option value="{{control_tipo_id}}">{{control_tipo_nombre_en}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="contentDataContainer">
+            <label>Client</label>
+            <select name="cliente">
+                {{#if (esLink user.nombre)}} <option value="8">Cliente pruebas</option>
+                {{else}}
+                    {{#each data.clientes}}
+                        <option value="{{cliente_id}}">{{cliente_nombre}}</option>
+                    {{/each}}
+                {{/if}}
+        </select>  
+        </div>
+        <div class="contentDataContainer">
+            <label>Product</label>
+            <select name="familia">
+                {{#each data.familias}}
+                    <option value="{{familia_id}}">{{familia_nombre_en}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <button type="submit">Generate quality control</button>
+    </form>
+    
+</div>

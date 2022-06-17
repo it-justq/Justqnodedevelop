@@ -1,0 +1,97 @@
+#container-main{
+    margin-top: 50px;
+}
+
+#back-main a{
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #000;
+    transition: 0.5s;
+}
+#back-main a:hover{
+    background-color: #2f6a6090;
+    color: #fff;
+
+}
+
+#table-data-clientes{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.75);
+}
+
+#table-data-clientes thead{
+    background-color: #2f6a60;
+    color: #fff;
+}
+#table-data-clientes thead tr td{
+	padding: 10px 15px 10px 15px;
+}
+#table-data-clientes tbody{
+    background-color: #fff;
+    color: #000;
+}
+#table-data-clientes tbody tr {
+    border-bottom: 1px solid #2f6a6030;
+}
+#table-data-clientes tbody tr:hover {
+    background-color:#3f8e81;
+    color: white;
+    cursor: pointer;
+}
+#table-data-clientes tr td{
+	padding: 10px 15px 10px 15px;
+}
+
+#table-data-clientes tbody tr td input{
+    width: 98%;
+    padding: 10px 5px 10px 5px;
+    background-color: #ffffb3;
+    border: 1px solid #f2f2f2;
+}
+#table-data-clientes tbody tr td select{
+    width: 100%;
+    padding: 10px 5px 10px 5px;
+    background-color: #ffffb3;
+    border: 1px solid #f2f2f2;
+}
+
+#table-data-clientes tbody tr td button{
+    width: 80%;
+    padding: 10px 5px 10px 5px;
+    display: block;
+    margin: 0 auto 0 auto;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+#table-data-clientes-btn-add{
+    background-color: #2f6a60;
+}
+#table-data-clientes-btn-add:hover{
+    background-color: #2f6a6090;
+}
+#table-data-clientes-btn-del{
+    background-color: #ff6666;
+}
+#table-data-clientes-btn-del:hover{
+    background-color: #ff666690;
+}
+
+
+.table-data-clientes-text{
+    max-width: 100px;
+    background-color: #2f6a6030;
+}
+
+@media only screen and (max-width: 1500px) {
+    #container-main{
+        margin-top: 50px;
+    }
+}

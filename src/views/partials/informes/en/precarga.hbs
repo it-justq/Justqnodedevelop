@@ -1,0 +1,28 @@
+
+{{#if (esPrecarga DATA.datos.control_tipo_id)}}
+  <div class="content" id="tab-precarga">
+    {{#each DATA.precarga.data}}
+        <table class='table' id="precarga-table">
+            <tr>
+              <th id="precarga-gc-nombre" colspan="8">{{grupo_control_nombre}}</th>
+            </tr>
+            {{#each puntos_control}}
+              {{#if (precargaTipoDato punto_control_tipo_dato_id)}}
+                <tr>   
+                  <th>{{punto_control_nombre}}</th>
+                  {{#each agrupacion}}
+                    <th>{{punto_control_agrupacion_nombre}}</th>
+                    <td>{{valorNull control_punto_control_agrupacion_valor}}</td>                           
+                  {{/each}}
+                </tr>                      
+              {{else}}
+                <tr>   
+                  <th>{{punto_control_nombre}}</th>
+                  <td>{{valorNull control_punto_control_valor}}</td>
+                </tr>
+              {{/if}}
+            {{/each}}
+        </table>
+    {{/each}}  
+  </div>       
+{{/if}}

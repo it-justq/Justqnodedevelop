@@ -1,0 +1,104 @@
+@font-face {
+        font-family: 'RobotoR';
+        src: url('../../../fonts/Roboto-Regular.ttf')
+      }
+    
+body{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-family: 'RobotoR';
+    
+    position: relative;
+    height: 100vh;
+
+    box-shadow: 
+    inset 0px 11px 8px -10px rgb(189, 189, 189),
+    inset 0px -11px 8px -10px rgb(189, 189, 189); 
+}
+
+#ct-login{
+    width: 100%;
+    height: 50vh;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+#logo-login{
+        width:200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+    
+    
+#form-login{
+        height: fit-content;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 70px;
+        margin-bottom: 50px;
+}
+#form-login input{
+        display: block;
+        margin-left: auto;
+        margin-right:auto;
+        padding:10px;
+        border:0;
+}
+    
+.form-login-text{
+        width:70%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        background-color: #edf7f6;
+        
+}
+    
+#form-login-submit{
+        color: white;
+        background-color: #3f8e81;
+        width:200px;
+        font-size: 15px;
+        transition: font-size 0.5s, background-color 0.5s;
+        margin-top:50px;
+}
+    
+#form-login-submit:hover{
+        font-size: 16px;
+        background-color: #5fb9aa;
+}
+    
+#login-re-data{
+        width:100%;
+        text-align: center;
+        display: block;
+        margin-top: 30px;
+        text-decoration: none;
+        color: rgb(189, 189, 189);
+        font-size: 15px;
+        transition: font-size 1s, color 1s;
+}
+    
+#login-re-data:hover{
+        font-size: 16px;
+        color: #3f8e81;
+}
+
+#msg-error-login{
+        text-align: center;
+        width: 300px;
+        color: black;
+        font-weight: bold;
+        background-color: #cae7e4;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:50px;
+        padding: 10px;
+        display: none;
+        margin-bottom: 50px;
+}

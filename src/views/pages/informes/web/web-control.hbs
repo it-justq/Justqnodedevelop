@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        
+        {{> intranet/common-head}}
+
+        <link rel="stylesheet" href="/css/informes/web/web-control.css">
+        <title>Informe - {{DATA.datos.control_codigo}}</title>
+        <script src="/scripts/utils/qrcode-min.js"></script>
+
+
+    </head>
+    <body>
+
+        {{> intranet/navigation }}
+
+        {{{ body }}}
+
+        {{> intranet/common-scripts}}
+
+        <script src="/scripts/informes/main.js"></script>
+</body>
+</html>

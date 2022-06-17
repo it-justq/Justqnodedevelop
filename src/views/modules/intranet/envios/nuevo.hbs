@@ -1,0 +1,279 @@
+<!--MAIN CONTAINER-->
+
+
+<div class="container-width-content">
+
+    <p id="container-titulo">Alta de Nuevo Envío</p>
+
+    <!--div class="">
+        <ul class="progressbar">
+            <li class="progressbar_option">PASO 1</li>
+            <li class="progressbar_option">PASO 2</li>
+            <li class="progressbar_option">PASO 3</li>
+        </ul>
+    </div-->
+    
+    <form class="formData" method="POST" action="/clientes/nuevo/envio">
+        <div class="form-body">
+            <div class="active" id="paso-1">
+                <h4>Información general</h4>
+                <div class="formDataContainer">                 
+                    <label>Referencia Transporte</label>
+                    <input name="transporte_referencia" type="text" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>Referencia del pedido</label>
+                    <input name="pedido_referencia" type="text" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>Fecha de carga</label>
+                    <input name="carga_fecha" type="date" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>Producto</label>
+                    <select name="producto" required>
+                        
+                    {{#each data.familias}}
+                        <option value="{{familia_id}}">{{familia_nombre}}</option>
+                    {{/each}}
+                </select>
+                </div>
+                <div class="formDataContainer">
+                    <label>Proveedor</label>
+                    <input name="proveedor" type="text" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>Destinatario</label>
+                    <input name="consignatario" type="text" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>País Destino</label>
+                    <select name="destino_id" required>
+                    
+                    {{#each data.paises}}
+                        <option value="{{pais_id}}">{{pais_nombre}}</option>
+                    {{/each}}
+                    </select>
+                </div>
+                
+                <h4>Lugar de carga</h4>
+                <div class="formDataContainer">
+                    <label>Almacén de carga</label>
+                    <input name="carga_almacen" type="text" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>Provincia</label>
+                    <input name="provincia" type="text" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>País</label>
+                     <select name="origen_id" required>
+                    
+                    {{#each data.paises}}
+                        <option value="{{pais_id}}">{{pais_nombre}}</option>
+                    {{/each}}
+                    </select>
+                </div>
+                <h4>Persona de contacto en el lugar de carga</h4>
+                <div class="formDataContainer">
+                    <label>Nombre</label>
+                    <input name="contacto_nombre" type="text" required>
+                </div>
+                    
+                <div class="formDataContainer">
+                    <label>Teléfono</label>
+                    <input name="contacto_telefono" type="text" required>
+                </div>
+                <h5>*Todos los campos son obligatorios</h5>
+                <button type="button" onclick="cambioPaso('paso-2', 'paso-1');">Siguiente</button>
+            </div>
+            
+            <div class="pasos" id="paso-2">
+                <h4>Tipo de Transporte</h4>
+                
+                <input type="radio" id="terrestre" name="tipo_transporte" value="1" onclick="cambioTransporte(1)" required><label for="terrestre" onclick="cambioTransporte(1)">Terrestre</label>
+                <input type="radio" id="maritimo" name="tipo_transporte" value="2" onclick="cambioTransporte(2)"><label for="maritimo" onclick="cambioTransporte(2)">Marítimo</label>
+                <input type="radio" id="aereo" name="tipo_transporte" value="3" onclick="cambioTransporte(3)"><label for="aereo" onclick="cambioTransporte(3)">Aéreo</label><br>
+            
+               
+                <div id="datos_maritimo">
+                <h4>Trasporte marítimo</h4>
+                <div class="formDataContainer">
+                    <label>N Contenedor</label>
+                    <input name="contenedor" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Naviera</label>
+                    <input name="naviera" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Vessel</label>
+                    <input name="vessel" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>BL</label>
+                    <input name="bl" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Puerto de carga</label>
+                    <input name="pol" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Puerto de descarga</label>
+                    <input name="pod" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>ETD</label>
+                    <input name="etd" type="date">
+                </div>
+                <div class="formDataContainer">
+                    <label>ETA</label>
+                    <input name="eta" type="date">
+                </div>
+                <div class="formDataContainer">
+                    <label>Fecha carga en buque</label>
+                    <input name="carga_transporte_fecha" type="date">
+                </div>
+                <button type="button" onclick="cambioPaso('paso-1', 'paso-2');">Volver</button>
+               <button type="button" onclick="cambioPaso('paso-3', 'paso-2');">Siguiente</button>     
+                </div>
+                <div id="datos_terrestre">
+                <h4>Transporte Terrestre</h4>
+                <div class="formDataContainer">
+                    <label>Matrícula</label>
+                    <input name="matricula" type="text"> 
+                </div>
+                <div class="formDataContainer">
+                    <label>Transportista</label>
+                    <input name="transportista" type="text">
+                </div>
+                <button type="button" onclick="cambioPaso('paso-1', 'paso-2');">Volver</button>
+                <button type="button" onclick="cambioPaso('paso-3', 'paso-2');">Siguiente</button>     
+                </div>
+                <div id="datos_aereo">
+                    <h4>Transporte Aéreo</h4>
+                <div class="formDataContainer">
+                    <label>Nº Vuelo</label>
+                    <input name="vuelo" type="text"> 
+                </div>
+                <div class="formDataContainer">
+                    <label>AWB</label>
+                    <input name="awb" type="text">
+                </div>
+                <button type="button" onclick="cambioPaso('paso-1', 'paso-2');">Volver</button>
+                <button type="button" onclick="cambioPaso('paso-3', 'paso-2');">Siguiente</button>              
+                </div>
+                
+                <!--h4>Booking Confirmation</h4>
+                <div class="formDataContainer">
+                    <label>Partida</label>
+                    <input type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Viaje</label>
+                    <input type="text"> 
+                </div>
+                <div class="formDataContainer">
+                    <label>Booking ID</label>
+                    <input type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Shipping line</label>
+                    <input type="text">    
+                </div>
+                <div class="formDataContainer">
+                    <label>Vessel</label>
+                    <input type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Puerto de carga</label>
+                    <input name="pol" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Puerto de descarga</label>
+                    <input name="pod" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>ETD</label>
+                    <input name="etd" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>ETA</label>
+                    <input name="eta" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Tipo de contenedor</label>
+                    <input type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Nº Contenedor</label>
+                    <input type="text" required>
+                </div>
+                <div class="formDataContainer">
+                    <label>Precinto</label>
+                    <input type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Temperatura</label>
+                    <input type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Humedad</label>
+                    <input type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Ventilación</label>
+                    <input type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Peso bruto</label>
+                    <input name="peso_bruto" type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Agente Aduana</label>
+                    <input type="text">
+                </div>
+                <div class="formDataContainer">
+                    <label>Seguro</label>
+                    <select name="seguro">
+                        <option value="1">Si</option>
+                        <option value="0">No</option>
+                    </select>   
+                </div>
+                <div class="formDataContainer">
+                    <label>Fito</label> 
+                    <select name="fito">
+                        <option value="1">Si</option>
+                        <option value="0">No</option>
+                    </select> 
+                </div>
+                <div class="formDataContainer">
+                    <label>Pago contado</label> 
+                    <select name="contado">
+                        <option value="1">Si</option>
+                        <option value="0">No</option>
+                    </select> 
+                </div-->
+                
+                
+             </div>   
+                <div class="pasos" id="paso-3">
+                    
+                    <h4>¿Desea que Just Quality realice la inspección precarga del envío?</h4>
+                    <select name="precarga" id="precarga">
+                        <option value="1">Si</option>
+                        <option value="0">No</option>
+                    </select> 
+                    
+                    
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <button type="button" onclick="cambioPaso('paso-2', 'paso-3');">Volver</button>
+                    <button type="submit">Enviar Datos</button>
+                    
+                    
+                </div>
+                </div>
+           
+        </div>
+    </form>
+</div>

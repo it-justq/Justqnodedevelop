@@ -1,0 +1,57 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content content-subheader">
+
+    {{#each data.gc}}
+        <div class="contentData">
+            <p class="contentDataContainerTitle">{{valorNullGc control_grupo_control_nombre}}</p>
+            <div class="contentDataContainer">
+                <label>Resultado</label>
+                <select onchange="uploadDatos('{{control_grupo_control_id}}','{{control_grupo_control_control_id}}', this.value, 'valoration', 'gc')">
+                    <option value="{{valorNull control_grupo_control_valoracion_id}}">{{valorNull valoracion_nombre}}</option>
+                    {{#each valoracion}}
+                        <option style="background-color='#{{color_codigo}}'" value="{{valoracion_id}}">{{valoracion_nombre}}</option>
+                    {{/each}}
+                </select>
+                <i class="bi bi-check-lg tick-confirm" id="tick-confirm-gc-{{control_grupo_control_id}}"></i>
+            </div>
+            {{#each puntos_control}}
+                <div class="contentDataContainer">
+                    <label>{{control_punto_control_punto_control_nombre}}</label>
+                    <input type="text" value="{{valorNull control_punto_control_valor}}" placeholder="Valor.." onchange="uploadDatos('{{control_punto_control_id}}','{{control_punto_control_control_id}}', this.value, 'value', 'pc')">
+                     <select onchange="uploadDatos('{{control_punto_control_id}}','{{control_punto_control_control_id}}', this.value, 'valoration', 'pc')">
+                        <option value="{{valorNull control_valoracion_id}}">{{valorNull valoracion_nombre}}</option>
+                        {{#each valoracion}}
+                            <option style="background-color='#{{color_codigo}}'" value="{{valoracion_id}}">{{valoracion_nombre}}</option>
+                        {{/each}}
+                    </select>
+                    <a class="img-link" href="punto-control/{{control_punto_control_id}}/fotos">{{total_fotos}} <i class="bi bi-images"></i></a>
+                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-pc-{{control_punto_control_id}}"></i>
+                </div>
+            {{/each}}
+            {{#each puntos_control_adds}}
+                <div class="contentDataContainer">
+                    <button class="btn-del" onclick="delPcAdded('{{control_punto_control_añadidos_id}}', '{{control_punto_control_añadidos_control_id}}')"><i class="bi bi-trash"></i></button>
+
+                    <input id="labelMod" type="text" value="{{valorNull control_punto_control_añadidos_nombre}}" placeholder="Nuevo nombre.." onchange="uploadDatosAdded('{{control_punto_control_añadidos_id}}','{{control_punto_control_añadidos_control_id}}', this.value, 'name', 'addedpc')">
+                    <i class="bi bi-check-lg tick-confirm" id="tick-confirm-pcAdded-{{control_punto_control_añadidos_id}}"></i>
+
+                    <input type="text" value="{{valorNull control_punto_control_añadidos_valor}}" placeholder="Valor.." onchange="uploadDatosAdded('{{control_punto_control_añadidos_id}}','{{control_punto_control_añadidos_control_id}}', this.value, 'value', 'addedpc')">
+
+                    <select onchange="uploadDatosAdded('{{control_punto_control_añadidos_id}}','{{control_punto_control_añadidos_control_id}}', this.value, 'valoration', 'addedpc')">
+                        <option value="{{valorNull control_punto_control_añadidos_valoracion_id}}">{{valorNull control_punto_control_añadidos_valoracion_nombre}}</option>
+                        {{#each valoracion}}
+                            <option style="background-color='#{{color_codigo}}'" value="{{valoracion_id}}">{{valoracion_nombre}}</option>
+                        {{/each}}
+                    </select>
+
+                    <a class="img-link" href="punto-control-add/{{control_punto_control_añadidos_id}}/fotos">{{total_fotos}} <i class="bi bi-images"></i></a>
+
+                </div>
+            {{/each}}
+            <button class="button-add" onclick="addPc('{{control_grupo_control_grupo_control_id}}', '{{control_grupo_control_control_id}}')"><i class="bi bi-plus"></i> Añadir punto de control</button>
+        </div>
+    {{/each}}
+    
+
+</div>

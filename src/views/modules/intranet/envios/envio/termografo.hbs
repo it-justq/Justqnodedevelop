@@ -1,0 +1,15 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+        {{#if tk}}
+        <div class="container" id="frame">
+
+        <iframe class="iframe" id="frame" src={{url}} frameborder="0" ></iframe>
+        </div>
+        {{else}}
+         <div class="container-width-min">
+            <div onclick="showForm()" class="container-termografo" id="btn-termografo">
+                <p class="container-termografo-title">No hay Termógrafo asociado a este envio.</p>
+                <i class="bi bi-exclamation-square-fill container-termografo-icon"></i>
+            </div>
+        {{/if}}
+

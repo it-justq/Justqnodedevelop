@@ -1,0 +1,193 @@
+<!---------------------------------------------------------------->
+<!--MAIN CONTAINER-->
+<div class="container-width-content">
+
+    <p id="container-titulo">Quality controls {{#if (esCliente user.rol)}}{{else}}<a href="/intranet/nuevo/control/en"> New control <i class="bi bi-plus-circle"></i></a>{{/if}}</p>
+    <div class="containerFilter">
+      <button class='toggleFilter'>Filters</button>
+
+      <form class="contentFilter" {{#if (esCliente user.rol)}}action="/clientes/controles/en/search"{{else}}action="/intranet/controles/en/search"{{/if}} method="POST">
+
+          <div class="contentFilterContainer">
+            <label>Control</label>
+            <input type="text" name="control"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>Reference</label>
+            <input type="text" name="referencia"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>Place of control</label>
+            <input type="text" name="plataforma"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>Product</label>
+            <select name="familia">
+                <option value=""></option>
+                {{#each controles.familias}}<option value="{{familia_id}}">{{familia_nombre_en}}</option>{{/each}}
+            </select>
+          </div>
+          <div class="contentFilterContainer">
+            <label>Container</label>
+            <input type="text" name="contenedor"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>Date</label>
+            <input type="date" name="fecha"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>From</label>
+            <input type="date" name="inicio"/>
+          </div>
+          <div class="contentFilterContainer">
+            <label>To</label>
+            <input type="date" name="fin"/>
+          </div>
+
+            {{#if (esCliente user.rol)}}
+            {{else}}
+                {{#if (esAdmin user.rol)}}
+                <div class="contentFilterContainer">
+                    <label>Surveyor</label>
+                    <select name="tecnico">
+                        <option value=""></option>
+                        {{#each controles.tecnicos}}<option value="{{usuario_id}}">{{usuario_nombre}}</option>{{/each}}
+                    </select>
+                </div>
+                <div class="contentFilterContainer">
+                    <label>Status</label>
+                    <select name="estado">
+                        <option value=""></option>
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                </div>
+                <div class="contentFilterContainer">
+                    <label>Client</label>
+                    <select name="cliente">
+                        <option value=""></option>
+                        {{#each controles.clientes}}<option value="{{cliente_id}}">{{cliente_nombre}}</option>{{/each}}
+                    </select>
+                </div>
+                {{else}}
+                <div class="contentFilterContainer">
+                    <label>Status</label>
+                    <select name="estado">
+                        <option value=""></option>
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                </div>
+                <div class="contentFilterContainer">
+                    <label>Client</label>
+                    <select name="cliente">
+                        <option value=""></option>
+                        {{#if (esLink user.nombre)}} <option value="2b34fbbe1f460ccedebd58fbd60695a8980a5e8d6180e6330ac7f3ec">Cliente pruebas</option>
+                        {{else}}
+                            {{#each controles.clientes}}<option value="{{cliente_id}}">{{cliente_nombre}}</option>{{/each}}
+                        {{/if}}
+                    </select>
+                </div>
+                {{/if}}
+            {{/if}}
+
+          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+          <button id="list-search-btn" class="contentFilterSubmit" type="submit">Apply filters</button>
+          
+      </form>
+    </div>
+    
+    {{#if controles.length_limit}}
+    <p id="common-list-no-data">Too many results have been found. Please narrow your search.</p>
+    {{else if controles.status}}
+        <table class="tableList">
+            <thead>
+                <tr>
+                    <td class="tableListNum">Control</td>
+                    <td class="controles-list-fecha">Date</td>
+                    {{#if (esCliente user.rol)}}
+                    {{else}}
+                    <td class="tableListStat">Status</td>
+                    <td class="tableListCustomer">Client</td>
+                    {{/if}}
+                    <td class="tableListPlat">Place of control</td>
+                    <td class="tableListFam">Product</td>
+                    <td class="tableListBrand">Brand</td>
+                    <td class="tableListRef">Reference</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if (esCliente user.rol)}}
+                    {{#each controles}}
+                        <tr style="background-color: #{{valoracion_color}}" onclick="{{#if tipo_mysql}}showControlData('/informe/web/{{control_id}}/en'){{/if}}{{#if tipo_sqls}}showControlDataV2('{{control_codigo}}'){{/if}}">
+                            <td class="tableListNum">{{control_codigo}}</td>
+                            <td class="tableListDate">{{valorNull control_fecha}}</td>
+                            <td class="tableListPlat">{{valorNull plataforma_nombre}}</td>
+                            <td class="tableListFam">{{valorNull familia_nombre_en}}</td>
+                            <td class="tableListBrand">{{valorNull control_producto_marca}}</td>
+                            <td class="tableListRef">{{valorNull control_referencia}}</td>
+                        </tr>
+                    {{/each}}
+                {{else}}
+                    {{#each controles}}
+                        <tr style="background-color: #{{valoracion_color}}" onclick="{{#if tipo_mysql}}showControlData('/intranet/control/en/{{control_id}}/datos'){{/if}}{{#if tipo_sqls}}showControlDataV2('{{control_codigo}}'){{/if}}">
+                            <td class="tableListNum">{{control_codigo}}</td>
+                            <td class="tableListDate">{{valorNull control_fecha}}</td>
+                            <td class="tableListStat">{{#if (controlActivo control_estado)}} <i class="bi bi-eye"></i> {{else}} <i class="bi bi-eye-slash"></i> {{/if}}</td>
+                            <td class="tableListCustomer">{{valorNull cliente_nombre}}</td>
+                            <td class="tableListPlat">{{valorNull plataforma_nombre}}</td>
+                            <td class="tableListFam">{{valorNull familia_nombre_en}}</td>
+                            <td class="tableListBrand">{{valorNull control_producto_marca}}</td>
+                            <td class="tableListRef">{{valorNull control_referencia}}</td>
+                        </tr>
+                    {{/each}}
+                {{/if}}
+            </tbody>
+        </table>
+    {{else}}
+        <p id="common-list-no-data">Controls not found</p>
+    {{/if}}
+
+    
+    {{#if controles_finalizados}}
+    <input type="hidden" id='type' value='finalizados'>
+    <div class="controles-list-nav" id="controles-list-nav">
+        <a class="controles-list-nav" id="previous-page" href=""><i class="bi bi-arrow-left-circle"></i></a>
+        <a class="controles-list-nav" id="current-page">{{pagina}}</a>
+        <a class="controles-list-nav" id="page2" href="/intranet/controles/en/finalizados/2">2</a>
+        <a class="controles-list-nav" id="page3" href="/intranet/controles/en/finalizados/3">3</a>
+        <a class="controles-list-nav" id="page4" href="/intranet/controles/en/finalizados/4">4</a>
+        <a class="controles-list-nav" id="page5" href="/intranet/controles/en/finalizados/5">5</a>
+        <a class="controles-list-nav" id="next-page" href=""><i class="bi bi-arrow-right-circle"></i></a>
+    </div>
+    {{else if controles_main}}
+    {{#if (esCliente user.rol)}}
+    <input type="hidden" id='type' value='total-cliente'>
+    <div class="controles-list-nav" id="controles-list-nav">
+        <a class="controles-list-nav" id="previous-page" href=""><i class="bi bi-arrow-left-circle"></i></a>
+        <a class="controles-list-nav" id="current-page">{{pagina}}</a>
+        <a class="controles-list-nav" id="page2" href="/clientes/controles/en/2">2</a>
+        <a class="controles-list-nav" id="page3" href="/clientes/controles/en/3">3</a>
+        <a class="controles-list-nav" id="page4" href="/clientes/controles/en/4">4</a>
+        <a class="controles-list-nav" id="page5" href="/clientes/controles/en/5">5</a>
+        <a class="controles-list-nav" id="next-page" href=""><i class="bi bi-arrow-right-circle"></i></a>
+    </div>
+    {{else}}
+    <input type="hidden" id='type' value='total'>
+    <div class="controles-list-nav" id="controles-list-nav">
+        <a class="controles-list-nav" id="previous-page" href=""><i class="bi bi-arrow-left-circle"></i></a>
+        <a class="controles-list-nav" id="current-page">{{pagina}}</a>
+        <a class="controles-list-nav" id="page2" href="/intranet/controles/en/2">2</a>
+        <a class="controles-list-nav" id="page3" href="/intranet/controles/en/3">3</a>
+        <a class="controles-list-nav" id="page4" href="/intranet/controles/en/4">4</a>
+        <a class="controles-list-nav" id="page5" href="/intranet/controles/en/5">5</a>
+        <a class="controles-list-nav" id="next-page" href=""><i class="bi bi-arrow-right-circle"></i></a>
+    </div>
+    {{/if}}
+
+    {{/if}}
+
+
+
+</div>

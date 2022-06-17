@@ -1,0 +1,178 @@
+<div class="content" id="tab-datos">
+    <!--<div id="qrcode"></div>-->
+
+  <div id="datos-control-ct">
+    <table class="table">
+          <tr>
+            <th>Nº Control</th>
+              <td>{{DATA.datos.control_codigo}}</td>
+            <th>Fecha</th>
+              <td>{{valorNull DATA.datos.control_fecha}}</td>
+            <th>Lugar</th>
+              <td>{{valorNull DATA.datos.control_lugar}}</td>
+          </tr>
+          
+          <tr>
+            <th>Plataforma</th>
+              <td>{{valorNull DATA.datos.control_plataforma_nombre}}</td>
+            <th>Cliente</th>
+              <td colspan="3">{{valorNull DATA.datos.control_cliente_nombre}}</td>
+          </tr>
+
+          <tr>
+            <th>Técnico</th>
+              <td>{{DATA.datos.control_tecnico_nombre}}</td>
+            <th>Referencia</th>
+              <td colspan="3">{{valorNull DATA.datos.control_referencia}}</td>
+          </tr>
+          <tr>
+            <th colspan="6">Observaciones</th>
+          </tr>
+          <tr>
+            <td colspan="6">{{{valorNull DATA.datos.control_notas}}}</td>
+          </tr>
+
+        </table>
+  </div>
+
+
+  <!--RESULTADOS DEL CONTROL-->
+  <div id="resultados-control-ct">
+    <table class="table">
+          <tr>
+            <th colspan="2" id="table-title">Resultados</th>
+          </tr>
+            
+            {{#each DATA.grupos_control.content.grupos_control}}{{#if mostrar}}
+              {{#if nombre_activo}}
+              <tr>
+                  <th>{{grupo_control_nombre}}</th>
+                  {{#if (empty valoracion)}}
+                      {{#each valoracion}}
+                        <td style='background-color: #{{color_codigo}};'></td>
+                      {{else}}
+                        <td></td>
+                      {{/each}}
+
+                  {{/if}}
+              </tr>
+              {{/if}}
+            {{/if}}{{/each}}
+
+            <tr>
+              <th>Resultado del control</th>
+                <td style='background-color: #{{DATA.datos.control_valoracion_color}}'></td>
+                
+            </tr>
+    </table>
+  </div>
+
+
+  <div id="datos-expedicion-ct">
+
+    <div class="div-33">
+      <table class='table'>
+          <tr >
+            <th colspan="2" id="table-title">Datos de la expedición</th>
+          </tr>
+          <tr>
+            <th>Fecha llegada</th>
+            <td>{{valorNull DATA.datos.control_expedicion_fecha_llegada}}</td>
+          </tr>
+          <tr>
+            <th>Fecha salida</th>
+            <td>{{valorNull DATA.datos.control_expedicion_fecha_salida}}</td>
+          </tr>
+          <tr>
+            <th>Nº Contenedor</th>
+            <td>{{valorNull DATA.datos.control_expedicion_contenedor}}</td>
+          </tr>
+          <tr>
+            <th>Nº Placa</th>
+            <td>{{valorNull DATA.datos.control_expedicion_placa}}</td>
+          </tr>
+          <tr>
+            <th>Puc. Proveedor</th>
+            <td>{{valorNull DATA.datos.control_expedicion_puc_proveedor}}</td>
+          </tr>
+          <tr>
+            <th>País de origen</th>
+            <td>{{valorNull DATA.datos.control_expedicion_pais_origen_nombre}}</td>
+          </tr>
+          <tr>
+            <th>País de destino</th>
+            <td>{{valorNull DATA.datos.control_expedicion_pais_destino_nombre}}</td>
+          </tr>
+      </table>
+    </div>
+
+    <div class="div-33">
+      <table class='table'>
+          <tr>
+            <th colspan="2" id="table-title">Producto</th>
+          </tr>
+          <tr>
+            <th>Familia</th>
+            <td>{{DATA.datos.control_producto_familia_nombre}}</td>
+          </tr>
+          <tr>
+            <th>Variedad</th>
+            <td>{{valorNull DATA.datos.control_producto_variedad_nombre}}</td>
+          </tr>
+          <tr>
+            <th>Calibre</th>
+            <td>{{valorNull DATA.datos.control_producto_calibre}}</td>
+          </tr>
+          <tr>
+            <th>Confección</th>
+            <td>{{valorNull DATA.datos.control_producto_confeccion}}</td>
+          </tr>
+          <tr>
+            <th>Marca</th>
+            <td>{{valorNull DATA.datos.control_producto_marca}}</td>
+          </tr>
+          <tr>
+            <th>Número de lote</th>
+            <td>{{valorNull DATA.datos.control_producto_lote}}</td>
+          </tr>
+          <tr>
+            <th>Fecha de confección</th>
+            <td>{{valorNull DATA.datos.control_producto_fecha_confeccion}}</td>
+          </tr>
+      </table>
+    </div>
+
+    <div class="div-33">
+      <table class='table'>
+            <tr>
+              <th colspan="2" id="table-title">Packaging</th>
+            </tr>
+            <tr>
+              <th>Packaging</th>
+              <td>{{valorNull DATA.datos.control_producto_tipo_confeccion_nombre}}</td>
+            </tr>
+            <tr>
+              <th>Peso packaging</th>
+              <td>{{valorNull DATA.datos.control_packaging_peso}}</td>
+            </tr>
+            <tr>
+              <th>Número de pallets</th>
+              <td>{{valorNull DATA.datos.control_packaging_pallets}}</td>
+            </tr>
+            <tr>
+              <th>Cajas/Pallet</th>
+              <td>{{valorNull DATA.datos.control_packaging_cajas_pallet}}</td>
+            </tr>
+            <tr>
+              <th>Peso bruto</th>
+              <td>{{valorNull DATA.datos.control_packaging_peso_bruto}}</td>
+            </tr>
+            <tr>
+              <th>Peso neto</th>
+              <td>{{valorNull DATA.datos.control_packaging_peso_neto}}</td>
+            </tr>
+      </table>
+    </div>
+    
+  </div>
+</div>

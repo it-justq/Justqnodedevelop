@@ -1,0 +1,199 @@
+#common-header{
+    width: 100%;
+    height:60px;
+    background-color: #fff;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 8px 0px black; 
+}
+
+#headerLogo{
+    max-height: 50px;
+    float: left;
+    display: block;
+    padding-top: 5px;
+}
+
+
+#headerMenu{
+    padding: 5px 0 0 0;
+    margin: 0 0 0 auto;
+    width: fit-content;
+    width: moz-fit-content;
+    display: block;
+}
+
+#headerMenu li{
+    list-style-type: none;
+    display: inline-flex;
+}
+#headerMenu li a{
+    text-decoration: none;
+    color: #000;
+    margin: 10px 5px 10px 5px;
+    padding: 5px 10px 5px 10px;
+    transition: 0.5s;
+    font-size: 15px;
+
+}
+#headerMenu li a:hover{
+    color: #3f8e81;
+    cursor: pointer;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+#toggleHeader{
+    font-size: 25px;
+    padding: 15px 10px 5px 10px;
+    display: none;
+    border: none;
+    color: #000;
+    transition: 0.5s;
+    height: 100%;
+    background-color: inherit;
+    float: left;
+    position: fixed;
+}
+#toggleHeader:hover{
+    cursor: pointer;
+}
+
+#headerResponsiveCloser{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    margin-top: 60px;
+    background-color:#ffffff93;
+}
+
+
+/*SUBHEADER ---------------------------------------------------*/
+
+#common-subheader{
+    width: 100%;
+    height:40px;
+    background-color: #f3f3f3;
+    z-index: 1000;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    border-bottom: 1px solid rgb(187, 187, 187);
+    border-top: 1px solid rgb(187, 187, 187);
+}
+#common-subheader ul{
+    padding: 0;
+    margin: 0 auto 0 auto;
+    width: fit-content;
+    width: moz-fit-content;
+    display: block;
+}
+
+#common-subheader ul li{
+    list-style-type: none;
+    display: inline-flex;
+}
+#common-subheader ul li a{
+    text-decoration: none;
+    color: #000;
+    margin: 10px 5px 10px 5px;
+    padding: 0 10px 0 10px;
+    transition: 0.5s;
+    font-size: 15px;
+
+}
+#common-subheader ul li a:hover{
+    color: #3f8e81;
+    cursor: pointer;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+#toggleSubHeader{
+    font-size: 25px;
+    padding: 15px 10px 5px 10px;
+    display: none;
+    border: none;
+    color: #000;
+    transition: 0.5s;
+    height: 100%;
+    background-color: inherit;
+    float: right;
+    position: fixed;
+}
+#toggleSubHeader:hover{
+    cursor: pointer;
+}
+
+
+
+
+  @media (max-width: 1200px) {
+
+    #headerMenu{
+        position: fixed;
+        background-color: #fff;
+        height: 100vh;
+        left: 0;
+        top: 60px;
+        padding-top: 10px;
+        max-width: 300px;
+        z-index: 999;
+        display: none;
+        border-right: 1px solid rgb(187, 187, 187);
+    }
+    #headerMenu li{
+        display: block;
+        margin: 10px auto 20px auto;
+        width: 100%;
+        text-align: left;
+    }
+    #headerMenu li a{
+        font-size: 16px;
+        display: block;
+    }
+    #toggleHeader{
+        display: flex;
+        position: relative;
+    }
+    #headerLogo{
+        float: inherit;
+    }
+
+
+
+    #common-subheader{
+        position: fixed;
+        height: 100vh;
+        right: 0;
+        top: 60px;
+        max-width: 200px;
+        z-index: 999;
+        display: none;
+        border-right: 1px solid rgb(187, 187, 187);
+        background-color: #fff;
+    }
+    #common-subheader ul{
+        width: 100%;
+    }
+    #common-subheader ul li{
+        display: block;
+        margin: 10px auto 20px auto;
+        width: 100%;
+        text-align: left;
+    }
+    #common-subheader ul li a{
+        font-size: 16px;
+        display: block;
+    }
+    #toggleSubHeader{
+        display: flex;
+        position: relative;
+    }
+    
+  }
+  

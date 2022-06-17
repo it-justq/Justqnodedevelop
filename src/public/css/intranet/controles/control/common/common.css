@@ -1,0 +1,68 @@
+#options-container{
+	width: 100%;
+	height: auto;
+	display: block;
+	position: fixed;
+	background-color: #ffffff;
+	margin-top: -10px;
+}
+#options-ct{
+	width: fit-content;
+	width: -moz-fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+
+}
+
+#options-ct input[type=button]{
+	margin: 10px 5px 10px 5px;
+	border: 0;
+	background-color: #fff;
+	width: 40px;
+	padding: 8px;
+	font-size: 14px;
+}
+#options-ct input[type=number]{
+	margin: 10px 5px 10px 5px;
+	border: 1px solid #aaaaaa;
+	background-color: #fff;
+	width: 80px;
+	padding: 8px;
+	font-size: 14px;
+}
+#options-ct button{
+	margin: 10px 5px 10px 5px;
+	background-color: #2f6a60;
+	border: none;
+	color: white;
+	padding: 8px;
+	transition: 0.5s;
+	font-size: 14px;
+}
+#options-ct button:hover{
+	cursor: pointer;
+	background-color: #2f6a6080;
+}
+
+#options-ct a{
+	margin: 10px 5px 10px 5px;
+	background-color: #2f6a60;
+	border: none;
+	color: white;
+	padding: 8px;
+	transition: 0.5s;
+	text-decoration: none;
+	font-size: 14px;
+}
+#options-ct a:hover{
+	cursor: pointer;
+	background-color: #2f6a6080;
+}
+
+
+@media (max-width: 1200px) {
+	#options-container{
+		margin-top: -20px;
+	}
+}
